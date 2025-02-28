@@ -1,0 +1,53 @@
+STEP 1: DEFINE THE CORE FEATURES
+
+create art gallery in different modes that relates to the art style in each room. 
+classical is a room, 
+gallery layout: room for classical art, one for modern art and so on. 
+or
+non-traditional layout, like a spiral, tree branches, or constellations.
+
+
+Interaction Options: Clicking an artwork to learn about its history, style or artist.
+
+Zoom feature to explore details up close. 
+
+
+Navigation: 
+Will users walk through the space(arrow keys or WASD) or click menus 
+for specific exhibits or both?
+
+Unique features: 
+Background music or soundscapes tied to the mood of the art.
+Art that changes based on user input, like colors or shapes.
+Users can create and save their own curated exhibits. 
+
+
+STEP 2: CHOOSE THE TOOLS & TECHNOLOGIES
+Frontend : HTML/CSS/JavaScript for the base
+Add Three.js or p5.js for cool visuals and animations.
+
+Backend (optional)If you want users to upload their own art or save galleries, use a simple backend with Node.js and a database like Firebase.
+
+Digital Art Assets:
+
+Use Procreate to create your own digital pieces for the gallery.
+Or grab royalty-free art from open resources like The Met Collection API or Google Arts & Culture.
+Hosting:
+Use platforms like GitHub Pages, Netlify, or Glitch to share your project online.
+
+Step 3: Sketch the Design
+Open Procreate or Figma and draw a basic mockup of your gallery.
+Where will the artwork go?
+How will users move through the space?
+What does the UI (e.g., menus, buttons) look like?
+Play around with colors, themes, and even fonts to set the mood.
+Step 4: Start Building
+We can break the coding into smaller parts:
+
+Build a basic gallery layout (maybe a grid or a simple virtual "room").
+Add the ability to click or hover on artworks to interact.
+Layer in animations, transitions, or effects for a polished experience.
+
+
+
+
