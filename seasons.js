@@ -38,3 +38,13 @@ function initSeasons(scene) {
     menu.appendChild(btn);
   });
 }
+
+//Function to switch the visible season
+function setSeason(season) {
+  currentSeason = season;
+  // Toggle visibility of each season's group based on selection
+  winterGroup.visible = season === 'winter';
+  springGroup.visible = season === 'spring';
+  summerGroup.visible = season === 'summer';
+  autumnGroup.visible = season === 'autumn';
+}
