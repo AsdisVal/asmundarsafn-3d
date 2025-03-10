@@ -103,3 +103,44 @@ function createSpringEffect() {
   //left as a placeholder for later...
   return group;
 }
+
+function createSummerEffect() {
+  const group = new THREE.Group();
+  // scatter some flower objects on the ground
+  const flowerColors = [0xff0000, 0xffff00, 0x00ff00];
+  const geom = new THREE.SphereGeometry(0.2);
+  flowerColors.forEach((color) => {
+    for (let i = 0; i < 10; i++) {
+      const mat = new THREE.MexhPhongMaterial({ color: color });
+      const flower = new THREE.Mesh(geom, mat);
+      flower.position.set(Math.random() * 30 - 15, 0, Math.random() * 30 - 15);
+      group.add(flower);
+    }
+  });
+  return group;
+}
+
+function createAutumnEffect() {
+  const group = new THREE.Group();
+  // create flat plane leaves with brownish color
+  const leafGeom = new THREE.BoxGeometry(0.5, 0.5);
+  const leafMat = new THREE.MeshLambertMaterial({
+    color: 0x8b4513,
+    side: THREE.DoubleSide,
+  });
+  for (let i = 0; i < 50; i++) {
+    const leaf = new THREE.Mesh(leafGeom, leafMat);
+    leaf.position.set(
+      Math.random() * 40 - 20,
+      Math.random() * 15 + 5,
+      Math.random() * 40 - 20
+    );
+    leaf.rotation.set(
+      Math.random() * Math.PI,
+      Math.random() * Math.PI,
+      Math.random() * Math.PI
+    );
+    group.add(leaf);
+  }
+  return group;
+}
