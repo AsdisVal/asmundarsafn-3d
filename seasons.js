@@ -13,7 +13,7 @@ let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
 // Initialize seasonal effects and UI
-function initSeasons(scene) {
+export function initSeasons(scene) {
   //Create effect objects for each season
   winterGroup = createWinterEffect();
   springGroup = createSpringEffect();
@@ -30,30 +30,11 @@ function initSeasons(scene) {
   summerGroup.visible = true; // default to summer
   currentSeason = 'summer';
 
-  // Create simple UI butons to switch seasons
-  const menu = document.createElement('div');
-  menu.id = 'season-menu';
-  document.body.appendChild(menu);
-  ['winter', 'spring', 'summer', 'autumn'].forEach((seasonName) => {
-    const btn = document.createElement('button');
-    btn.textContent = seasonName;
-    btn.onclick = () => setSeason(seasonName.toLowerCase());
-    menu.appendChild(btn);
-  });
-}
-
-//Function to switch the visible season
-function setSeason(season) {
-  currentSeason = season;
-  // Toggle visibility of each season's group based on selection
-  winterGroup.visible = season === 'winter';
-  springGroup.visible = season === 'spring';
-  summerGroup.visible = season === 'summer';
-  autumnGroup.visible = season === 'autumn';
+  createSeasonMenu();
 }
 
 // Frame-by-frame update for animated effects
-function updateSeasonEffects() {
+export function updateSeasonEffects() {
   if (currentSeason === 'winter') {
     // Make snow particles
     winterGroup.children.forEach((p) => {
@@ -76,6 +57,29 @@ function updateSeasonEffects() {
     // Have birds fly around
   }
   // (Spring and Summer could have their own minor animations if needed)
+}
+
+function createSeasonMenu() {
+  // Create simple UI butons to switch seasons
+  const menu = document.createElement('div');
+  menu.id = 'season-menu';
+  document.body.appendChild(menu);
+  ['winter', 'spring', 'summer', 'autumn'].forEach((seasonName) => {
+    const btn = document.createElement('button');
+    btn.textContent = seasonName;
+    btn.onclick = () => setSeason(seasonName.toLowerCase());
+    menu.appendChild(btn);
+  });
+}
+
+//Function to switch the visible season
+function setSeason(season) {
+  currentSeason = season;
+  // Toggle visibility of each season's group based on selection
+  winterGroup.visible = season === 'winter';
+  springGroup.visible = season === 'spring';
+  summerGroup.visible = season === 'summer';
+  autumnGroup.visible = season === 'autumn';
 }
 
 // --- Helper functions to create seasonal effect groups ---
