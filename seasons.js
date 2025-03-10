@@ -96,3 +96,10 @@ function createWinterEffect() {
   }
   return group;
 }
+
+function createSpringEffect() {
+  const group = new THREE.Group();
+  // Example: Could add animated birds here
+  //left as a placeholder for later...
+  return group;
+}
