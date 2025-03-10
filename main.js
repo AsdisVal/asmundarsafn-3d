@@ -4,8 +4,13 @@
  * Initializes the Three.js scene, renderer, and camera, sets up lighting and controls, and ties everything together. It also starts the animation loop.
  * */
 
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// @ts-ignore
+import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
+// @ts-ignore
+import { OrbitControls } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/controls/OrbitControls.js';
+// @ts-ignore
+import { GLTFLoader } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
+
 import { load } from 'three/examples/jsm/libs/opentype.module.js';
 import { update } from 'three/examples/jsm/libs/tween.module.js';
 
