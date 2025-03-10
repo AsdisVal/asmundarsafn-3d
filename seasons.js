@@ -53,9 +53,18 @@ function setSeason(season) {
 function updateSeasonEffects() {
   if (currentSeason === 'winter') {
     // Make snow particles
+    winterGroup.children.forEach((p) => {
+      p.position.y -= 0.1;
+      if (p.position.y < 0) p.position.y = 20; // reset snowflake to top
+    });
   }
   if (currentSeason === 'autumn') {
     // Make leaves fall and maybe rotate slowly
+    autumnGroup.children.forEach((leaf) => {
+      leaf.position.y -= 0.05;
+      if (leaf.position.y < 0) leaf.position.y = 15;
+      leaf.rotation.z += 0.01;
+    });
   }
   if (currentSeason === 'spring') {
     // Make flowers bloom
