@@ -11,9 +11,6 @@ import { OrbitControls } from 'https://unpkg.com/browse/three@0.174.0/examples/j
 // @ts-ignore
 import { GLTFLoader } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
 
-import { load } from 'three/examples/jsm/libs/opentype.module.js';
-import { update } from 'three/examples/jsm/libs/tween.module.js';
-
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);
 
@@ -33,9 +30,9 @@ document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
 // Add lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 scene.add(ambientLight);
-const sunlight = new THREE.DirectionalLight(0xffffff, 0.8);
-sunlight.position.set(10, 20, 10);
-scene.add(sunlight);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+directionalLight.position.set(10, 20, 10);
+scene.add(directionalLight);
 
 // Enable orbit controls for camera interaction
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -48,11 +45,12 @@ controls.target.set(0, 5, 0); // look at the center of the garden
 //initSeasons(scene); // from seasons.js: set up seasonal system (default season)
 
 // Adjust camera and renderer on window resize
-window.addEventListener('resize', () => {
+function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-});
+}
+window.addEventListener('resize', onWindowResize, false);
 
 // Animation loop
 function animate() {
@@ -69,6 +67,9 @@ animate();
  */
 
 /*
+import { load } from 'three/examples/jsm/libs/opentype.module.js';
+import { update } from 'three/examples/jsm/libs/tween.module.js';
+
 function init() {
   // Create the scene and set a background color.
   const scene = new THREE.Scene();
