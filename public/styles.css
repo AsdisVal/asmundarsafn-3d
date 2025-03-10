@@ -1,9 +1,12 @@
-#info {
-	position: absolute;
-	top: 10px;
-	width: 100%;
-	text-align: center;
-	z-index: 100;
-	display:block;
-}
-body { margin: 0; }
+/**
+Defines the CSS styles for the UI overlay elements like tooltips, info panels, 
+and the season menu, as well as any general page styles needed for the 3D scene.
+**/
+
+/* General page styling */
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;            /* no scrollbars, content is 3D canvas */
+	background: #ececec;         /* light gray background (shown if canvas not full) */
+  }
