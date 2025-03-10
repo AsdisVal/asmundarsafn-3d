@@ -1,6 +1,64 @@
+/**
+ *
+ * main.js
+ * Initializes the Three.js scene, renderer, and camera, sets up lighting and controls, and ties everything together. It also starts the animation loop.
+ * */
+
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { load } from 'three/examples/jsm/libs/opentype.module.js';
+import { update } from 'three/examples/jsm/libs/tween.module.js';
 
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xbfd1e5);
+
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(0, 10, 25);
+
+//Initialize WebGL renderer and add its canvas to the page
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
+
+// Add lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
+scene.add(ambientLight);
+const sunlight = new THREE.DirectionalLight(0xffffff, 0.8);
+sunlight.position.set(10, 20, 10);
+scene.add(sunlight);
+
+// Enable orbit controls for camera interaction
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; // smoothly move the camera
+controls.dampingFactor = 0.05;
+controls.target.set(0, 5, 0); // look at the center of the garden
+
+// load statues and seasonal effects
+//loadStatues(scene, camera); // from statues.js: add statue models and interactions
+//initSeasons(scene); // from seasons.js: set up seasonal system (default season)
+
+// Adjust camera and renderer on window resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update(); // update orbit controls (for damping)
+  //updateSeasonEffects(); // update seasonal animations (falling snow/leaves)
+  renderer.render(scene, camera);
+}
+animate();
+
+/*
 function init() {
   // Create the scene and set a background color.
   const scene = new THREE.Scene();
@@ -139,3 +197,4 @@ function init() {
 }
 
 init();
+*/

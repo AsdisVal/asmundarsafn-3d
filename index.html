@@ -2,14 +2,22 @@
 <html lang="is">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="styles.css">
-		<title>Ásmundarsafn</title>
-		<style>
-			body { margin: 0; }
-		</style>
+		<title>Garður Ásmundar í þrívídd</title>
+		<link rel="stylesheet" href="public/styles.css">
 	</head>
 	<body>
-		<script type="module" src="/main.js"></script>
-        <div id="info">Ásmundarsafn</div>
+		<!-- Tooltip and info panel overlays (initially hidden) -->
+		<div id="tooltip" class="tooltip"></div>
+		<div id="info-panel" class="info-panel"></div>
+
+		<script src="https://unpkg.com/browse/three@0.174.0/examples/jsm/controls/OrbitControls.js"></script>
+		<script src="https://unpkg.com/browse/three@0.174.0/examples/jsm/loaders/GLTFLoader.js"></script>
+		<script src="https://unpkg.com/browse/three@0.174.0/build/three.core.min.js"></script>
+
+		<!-- Project scripts -->
+		<script src="data.js"></script>
+		<script src="statues.js"></script>
+		<script src="seasons.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>
