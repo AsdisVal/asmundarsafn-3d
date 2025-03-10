@@ -58,6 +58,11 @@ function animate() {
 }
 animate();
 
+/**
+ * CONCLUSION:
+ * We have set up the scene, camera and renderer. We then call loadStatues() and initSeasons() to add the statue models and seasonal effects.
+ */
+
 /*
 function init() {
   // Create the scene and set a background color.
