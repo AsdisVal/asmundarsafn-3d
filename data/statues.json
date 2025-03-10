@@ -1,16 +1,24 @@
 [
   {
-    "id": "statue1",
-    "name": "Jónsmessunótt",
+    "name": "statue1",
+    "title": "Jónsmessunótt",
     "year": 1940,
     "image": "statue1.jpg",
+    "model": "statue1.glb",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "description": "Jónsmessunótt fjallar á einstakan hátt um drauma og minningar um ást og munúð. Tveir líkamar fléttast saman á kærleiksríkan hátt í órjúfanlega heild; form þeirra tala saman og segja sögur. Verkið ber skýr höfundareinkenni Ásmundar frá fyrri hluta ferils hans - massíf heild þar sem hvergi loftar á milli líkamshluta."
   },
   {
-    "id": "statue2",
-    "name": "Kona að strokka",
+    "name": "statue2",
+    "title": "Kona að strokka",
     "year": 1934,
     "image": "statue2.jpg",
+    "model": "statue2.glb",
+    "position": { "x": 10, "y": 0, "z": -5 },
     "description": "Verkið vann Ásmundur í Reykjavík og sýnir konu að búa til smjör. Verkið er óður til íslenskra kvenna sem stunduðu sveitastörf. Kona að strokka ber skýr höfundareinkenni Ásmundar og stendur bæði í garði Ásmundarsafns og á Árbæjarsafni"
   }
 ]
