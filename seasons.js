@@ -6,6 +6,9 @@
  * It also handles any ongoing animations for these effects.
  */
 
+// @ts-ignore
+import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
+
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
@@ -76,3 +79,20 @@ function updateSeasonEffects() {
 }
 
 // --- Helper functions to create seasonal effect groups ---
+
+function createWinterEffect() {
+  const group = new THREE.Group();
+  const geom = new THREE.SphereGeometry(0.1);
+  const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  for (let i = 0; i < 200; i++) {
+    const snowflake = new THREE.Mesh(geom, mat);
+    // Randomly position snowflakes in a broad volume above the scene
+    snowflake.position.set(
+      Math.random() * 50 - 25, // x in [-25, 25]
+      Math.random() * 20 + 10, // y in [10, 30] (some height above ground)
+      Math.random() * 50 - 25 // z in [-25, 25]
+    );
+    group.add(snowflake);
+  }
+  return group;
+}
