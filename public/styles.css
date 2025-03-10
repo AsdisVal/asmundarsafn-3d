@@ -48,3 +48,17 @@ html, body {
 	margin-bottom: 5px;
   }
   
+/* Season switch menu */
+#season-menu {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #fff;
+	padding: 5px;
+	border-radius: 5px;
+  }
+  #season-menu button {
+	margin: 2px;
+	padding: 5px 10px;
+	cursor: pointer;
+  }
