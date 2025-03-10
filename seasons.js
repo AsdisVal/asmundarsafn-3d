@@ -48,3 +48,19 @@ function setSeason(season) {
   summerGroup.visible = season === 'summer';
   autumnGroup.visible = season === 'autumn';
 }
+
+// Frame-by-frame update for animated effects
+function updateSeasonEffects() {
+  if (currentSeason === 'winter') {
+    // Make snow particles
+  }
+  if (currentSeason === 'autumn') {
+    // Make leaves fall and maybe rotate slowly
+  }
+  if (currentSeason === 'spring') {
+    // Make flowers bloom
+  }
+  if (currentSeason === 'summer') {
+    // Have birds fly around
+  }
+}
