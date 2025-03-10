@@ -12,3 +12,7 @@ import * as THREE from 'three';
 const statueObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
+
+// References to tooltip and info panel elements from the DOM, they are hidden initially
+const tooltipEl = document.getElementById('tooltip');
+const infoPanelEl = document.getElementById('info-panel');
