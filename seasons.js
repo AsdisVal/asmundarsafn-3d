@@ -72,4 +72,7 @@ function updateSeasonEffects() {
   if (currentSeason === 'summer') {
     // Have birds fly around
   }
+  // (Spring and Summer could have their own minor animations if needed)
 }
+
+// --- Helper functions to create seasonal effect groups ---
