@@ -6,6 +6,7 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { updateSeasonEffects } from './js/seasons';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);
@@ -16,8 +17,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 10, 25);
-camera.lookAt(0, 0, 0);
+camera.position.set(0, 10, 40);
+camera.lookAt(0, 0, 26);
 
 // Create the WebGL renderer and add it to the document.
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -48,6 +49,63 @@ ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = 0;
 scene.add(ground);
 
+// -----------------------------
+// Building Group
+// -----------------------------
+const building = new THREE.Group();
+scene.add(building);
+
+// 1) Central Box (lengdxbreiddxhæð)=(13x8.5x4.5), extended toward the viewer
+const centralBoxGeometry = new THREE.BoxGeometry(9.4, 4.5, 14);
+centralBoxGeometry.translate(0, 1.3, 13); // shift so back is at z=-3, front at z=4.5
+const boxMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+const centralBox = new THREE.Mesh(centralBoxGeometry, boxMaterial);
+centralBox.position.y = 1; // so bottom sits at y=0
+building.add(centralBox);
+
+// 2) Hvíta kúlan (hæð)=4.5
+const domeRadius = 4.5;
+const domeGeometry = new THREE.SphereGeometry(
+  domeRadius,
+  32,
+  16,
+  0,
+  Math.PI * 2,
+  0,
+  Math.PI / 1.9
+);
+const dome = new THREE.Mesh(domeGeometry, boxMaterial);
+dome.translateZ(11);
+dome.position.y = 4.2;
+building.add(dome);
+
+// 3) Trapisurnar h-megin og v-megin (hæð)=2.5
+const trapezoidShape = new THREE.Shape();
+trapezoidShape.moveTo(-6, 0); // bottom left
+trapezoidShape.lineTo(6, 0); // bottom right
+trapezoidShape.lineTo(4, 6); // top right
+trapezoidShape.lineTo(-4, 6); // top left
+trapezoidShape.lineTo(-6, 0); // close the shape
+
+const extrudeSettings = {
+  steps: 1,
+  depth: 5,
+  bevelEnabled: false,
+};
+const trapezoidGeometry = new THREE.ExtrudeGeometry(
+  trapezoidShape,
+  extrudeSettings
+);
+const sideMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+
+const leftSide = new THREE.Mesh(trapezoidGeometry, sideMaterial);
+leftSide.position.set(-9.1, 0, 15.5);
+building.add(leftSide);
+
+const rightSide = new THREE.Mesh(trapezoidGeometry.clone(), sideMaterial);
+rightSide.position.set(9.1, 0, 15.5);
+building.add(rightSide);
+
 // load statues and seasonal effects
 //loadStatues(scene, camera); // from statues.js: add statue models and interactions
 //initSeasons(scene); // from seasons.js: set up seasonal system (default season)
@@ -64,7 +122,7 @@ window.addEventListener('resize', onWindowResize, false);
 function animate() {
   requestAnimationFrame(animate);
   controls.update(); // update orbit controls (for damping)
-  //updateSeasonEffects(); // update seasonal animations (falling snow/leaves)
+  updateSeasonEffects(); // update seasonal animations (falling snow/leaves)
   renderer.render(scene, camera);
 }
 animate();
@@ -146,7 +204,7 @@ function init() {
     0,
     Math.PI * 2,
     0,
-    Math.PI / 2.1
+    Math.PI / 3.5
   );
   const dome = new THREE.Mesh(domeGeometry, boxMaterial);
   dome.position.y = 1.8; // top of the box is at y=1.8
@@ -154,11 +212,11 @@ function init() {
 
   // 3) Trapezoidal Side Pieces (left & right)
   const trapezoidShape = new THREE.Shape();
-  trapezoidShape.moveTo(-2.1, 0); // bottom left
-  trapezoidShape.lineTo(2.1, 0); // bottom right
+  trapezoidShape.moveTo(-3.5, 0); // bottom left
+  trapezoidShape.lineTo(3.5, 0); // bottom right
   trapezoidShape.lineTo(1.3, 2.5); // top right
   trapezoidShape.lineTo(-1.3, 2.5); // top left
-  trapezoidShape.lineTo(-2.1, 0); // close the shape
+  trapezoidShape.lineTo(-3.5, 0); // close the shape
 
   const extrudeSettings = {
     steps: 1,
