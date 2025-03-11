@@ -8,8 +8,6 @@
 import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
 // @ts-ignore
 import { OrbitControls } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/controls/OrbitControls.js';
-// @ts-ignore
-import { GLTFLoader } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);
@@ -21,24 +19,36 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.set(0, 10, 25);
+camera.lookAt(0, 0, 0);
 
-//Initialize WebGL renderer and add its canvas to the page
+// Create the WebGL renderer and add it to the document.
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
+
+// Add OrbitControls to let the user rotate/pan/zoom with the mouse.
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.target.set(0, 1, 0);
 
 // Add lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
 scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-directionalLight.position.set(10, 20, 10);
+directionalLight.position.set(20, 20, 20);
 scene.add(directionalLight);
 
-// Enable orbit controls for camera interaction
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; // smoothly move the camera
-controls.dampingFactor = 0.05;
-controls.target.set(0, 5, 0); // look at the center of the garden
+// -----------------------------
+// Ground Plane
+// -----------------------------
+// A simple plane at y=0, rotated so it lies horizontally.
+const planeGeometry = new THREE.PlaneGeometry(120, 70);
+const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x808080 });
+const ground = new THREE.Mesh(planeGeometry, planeMaterial);
+ground.rotation.x = -Math.PI / 2; // make it horizontal
+ground.position.y = 0;
+scene.add(ground);
 
 // load statues and seasonal effects
 //loadStatues(scene, camera); // from statues.js: add statue models and interactions
