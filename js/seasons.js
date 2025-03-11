@@ -6,8 +6,7 @@
  * It also handles any ongoing animations for these effects.
  */
 
-// @ts-ignore
-import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
+import * as THREE from 'three';
 
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
@@ -115,7 +114,7 @@ function createSummerEffect() {
   const geom = new THREE.SphereGeometry(0.2);
   flowerColors.forEach((color) => {
     for (let i = 0; i < 10; i++) {
-      const mat = new THREE.MexhPhongMaterial({ color: color });
+      const mat = new THREE.MeshPhongMaterial({ color: color });
       const flower = new THREE.Mesh(geom, mat);
       flower.position.set(Math.random() * 30 - 15, 0, Math.random() * 30 - 15);
       group.add(flower);

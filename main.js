@@ -4,10 +4,8 @@
  * Initializes the Three.js scene, renderer, and camera, sets up lighting and controls, and ties everything together. It also starts the animation loop.
  * */
 
-// @ts-ignore
-import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
-// @ts-ignore
-import { OrbitControls } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);

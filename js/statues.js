@@ -6,11 +6,8 @@
  *
  */
 
-// @ts-ignore
-import * as THREE from 'https://unpkg.com/browse/three@0.174.0/build/three.module.js';
-// @ts-ignore
-import { GLTFLoader } from 'https://unpkg.com/browse/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
-
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { getStatuesData } from './data.js';
 
 // Array to keep track of statue objects in the scene for interactions
