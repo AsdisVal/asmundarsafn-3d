@@ -3,11 +3,12 @@
  * main.js
  * Initializes the Three.js scene, renderer, and camera, sets up lighting and controls, and ties everything together. It also starts the animation loop.
  * */
-
+import './styles.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
 
+const canvas = document.querySelector('#c');
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);
 
@@ -20,30 +21,41 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 10, 40);
 camera.lookAt(0, 0, 26);
 
-// Create the WebGL renderer and add it to the document.
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+// Renderer : renders the scene
+if (!canvas) {
+  throw new Error('Canvas element not found');
+}
+const renderer = new THREE.WebGLRenderer({
+  canvas: canvas,
+  antialias: true,
+});
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
 
-// Add OrbitControls to let the user rotate/pan/zoom with the mouse.
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(0, 10, 5);
+light.target.position.set(-5, 0, 0);
+scene.add(light);
+
+const lightHelper = new THREE.DirectionalLightHelper(light);
+const gridHelper = new THREE.GridHelper(200, 70);
+scene.add(lightHelper, gridHelper);
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
 // Add lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // soft white light
 scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(20, 20, 20);
 scene.add(directionalLight);
 
-// -----------------------------
-// Ground Plane
-// -----------------------------
-// A simple plane at y=0, rotated so it lies horizontally.
-const planeGeometry = new THREE.PlaneGeometry(120, 70);
-const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x808080 });
+const planeGeometry = new THREE.PlaneGeometry(200, 150);
+const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x9acd32 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = 0;

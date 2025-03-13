@@ -4,6 +4,12 @@ and the season menu, as well as any general page styles needed for the 3D scene.
 **/
 
 /* General page styling */
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;

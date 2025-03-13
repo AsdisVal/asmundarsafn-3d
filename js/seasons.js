@@ -7,7 +7,7 @@
  */
 
 import * as THREE from 'three';
-
+console.log('seasons.js loaded');
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
