@@ -20,5 +20,32 @@
     "model": "statue2.glb",
     "position": { "x": 10, "y": 0, "z": -5 },
     "description": "Verkið vann Ásmundur í Reykjavík og sýnir konu að búa til smjör. Verkið er óður til íslenskra kvenna sem stunduðu sveitastörf. Kona að strokka ber skýr höfundareinkenni Ásmundar og stendur bæði í garði Ásmundarsafns og á Árbæjarsafni"
+  },
+  {
+    "name": "statue3",
+    "title": "Hvít stór stytta",
+    "year": 1922,
+    "image": "statue1.jpg",
+    "model": "statue1.glb",
+    "position": { "x": -10, "y": 0, "z": 5 },
+    "description": "Þetta er stór stytta sem er hvít að spila á fiðlu."
+  },
+  {
+    "name": "statue4",
+    "title": "Svarta klyfurstyttan",
+    "year": 1923,
+    "image": "statue1.jpg",
+    "model": "statue1.glb",
+    "position": { "x": -20, "y": 0, "z": 8 },
+    "description": "Þetta er stór stytta sem er svört sem má klifra í."
+  },
+  {
+    "name": "statue5",
+    "title": "Hvíta klyfurstyttan",
+    "year": 1923,
+    "image": "statue1.jpg",
+    "model": "statue1.glb",
+    "position": { "x": -10, "y": 0, "z": -20 },
+    "description": "Þetta er hvít stytta sem má klifra í."
   }
 ]
