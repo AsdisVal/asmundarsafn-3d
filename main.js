@@ -55,19 +55,79 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(20, 20, 20);
 scene.add(directionalLight);
 
-// Raycaster and mouse
+// Raycaster and Mouse
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-let intersected_object = null;
+let INTERSECTED = null;
+
+// Info Panel
+const infoPanel = document.createElement('div');
+infoPanel.style.position = 'absolute';
+infoPanel.style.bottom = '10px';
+infoPanel.style.left = '10px';
+infoPanel.style.backgroundColor = 'rgba(0,0,0,0.7)';
+infoPanel.style.color = 'white';
+infoPanel.style.padding = '10px';
+infoPanel.style.borderRadius = '5px';
+infoPanel.style.display = 'none';
+document.body.appendChild(infoPanel);
 
 // Load 3D Model
-const gltfLoader = new GLTFLoader();
+const loader = new GLTFLoader();
 let loadedObject = null;
-const url = './models/scene.gltf';
-gltfLoader.load(url, (gltf) => {
-  const root = gltf.scene;
-  scene.add(root);
-  console.log('Model loaded');
+
+loader.load(
+  'data/models/maple_tree/scene.gltf',
+  function (gltf) {
+    loadedObject = gltf.scene;
+    loadedObject.scale.set(0.05, 0.05, 0.05);
+    loadedObject.position.set(-20, -0.25, 6);
+    scene.add(loadedObject);
+
+    // Assign custom user data
+    loadedObject.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        child.userData = {
+          name: child.name || 'Unknown Object',
+          description: 'This is a detailed description of the object.',
+        };
+      }
+    });
+  },
+  undefined,
+  function (error) {
+    console.error(error);
+  }
+);
+
+// Hover & Click Events
+window.addEventListener('mousemove', (event) => {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(scene.children, true);
+
+  if (intersects.length > 0) {
+    if (INTERSECTED !== intersects[0].object) {
+      if (INTERSECTED) INTERSECTED.material = INTERSECTED.originalMaterial;
+      INTERSECTED = intersects[0].object;
+      if (INTERSECTED instanceof THREE.Mesh) {
+        INTERSECTED.material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      }
+    }
+  } else {
+    if (INTERSECTED) INTERSECTED.material = INTERSECTED.originalMaterial;
+    INTERSECTED = null;
+  }
+});
+
+window.addEventListener('click', (event) => {
+  if (!INTERSECTED) return;
+
+  // Show Info Panel
+  infoPanel.style.display = 'block';
+  infoPanel.innerHTML = `<strong>${INTERSECTED.userData.name}</strong><br>${INTERSECTED.userData.description}`;
 });
 
 const planeGeometry = new THREE.PlaneGeometry(200, 150);
