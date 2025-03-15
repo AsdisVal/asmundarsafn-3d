@@ -10,6 +10,7 @@ import { updateSeasonEffects } from './js/seasons';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import { initSeasons } from './js/seasons';
+import { loadStatues } from './js/statues';
 
 const canvas = document.querySelector('#c');
 if (!canvas) {
@@ -208,9 +209,9 @@ rightSide.position.set(9.1, 0, 15.5);
 building.add(rightSide);
 
 // load statues and seasonal effects
-//loadStatues(scene, camera); // from statues.js: add statue models and interactions
-//initSeasons(scene); // from seasons.js: set up seasonal system (default season)
-initSeasons(scene);
+loadStatues(scene, camera); // from statues.js: add statue models and interactions
+initSeasons(scene); // from seasons.js: set up seasonal system (default season)
+
 // Adjust camera and renderer on window resize
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;

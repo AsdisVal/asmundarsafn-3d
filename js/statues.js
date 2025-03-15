@@ -44,8 +44,12 @@ export function loadStatues(scene, camera) {
   });
 
   // Set up event listeners for hover and click
-  window.addEventListener('pointermove', onPointerMove);
-  window.addEventListener('click', onClick);
+  //window.addEventListener('pointermove', onPointerMove);
+  //window.addEventListener('click', onClick);
+  window.addEventListener('pointermove', (event) =>
+    onPointerMove(event, camera)
+  );
+  window.addEventListener('click', (event) => onClick(event, camera));
 }
 // Hover handler: show tooltip if hovering over a statue
 function onPointerMove(event, camera) {
@@ -54,7 +58,6 @@ function onPointerMove(event, camera) {
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
   // Update raycaster with camera and mouse position
   raycaster.setFromCamera(mouse, camera);
-
   const intersects = raycaster.intersectObjects(statueObjects, true);
   if (intersects.length > 0 && tooltipEl) {
     // if hovering over a statue has detected at least one object that the mouse
@@ -65,9 +68,11 @@ function onPointerMove(event, camera) {
     tooltipEl.textContent = statueObj.userData.name; // Set the text inside the tooltip to the name of the statue.
     // this is done because the statue's name is stored in userData and is used here to inform the user which statue they are hovering over.
     tooltipEl.style.display = 'block'; // Makes the tooltip element visible by changing its display style to 'block'.
-  } else if (tooltipEl) {
-    tooltipEl.style.display = 'none'; // If there are no intersections (i.e., the mouse isn’t hovering over any statue),
-    // then the tooltip is hidden by setting its display style to 'none'.
+  } else {
+    if (tooltipEl) {
+      tooltipEl.style.display = 'none'; // If there are no intersections (i.e., the mouse isn’t hovering over any statue),
+      // then the tooltip is hidden by setting its display style to 'none'.
+    }
   }
 }
 
@@ -81,10 +86,10 @@ function onClick(event, camera) {
     const info = statueObj.userData.info;
     // Populate info panel with statue details (e.g., name, year, image)
     infoPanelEl.innerHTML = `
-        <h3>${info.name} (${info.year})</h3>
-        <img src="${info.image}" alt="${info.name}" style="max-width:100%;" />
-        <p><em>${info.name}</em> description and details...</p>
-      `;
+      <h3>${info.name} (${info.year})</h3>
+      <img src="${info.image}" alt="${info.name}" style="max-width:100%;" />
+      <p><em>${info.name}</em> description and details...</p>
+    `;
     infoPanelEl.style.display = 'block';
   } else if (infoPanelEl) {
     // (Optional) hide or clear info panel if clicking elsewhere
