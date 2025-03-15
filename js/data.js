@@ -6,7 +6,7 @@
 
 // Fetch the statues data from the JSON file and return a Promise
 export function getStatuesData() {
-  return fetch('statues.json').then((response) => response.json());
+  return fetch('data/statues.json').then((response) => response.json());
 }
 
 // (Optional) Additional helper to get a specific statue's info by name

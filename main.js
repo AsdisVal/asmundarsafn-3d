@@ -9,7 +9,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+import { initSeasons } from './js/seasons';
+
 const canvas = document.querySelector('#c');
+if (!canvas) {
+  throw new Error('Canvas element not found');
+}
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfd1e5);
 
@@ -22,10 +27,6 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 10, 40);
 camera.lookAt(0, 0, 26);
 
-// Renderer : renders the scene
-if (!canvas) {
-  throw new Error('Canvas element not found');
-}
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   antialias: true,
@@ -34,12 +35,20 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
 
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 10, 5);
-light.target.position.set(-5, 0, 0);
-scene.add(light);
+// Add lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+scene.add(ambientLight);
 
-const lightHelper = new THREE.DirectionalLightHelper(light);
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+directionalLight1.position.set(20, 20, 20);
+scene.add(directionalLight1);
+
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight2.position.set(0, 10, 5);
+directionalLight2.target.position.set(-5, 0, 0);
+scene.add(directionalLight2);
+
+const lightHelper = new THREE.DirectionalLightHelper(directionalLight2);
 const gridHelper = new THREE.GridHelper(200, 70);
 scene.add(lightHelper, gridHelper);
 
@@ -47,13 +56,6 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
-
-// Add lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // soft white light
-scene.add(ambientLight);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-directionalLight.position.set(20, 20, 20);
-scene.add(directionalLight);
 
 // Raycaster and Mouse
 const raycaster = new THREE.Raycaster();
@@ -110,14 +112,25 @@ window.addEventListener('mousemove', (event) => {
 
   if (intersects.length > 0) {
     if (INTERSECTED !== intersects[0].object) {
-      if (INTERSECTED) INTERSECTED.material = INTERSECTED.originalMaterial;
+      // Restore material of the previously intersected object if saved
+      if (INTERSECTED && INTERSECTED.userData.originalMaterial) {
+        INTERSECTED.material = INTERSECTED.userData.originalMaterial;
+      }
       INTERSECTED = intersects[0].object;
       if (INTERSECTED instanceof THREE.Mesh) {
+        // Save the original material if it hasn't been saved yet
+        if (!INTERSECTED.userData.originalMaterial) {
+          INTERSECTED.userData.originalMaterial = INTERSECTED.material;
+        }
+        // Apply highlight material
         INTERSECTED.material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
       }
     }
   } else {
-    if (INTERSECTED) INTERSECTED.material = INTERSECTED.originalMaterial;
+    // Restore the original material when no intersections are found
+    if (INTERSECTED && INTERSECTED.userData.originalMaterial) {
+      INTERSECTED.material = INTERSECTED.userData.originalMaterial;
+    }
     INTERSECTED = null;
   }
 });
@@ -197,7 +210,7 @@ building.add(rightSide);
 // load statues and seasonal effects
 //loadStatues(scene, camera); // from statues.js: add statue models and interactions
 //initSeasons(scene); // from seasons.js: set up seasonal system (default season)
-
+initSeasons(scene);
 // Adjust camera and renderer on window resize
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
