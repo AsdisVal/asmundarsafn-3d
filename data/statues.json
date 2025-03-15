@@ -6,16 +6,16 @@
     "image": "statue0.jpg",
     "model": "data/models/frank/scene.gltf",
     "position": {
-      "x": 40,
-      "y": 0.6,
+      "x": 30,
+      "y": 1.4,
       "z": 0
     },
-    "scale": { "x": 1.5, "y": 1.5, "z": 1.5 },
+    "scale": { "x": 2.5, "y": 2.5, "z": 2.5 },
     "description": "Statue 0 description"
   },
   {
     "name": "statue1",
-    "title": "Jónsmessunótt",
+    "title": "Froskur",
     "year": 1940,
     "image": "statue1.jpg",
     "model": "data/models/frog_statue/scene.gltf",
@@ -24,42 +24,46 @@
       "y": 0.6,
       "z": 5
     },
-    "description": "Þetta er Buddha stytta."
+    "description": "Þetta er froskastytta."
   },
   {
     "name": "statue2",
-    "title": "Kona að strokka",
+    "title": "Búddafólk",
     "year": 1934,
     "image": "statue2.jpg",
-    "model": "statue2.glb",
-    "position": { "x": 10, "y": 0, "z": -5 },
-    "description": "Verkið vann Ásmundur í Reykjavík og sýnir konu að búa til smjör. Verkið er óður til íslenskra kvenna sem stunduðu sveitastörf. Kona að strokka ber skýr höfundareinkenni Ásmundar og stendur bæði í garði Ásmundarsafns og á Árbæjarsafni"
+    "model": "data/models/buddha_statues/scene.gltf",
+    "position": { "x": 10, "y": 0, "z": -10 },
+    "scale": { "x": 0.01, "y": 0.01, "z": 0.01 },
+    "description": "Þetta er búddastytta."
   },
   {
     "name": "statue3",
-    "title": "Hvít stór stytta",
+    "title": "Stelpa",
     "year": 1922,
-    "image": "statue1.jpg",
-    "model": "statue1.glb",
-    "position": { "x": -10, "y": 0, "z": 5 },
-    "description": "Þetta er stór stytta sem er hvít að spila á fiðlu."
+    "image": "statue3.jpg",
+    "model": "data/models/statue_girl_in_ile_de_puteaux_france/scene.gltf",
+    "position": { "x": -20, "y": 3.5, "z": 20 },
+    "scale": { "x": 0.2, "y": 0.2, "z": 0.2 },
+    "description": "Þetta er stelpa."
   },
   {
     "name": "statue4",
     "title": "Svarta klyfurstyttan",
     "year": 1923,
     "image": "statue1.jpg",
-    "model": "statue1.glb",
-    "position": { "x": -20, "y": 0, "z": 8 },
-    "description": "Þetta er stór stytta sem er svört sem má klifra í."
+    "model": "data/models/pony_cartoon/scene.gltf",
+    "position": { "x": -40, "y": 0.1, "z": 40 },
+    "scale": { "x": 1.2, "y": 1.2, "z": 1.2 },
+    "description": "Þetta er pony cartoon."
   },
   {
     "name": "statue5",
-    "title": "Hvíta klyfurstyttan",
+    "title": "Statue stand",
     "year": 1923,
     "image": "statue1.jpg",
-    "model": "statue1.glb",
-    "position": { "x": -10, "y": 0, "z": -20 },
+    "model": "data/models/fountain_statue_v1/scene.gltf",
+    "position": { "x": -10, "y": -6.5, "z": -20 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
     "description": "Þetta er hvít stytta sem má klifra í."
   }
 ]

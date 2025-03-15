@@ -76,6 +76,7 @@ infoPanel.style.display = 'none';
 document.body.appendChild(infoPanel);
 
 // Load 3D Model
+/*
 const loader = new GLTFLoader();
 let loadedObject = null;
 
@@ -102,7 +103,7 @@ loader.load(
     console.error(error);
   }
 );
-
+*/
 // load statues
 loadStatues(scene, camera);
 
@@ -127,7 +128,7 @@ window.addEventListener('mousemove', (event) => {
           INTERSECTED.userData.originalMaterial = INTERSECTED.material;
         }
         // Apply highlight material
-        INTERSECTED.material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        INTERSECTED.material = new THREE.MeshBasicMaterial({ color: 0xd1d1d1 });
       }
     }
   } else {
