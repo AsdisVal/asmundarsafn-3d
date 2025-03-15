@@ -1,4 +1,5 @@
 /**
+ *
  * Statues.js
  * Handles loading and placement of statue models in the scene.
  * It implements interactivity like hovering and clicking on statues.
@@ -31,6 +32,16 @@ export function loadStatues(scene, camera) {
         (gltf) => {
           const model = gltf.scene;
           model.position.set(st.position.x, st.position.y, st.position.z);
+          // Apply scaling if defined in the JSON
+          if (st.scale) {
+            if (typeof st.scale === 'number') {
+              // Uniform scaling
+              model.scale.set(st.scale, st.scale, st.scale);
+            } else if (typeof st.scale === 'object') {
+              // Non-uniform scaling
+              model.scale.set(st.scale.x, st.scale.y, st.scale.z);
+            }
+          }
           model.userData = { name: st.name, info: st }; // store statue info for reference
           scene.add(model);
           statueObjects.push(model); // keep track for raycasting
@@ -44,8 +55,6 @@ export function loadStatues(scene, camera) {
   });
 
   // Set up event listeners for hover and click
-  //window.addEventListener('pointermove', onPointerMove);
-  //window.addEventListener('click', onClick);
   window.addEventListener('pointermove', (event) =>
     onPointerMove(event, camera)
   );

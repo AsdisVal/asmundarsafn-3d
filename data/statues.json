@@ -10,14 +10,15 @@
       "y": 0.6,
       "z": 0
     },
+    "scale": { "x": 1.5, "y": 1.5, "z": 1.5 },
     "description": "Statue 0 description"
   },
   {
     "name": "statue1",
     "title": "Jónsmessunótt",
     "year": 1940,
-    "image": "data/models/buddha_statues/textures/surfaceShader1_baseColor.jpeg",
-    "model": "data/models/buddha_statues/scene.gltf",
+    "image": "statue1.jpg",
+    "model": "data/models/frog_statue/scene.gltf",
     "position": {
       "x": -30,
       "y": 0.6,
