@@ -1,16 +1,29 @@
 [
   {
+    "name": "statue0",
+    "title": "Sad Angel",
+    "year": 1923,
+    "image": "statue0.jpg",
+    "model": "data/models/frank/scene.gltf",
+    "position": {
+      "x": 40,
+      "y": 0.6,
+      "z": 0
+    },
+    "description": "Statue 0 description"
+  },
+  {
     "name": "statue1",
     "title": "Jónsmessunótt",
     "year": 1940,
-    "image": "statue1.jpg",
-    "model": "statue1.glb",
+    "image": "data/models/buddha_statues/textures/surfaceShader1_baseColor.jpeg",
+    "model": "data/models/buddha_statues/scene.gltf",
     "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
+      "x": -30,
+      "y": 0.6,
+      "z": 5
     },
-    "description": "Jónsmessunótt fjallar á einstakan hátt um drauma og minningar um ást og munúð. Tveir líkamar fléttast saman á kærleiksríkan hátt í órjúfanlega heild; form þeirra tala saman og segja sögur. Verkið ber skýr höfundareinkenni Ásmundar frá fyrri hluta ferils hans - massíf heild þar sem hvergi loftar á milli líkamshluta."
+    "description": "Þetta er Buddha stytta."
   },
   {
     "name": "statue2",

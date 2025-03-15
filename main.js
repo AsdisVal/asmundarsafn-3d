@@ -103,6 +103,9 @@ loader.load(
   }
 );
 
+// load statues
+loadStatues(scene, camera);
+
 // Hover & Click Events
 window.addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
