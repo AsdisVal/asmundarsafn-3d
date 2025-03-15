@@ -1,0 +1,11 @@
+Model Information:
+* title:	Red Fall Leaf
+* source:	https://sketchfab.com/3d-models/red-fall-leaf-f4a4e84dad114aa4b7208ac467bce003
+* author:	xconcepts (https://sketchfab.com/xconcepts)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Red Fall Leaf" (https://sketchfab.com/3d-models/red-fall-leaf-f4a4e84dad114aa4b7208ac467bce003) by xconcepts (https://sketchfab.com/xconcepts) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

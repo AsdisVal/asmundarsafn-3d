@@ -7,8 +7,6 @@ import './styles.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
 import { initSeasons } from './js/seasons';
 import { loadStatues } from './js/statues';
 
@@ -161,13 +159,31 @@ scene.add(ground);
 const building = new THREE.Group();
 scene.add(building);
 
-// 1) Central Box (lengdxbreiddxhæð)=(13x8.5x4.5), extended toward the viewer
-const centralBoxGeometry = new THREE.BoxGeometry(9.4, 4.5, 14);
-centralBoxGeometry.translate(0, 1.3, 13); // shift so back is at z=-3, front at z=4.5
-const boxMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
-const centralBox = new THREE.Mesh(centralBoxGeometry, boxMaterial);
-centralBox.position.y = 1; // so bottom sits at y=0
-building.add(centralBox);
+const textureLoader = new THREE.TextureLoader();
+
+const frontWallTexture = textureLoader.load('data/texture/front_wall.jpg');
+const otherTexture = textureLoader.load('data/texture/asmundarsafn_white.jpg');
+const leftWallTexture = textureLoader.load('data/texture/left_side_wall.jpg');
+const rightWallTexture = textureLoader.load('data/texture/right_side_wall.jpg');
+
+const frontMaterial = new THREE.MeshLambertMaterial({ map: frontWallTexture });
+const otherMaterial = new THREE.MeshLambertMaterial({ map: otherTexture });
+const leftMaterial = new THREE.MeshLambertMaterial({ map: leftWallTexture });
+const rightMaterial = new THREE.MeshLambertMaterial({ map: rightWallTexture });
+
+const materials = [
+  rightMaterial, // Right side
+  leftMaterial, // Left side
+  otherMaterial, // Top side
+  otherMaterial, // Bottom side
+  frontMaterial, // Front side
+  otherMaterial, // Back side
+];
+const boxGeometry = new THREE.BoxGeometry(9.4, 4.5, 14);
+boxGeometry.translate(0, 1.3, 13); // shift so back is at z=-3, front at z=4.5
+const boxmesh = new THREE.Mesh(boxGeometry, materials);
+boxmesh.position.y = 1; // so bottom sits at y=0
+building.add(boxmesh);
 
 // 2) Hvíta kúlan (hæð)=4.5
 const domeRadius = 4.5;
@@ -180,6 +196,7 @@ const domeGeometry = new THREE.SphereGeometry(
   0,
   Math.PI / 1.9
 );
+const boxMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
 const dome = new THREE.Mesh(domeGeometry, boxMaterial);
 dome.translateZ(11);
 dome.position.y = 4.2;
@@ -198,10 +215,12 @@ const extrudeSettings = {
   depth: 5,
   bevelEnabled: false,
 };
+
 const trapezoidGeometry = new THREE.ExtrudeGeometry(
   trapezoidShape,
   extrudeSettings
 );
+
 const sideMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
 
 const leftSide = new THREE.Mesh(trapezoidGeometry, sideMaterial);
