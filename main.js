@@ -215,19 +215,25 @@ const extrudeSettings = {
   depth: 5,
   bevelEnabled: false,
 };
-
 const trapezoidGeometry = new THREE.ExtrudeGeometry(
   trapezoidShape,
   extrudeSettings
 );
 
-const sideMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+const patternTexture = textureLoader.load(
+  'data/texture/asmundarsafn_white.jpg'
+);
+patternTexture.wrapS = THREE.RepeatWrapping;
+patternTexture.wrapT = THREE.RepeatWrapping;
+patternTexture.repeat.set(1, 1);
 
-const leftSide = new THREE.Mesh(trapezoidGeometry, sideMaterial);
+const patternMaterial = new THREE.MeshLambertMaterial({ map: patternTexture });
+
+const leftSide = new THREE.Mesh(trapezoidGeometry, patternMaterial);
 leftSide.position.set(-9.1, 0, 15.5);
 building.add(leftSide);
 
-const rightSide = new THREE.Mesh(trapezoidGeometry.clone(), sideMaterial);
+const rightSide = new THREE.Mesh(trapezoidGeometry.clone(), patternMaterial);
 rightSide.position.set(9.1, 0, 15.5);
 building.add(rightSide);
 
