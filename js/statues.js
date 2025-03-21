@@ -6,7 +6,8 @@
  * This module uses Three.js loaders and raycasting to create an interactive experience.
  *
  */
-
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { getStatuesData } from './data.js';
@@ -53,6 +54,33 @@ export function loadStatues(scene, camera) {
       );
     });
   });
+
+  const mtlLoader = new MTLLoader();
+  mtlLoader.load(
+    'data/models/Piltur og stúlka - Uniform/piltur_og_stulka.mtl',
+    (materials) => {
+      materials.preload();
+      const objLoader = new OBJLoader();
+      objLoader.setMaterials(materials);
+      objLoader.load(
+        'data/models/Piltur og stúlka - Uniform/piltur_og_stulka.obj',
+        (object) => {
+          // Set position, scale, or any other properties
+          object.name = 'Piltur og stúlka';
+          object.userData = { name: 'Piltur og stúlka' };
+
+          object.scale.set(2.5, 2.5, 2.5);
+          object.rotateY(Math.PI / 2);
+          object.position.set(25, 2.7, 0);
+          scene.add(object);
+        },
+        undefined,
+        (error) => {
+          console.error('Error loading OBJ model:', error);
+        }
+      );
+    }
+  );
 
   // Set up event listeners for hover and click
   window.addEventListener('pointermove', (event) =>
