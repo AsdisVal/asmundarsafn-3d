@@ -7,6 +7,7 @@
  */
 
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 console.log('seasons.js loaded');
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
@@ -109,17 +110,72 @@ function createSpringEffect() {
 
 function createSummerEffect() {
   const group = new THREE.Group();
-  // scatter some flower objects on the ground
-  const flowerColors = [0xff0000, 0xffff00, 0x00ff00];
-  const geom = new THREE.SphereGeometry(0.2);
-  flowerColors.forEach((color) => {
-    for (let i = 0; i < 10; i++) {
-      const mat = new THREE.MeshPhongMaterial({ color: color });
-      const flower = new THREE.Mesh(geom, mat);
-      flower.position.set(Math.random() * 30 - 15, 0, Math.random() * 30 - 15);
-      group.add(flower);
-    }
+
+  // Define each model with both its file path and a preferred scale
+  const modelConfigs = [
+    /*
+    {
+      url: 'data/models/nature/linen_with_flowers/scene.gltf',
+      scale: 0.05, // A bit smaller
+    },
+    
+    {
+      url: 'data/models/nature/white_flower/scene.gltf',
+      scale: 0.02, // Larger still
+    },
+     {
+      url: 'data/models/nature/flower/scene.gltf',
+      scale: 0.02, // Make this model slightly bigger
+    },
+    */
+    {
+      url: 'data/models/nature/garden_flower_-_vegetation/scene.gltf',
+      scale: 0.8, // Adjust as needed
+    },
+    {
+      url: 'data/models/nature/flowers_lib/scene.gltf',
+      scale: 0.4, // Adjust as needed
+    },
+  ];
+
+  const loader = new GLTFLoader();
+
+  modelConfigs.forEach((config) => {
+    loader.load(
+      config.url,
+      (gltf) => {
+        // Create multiple instances of each model type
+        for (let i = 0; i < 20; i++) {
+          const instance = gltf.scene.clone();
+
+          // Random positioning (adjust ranges as needed for your scene)
+          instance.position.set(
+            Math.random() * 120 - 50, // X range
+            0,
+            Math.random() * 70 - 50 // Z range
+          );
+          // Apply the model-specific scale
+          instance.scale.set(config.scale, config.scale, config.scale);
+          // Optionally add a little random variation:
+          const randomFactor = 1 + (Math.random() * 0.2 - 0.1); // +/- 10%
+          instance.scale.set(
+            config.scale * randomFactor,
+            config.scale * randomFactor,
+            config.scale * randomFactor
+          );
+          // Random rotation for variety
+          instance.rotation.y = Math.random() * Math.PI * 2;
+
+          group.add(instance);
+        }
+      },
+      undefined, // onProgress callback (optional)
+      (error) => {
+        console.error(`Error loading model from ${config.url}:`, error);
+      }
+    );
   });
+
   return group;
 }
 

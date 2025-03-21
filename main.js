@@ -73,35 +73,6 @@ infoPanel.style.borderRadius = '5px';
 infoPanel.style.display = 'none';
 document.body.appendChild(infoPanel);
 
-// Load 3D Model
-/*
-const loader = new GLTFLoader();
-let loadedObject = null;
-
-loader.load(
-  'data/models/maple_tree/scene.gltf',
-  function (gltf) {
-    loadedObject = gltf.scene;
-    loadedObject.scale.set(0.05, 0.05, 0.05);
-    loadedObject.position.set(-20, -0.25, 6);
-    scene.add(loadedObject);
-
-    // Assign custom user data
-    loadedObject.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.userData = {
-          name: child.name || 'Unknown Object',
-          description: 'This is a detailed description of the object.',
-        };
-      }
-    });
-  },
-  undefined,
-  function (error) {
-    console.error(error);
-  }
-);
-*/
 // load statues
 loadStatues(scene, camera);
 
@@ -236,6 +207,31 @@ building.add(leftSide);
 const rightSide = new THREE.Mesh(trapezoidGeometry.clone(), patternMaterial);
 rightSide.position.set(9.1, 0, 15.5);
 building.add(rightSide);
+
+// aftari parturinn
+// Create a circle geometry that covers 70% of a full circle
+const radius = 5;
+const segments = 32;
+const thetaStart = 0;
+const thetaLength = 2 * Math.PI * 0.4; // 70% of 2π
+
+const geometry = new THREE.CircleGeometry(
+  radius,
+  segments,
+  thetaStart,
+  thetaLength
+);
+const material = new THREE.MeshBasicMaterial({
+  color: 0xffff00,
+  side: THREE.DoubleSide,
+});
+const circleMesh = new THREE.Mesh(geometry, material);
+circleMesh.rotateX(Math.PI / 2);
+circleMesh.rotateZ(Math.PI * 1.1);
+// make circle bigger
+circleMesh.scale.set(4, 4, 4);
+circleMesh.position.set(0, 2.5, 8);
+building.add(circleMesh);
 
 // load statues and seasonal effects
 loadStatues(scene, camera); // from statues.js: add statue models and interactions
