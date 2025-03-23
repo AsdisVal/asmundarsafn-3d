@@ -1,3 +1,9 @@
+import { gsap } from 'gsap'; // if using modules
+// Add this to the top of `statues.js`
+let isZoomedIn = false;
+let originalCameraPosition = new THREE.Vector3();
+let originalTarget = new THREE.Vector3();
+
 /**
  *
  * Statues.js
@@ -82,6 +88,57 @@ export function loadStatues(scene, camera) {
     }
   );
 
+  // load another mtlobj
+  const mtlLoader2 = new MTLLoader();
+  mtlLoader2.load('data/models/hugss/hugs.mtl', (materials) => {
+    materials.preload();
+    const objLoader = new OBJLoader();
+    objLoader.setMaterials(materials);
+    objLoader.load(
+      'data/models/hugss/hugs.obj',
+      (hugs) => {
+        // Set position, scale, or any other properties
+        hugs.name = 'Hugs';
+        hugs.userData = { name: 'Hugs' };
+
+        hugs.scale.set(2, 2, 2);
+        hugs.position.set(60, 0, -30);
+        hugs.rotateY(Math.PI);
+
+        scene.add(hugs);
+      },
+      undefined,
+      (error) => {
+        console.error('Error loading OBJ model:', error); // eslint-disable-line no-console
+      }
+    );
+  });
+
+  // load another mtlobj
+  const mtlLoader3 = new MTLLoader();
+  mtlLoader3.load('data/models/twoHeads/twoHeads.mtl', (materials) => {
+    materials.preload();
+    const objLoader = new OBJLoader();
+    objLoader.setMaterials(materials);
+    objLoader.load(
+      'data/models/twoHeads/twoHeads.obj',
+      (object) => {
+        // Set position, scale, or any other properties
+        object.name = 'TwoHeads';
+        object.userData = { name: 'TwoHeads' };
+
+        object.scale.set(2, 2, 2);
+        object.rotateY(Math.PI);
+        object.position.set(30, 0, -40);
+        scene.add(object);
+      },
+      undefined,
+      (error) => {
+        console.error('Error loading OBJ model:', error); // eslint-disable-line no-console
+      }
+    );
+  });
+
   // Set up event listeners for hover and click
   window.addEventListener('pointermove', (event) =>
     onPointerMove(event, camera)
@@ -115,13 +172,11 @@ function onPointerMove(event, camera) {
 
 // Click handler: show info panel if a statue is clicked
 function onClick(event, camera) {
-  // Use the last mouse position (from pointermove) for raycast
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(statueObjects, true);
   if (intersects.length > 0 && infoPanelEl) {
     const statueObj = intersects[0].object;
     const info = statueObj.userData.info;
-    // Populate info panel with statue details (e.g., name, year, image)
     infoPanelEl.innerHTML = `
       <h3>${info.name} (${info.year})</h3>
       <img src="${info.image}" alt="${info.name}" style="max-width:100%;" />

@@ -18,7 +18,7 @@ html, body {
   }
 
   /* Tooltip that appears on statue hover */
-.tooltip {
+#tooltip {
 	position: absolute;
 	display: none;               /* hidden by default, shown on hover */
 	padding: 4px 8px;
