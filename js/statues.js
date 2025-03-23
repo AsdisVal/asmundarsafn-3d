@@ -127,9 +127,34 @@ export function loadStatues(scene, camera) {
         object.name = 'TwoHeads';
         object.userData = { name: 'TwoHeads' };
 
-        object.scale.set(2, 2, 2);
+        object.scale.set(3, 3, 3);
         object.rotateY(Math.PI);
-        object.position.set(30, 0, -40);
+        object.position.set(30, 0, -50);
+        scene.add(object);
+      },
+      undefined,
+      (error) => {
+        console.error('Error loading OBJ model:', error); // eslint-disable-line no-console
+      }
+    );
+  });
+
+  // load another mtlobj
+  const mtlLoader4 = new MTLLoader();
+  mtlLoader4.load('data/models/scream/scream.mtl', (materials) => {
+    materials.preload();
+    const objLoader = new OBJLoader();
+    objLoader.setMaterials(materials);
+    objLoader.load(
+      'data/models/scream/scream.obj',
+      (object) => {
+        // Set position, scale, or any other properties
+        object.name = 'Scream';
+        object.userData = { name: 'scream' };
+
+        object.scale.set(3, 3, 3);
+        object.rotateY(Math.PI);
+        object.position.set(-30, 0, -50);
         scene.add(object);
       },
       undefined,
