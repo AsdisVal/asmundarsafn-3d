@@ -74,7 +74,7 @@ infoPanel.style.display = 'none';
 document.body.appendChild(infoPanel);
 
 // load statues
-loadStatues(scene, camera);
+loadStatues(scene, camera, controls);
 
 // Hover & Click Events
 window.addEventListener('mousemove', (event) => {
@@ -234,7 +234,7 @@ circleMesh.position.set(0, 2.5, 8);
 building.add(circleMesh);
 
 // load statues and seasonal effects
-loadStatues(scene, camera); // from statues.js: add statue models and interactions
+loadStatues(scene, camera, controls); // from statues.js: add statue models and interactions
 initSeasons(scene); // from seasons.js: set up seasonal system (default season)
 
 // Adjust camera and renderer on window resize

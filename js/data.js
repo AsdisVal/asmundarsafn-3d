@@ -5,7 +5,11 @@
  */
 
 // Fetch the statues data from the JSON file and return a Promise
-export function getStatuesData() {
+export async function getStatuesData() {
+  const response = await fetch('data/statues.json');
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   return fetch('data/statues.json')
     .then((response) => {
       if (!response.ok) {

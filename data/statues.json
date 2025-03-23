@@ -1,9 +1,38 @@
 [
   {
-    "id": 1,
     "name": "Piltur og stúlka",
-    "year": 1930,
-    "mtl-file": "/models/Piltur og stúlka - Uniform/piltur-og-stulka-uniform.mtl",
-    "obj-file": "/models/Piltur og stúlka - Uniform/piltur-og-stulka-uniform.obj"
+    "format": "obj",
+    "mtl": "data/models/data/models/Piltur og stúlka - Uniform/piltur_og_stulka.mtl",
+    "model": "data/models/data/models/Piltur og stúlka - Uniform/piltur_og_stulka.obj",
+    "position": { "x": 25, "y": 2.7, "z": 0 },
+    "scale": { "x": 2.5, "y": 2.5, "z": 2.5 },
+    "rotationY": 1.57,
+    "year": 2018,
+    "image": "data/images/statues/boy_and_girl.jepg",
+    "description": "Piltur og stúlka er ..."
+  },
+  {
+    "name": "Hugs",
+    "format": "obj",
+    "mtl": "data/models/hugss/hugs.mtl",
+    "model": "data/models/hugss/hugs.obj",
+    "position": { "x": 60, "y": 0, "z": -30 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 3.14,
+    "year": 2018,
+    "image": "data/images/statues/hugs.jepg",
+    "description": "Hugs er ..."
+  },
+  {
+    "name": "TwoHeads",
+    "format": "obj",
+    "mtl": "data/models/twoHeads/twoHeads.mtl",
+    "model": "data/models/twoHeads/twoHeads.obj",
+    "position": { "x": -60, "y": 0, "z": -30 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 3.14,
+    "year": 2018,
+    "image": "data/images/statues/twoHeads.jepg",
+    "description": "Twoheads er ..."
   }
 ]
