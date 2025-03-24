@@ -82,8 +82,8 @@
     "format": "obj",
     "mtl": "data/models/helreidin/helreidin.mtl",
     "model": "data/models/helreidin/helreidin.obj",
-    "position": { "x": -30, "y": 0, "z": 20 },
-    "scale": { "x": 2, "y": 2, "z": 2 },
+    "position": { "x": -60, "y": 0, "z": 10 },
+    "scale": { "x": 1.5, "y": 1.5, "z": 1.5 },
     "rotationY": 1.57,
     "year": 193,
     "image": "data/images/statues/helreidin.jepg",
@@ -114,6 +114,55 @@
     "year": 1936,
     "image": "data/images/statues/worship.jepg",
     "card": "data/images/statue-cards/worship.jepg",
+    "description": "worship stytta."
+  },
+  {
+    "name": "Washing the floor",
+    "format": "obj",
+    "mtl": "data/models/washing_the_floor/washing_the_floor.mtl",
+    "model": "data/models/washing_the_floor/washing_the_floor.obj",
+    "position": { "x": -20, "y": 0, "z": -20 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": -1.57,
+    "year": 1950,
+    "image": "data/images/statues/washing_the_floor.jepg",
+    "card": "data/images/statue-cards/washing_the_floor.jepg",
+    "description": "Washing the floor stytta."
+  },
+  {
+    "name": "Sorcerer",
+    "format": "obj",
+    "mtl": "data/models/sorcerer/sorcerer.mtl",
+    "model": "data/models/sorcerer/sorcerer.obj",
+    "position": { "x": 5, "y": 0, "z": -25 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 1.57,
+    "year": 1936,
+    "image": "data/images/statues/sorcerer.jepg",
+    "description": "Sorcerer stytta."
+  },
+  {
+    "name": "woman washing",
+    "format": "obj",
+    "mtl": "data/models/woman_washing/woman_washing.mtl",
+    "model": "data/models/woman_washing/woman_washing.obj",
+    "position": { "x": -45, "y": 0, "z": 15 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": -1.57,
+    "year": 1936,
+    "image": "data/images/statues/worship.jepg",
+    "description": "woman washing stytta."
+  },
+  {
+    "name": "White butterflies",
+    "format": "obj",
+    "mtl": "data/models/white_butterflies/white_butterflies.mtl",
+    "model": "data/models/white_butterflies/white_butterflies.obj",
+    "position": { "x": -35, "y": 0, "z": 30 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 3.14,
+    "year": 1968,
+    "image": "data/images/statues/worship.jepg",
     "description": "worship stytta."
   }
 ]
