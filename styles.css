@@ -68,3 +68,44 @@ html, body {
 	padding: 5px 10px;
 	cursor: pointer;
   }
+
+  #info-panel {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	width: 300px;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 15px;
+	border-radius: 10px;
+	display: none;
+	flex-direction: column;
+	gap: 10px;
+	max-height: 90vh;
+	overflow-y: auto;
+  }
+  
+  .info-content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+  }
+  
+  .card-image, .model-image {
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+  }
+  
+  .description {
+	font-size: 0.9em;
+  }
+  
+  #back-btn {
+	padding: 8px;
+	background: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }

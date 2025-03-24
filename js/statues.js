@@ -164,7 +164,7 @@ function onClick(event, camera, controls) {
 
     const targetPosition = new THREE.Vector3();
     statueObj.getWorldPosition(targetPosition);
-    const offset = new THREE.Vector3(0, 5, 10);
+    const offset = new THREE.Vector3(0, 2, 5);
     const newCamPos = targetPosition.clone().add(offset);
 
     gsap.to(camera.position, {
@@ -180,36 +180,15 @@ function onClick(event, camera, controls) {
     controls.enabled = false; // Disable controls while zoomed in
 
     infoPanelEl.innerHTML = `
-      <h3>${info.name} (${info.year})</h3>
-      <img src="${info.image}" alt="${info.name}" style="max-width:100%;" />
-      <img src="${info.card}" alt="${info.name}" style="max-width:100%;/>
-      <p>${info.description || 'No description available'}</p>
-      <button id="back-btn">Go to main view</button>
-    `;
-    infoPanelEl.style.display = 'block';
-
-    const backBtn = document.getElementById('back-btn');
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        gsap.to(camera.position, {
-          x: originalCameraPosition.x,
-          y: originalCameraPosition.y,
-          z: originalCameraPosition.z,
-          duration: 1.5,
-          onUpdate: () => {
-            camera.lookAt(originalTarget);
-          },
-          onComplete: () => {
-            controls.enabled = true; // Enable controls when zoomed out
-            isZoomedIn = false;
-            infoPanelEl.style.display = 'none';
-          },
-        });
-      });
-    } else {
-      if (infoPanelEl) {
-        infoPanelEl.style.display = 'none';
-      }
-    }
+    <div class="info-content">
+      <img src="${info.card}" alt="${info.name}" class="card-image"/>
+      <img src="${info.image}" alt="${info.name}" class="model-image"/>
+      <div class="description">${
+        info.description || 'No description available'
+      }</div>
+      <button id="back-btn">Back to Main View</button>
+    </div>
+  `;
+    infoPanelEl.style.display = 'flex'; // Use flex for layout
   }
 }
