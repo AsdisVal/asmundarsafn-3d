@@ -182,7 +182,8 @@ function onClick(event, camera, controls) {
     infoPanelEl.innerHTML = `
       <h3>${info.name} (${info.year})</h3>
       <img src="${info.image}" alt="${info.name}" style="max-width:100%;" />
-     <p>${info.description || 'No description available'}</p>
+      <img src="${info.card}" alt="${info.name}" style="max-width:100%;/>
+      <p>${info.description || 'No description available'}</p>
       <button id="back-btn">Go to main view</button>
     `;
     infoPanelEl.style.display = 'block';

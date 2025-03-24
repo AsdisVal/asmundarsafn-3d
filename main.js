@@ -109,14 +109,6 @@ window.addEventListener('mousemove', (event) => {
   }
 });
 
-window.addEventListener('click', (event) => {
-  if (!INTERSECTED) return;
-
-  // Show Info Panel
-  infoPanel.style.display = 'block';
-  infoPanel.innerHTML = `<strong>${INTERSECTED.userData.name}</strong><br>${INTERSECTED.userData.description}`;
-});
-
 const planeGeometry = new THREE.PlaneGeometry(200, 150);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x9acd32 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);

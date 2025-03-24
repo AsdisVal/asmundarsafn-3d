@@ -139,6 +139,7 @@
     "rotationY": 1.57,
     "year": 1936,
     "image": "data/images/statues/sorcerer.jepg",
+    "card": "data/images/statue-cards/sorcerer.jepg",
     "description": "Sorcerer stytta."
   },
   {
@@ -150,7 +151,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "year": 1936,
-    "image": "data/images/statues/worship.jepg",
+    "image": "data/images/statues/woman_washing.jepg",
+    "card": "data/images/statue-cards/woman_washingp.jepg",
     "description": "woman washing stytta."
   },
   {
@@ -163,6 +165,7 @@
     "rotationY": 3.14,
     "year": 1968,
     "image": "data/images/statues/worship.jepg",
+    "card": "data/images/statue-cards/worship.jepg",
     "description": "worship stytta."
   }
 ]
