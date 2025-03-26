@@ -158,7 +158,7 @@
   {
     "name": "woman churning butter",
     "format": "obj",
-    "mtl": "data/models/wwoman_churning_butter/woman_churning_butter.mtl",
+    "mtl": "data/models/woman_churning_butter/woman_churning_butter.mtl",
     "model": "data/models/woman_churning_butter/woman_churning_butter.obj",
     "position": { "x": 45, "y": 0, "z": -20 },
     "scale": { "x": 2, "y": 2, "z": 2 },
