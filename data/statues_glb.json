@@ -1,0 +1,12 @@
+{
+  "name": "Sorcerer",
+  "format": "glb",
+  "model": "data/models/glb/sorcerer_glb/sorcerer_glb.glb",
+  "position": { "x": 25, "y": 0, "z": -25 },
+  "scale": { "x": 2, "y": 2, "z": 2 },
+  "rotationY": 1.57,
+  "year": 1936,
+  "image": "data/images/statues/sorcerer.jepg",
+  "card": "data/images/statue-cards/sorcerer.jepg",
+  "description": "Sorcerer glb stytta."
+}

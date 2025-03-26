@@ -26,10 +26,10 @@
     "description": "Midsummer night er sæt stytta."
   },
   {
-    "name": "TwoHeads",
+    "name": "white hand",
     "format": "obj",
-    "mtl": "data/models/twoHeads/twoHeads.mtl",
-    "model": "data/models/twoHeads/twoHeads.obj",
+    "mtl": "data/models/white_hand/white_hand.mtl",
+    "model": "data/models/white_hand/white_hand.obj",
     "position": { "x": -60, "y": 0, "z": -30 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,

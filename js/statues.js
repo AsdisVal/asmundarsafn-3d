@@ -34,7 +34,7 @@ export function loadStatues(scene, camera, controls) {
         return;
       }
 
-      if (st.format === 'gltf') {
+      if (st.format === 'glb') {
         const loader = new GLTFLoader();
         loader.load(
           st.model,
