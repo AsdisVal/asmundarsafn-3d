@@ -112,8 +112,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "year": 1936,
-    "image": "data/images/statues/worship.jepg",
-    "card": "data/images/statue-cards/worship.jepg",
+    "image": "data/images/statues/mother_earth.jepg",
+    "card": "data/images/statue-cards/mother_earth.jepg",
     "description": "worship stytta."
   },
   {
@@ -156,6 +156,19 @@
     "description": "woman washing stytta."
   },
   {
+    "name": "woman churning butter",
+    "format": "obj",
+    "mtl": "data/models/wwoman_churning_butter/woman_churning_butter.mtl",
+    "model": "data/models/woman_churning_butter/woman_churning_butter.obj",
+    "position": { "x": 45, "y": 0, "z": -20 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": -1.57,
+    "year": 1936,
+    "image": "data/images/statues/woman_churning_butter.jepg",
+    "card": "data/images/statue-cards/woman_churning_butter.jepg",
+    "description": "woman churning butter stytta."
+  },
+  {
     "name": "White butterflies",
     "format": "obj",
     "mtl": "data/models/white_butterflies/white_butterflies.mtl",
@@ -164,8 +177,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
     "year": 1968,
-    "image": "data/images/statues/worship.jepg",
-    "card": "data/images/statue-cards/worship.jepg",
+    "image": "data/images/statues/white_butterflies.jepg",
+    "card": "data/images/statue-cards/white_butterflies.jepg",
     "description": "worship stytta."
   }
 ]
