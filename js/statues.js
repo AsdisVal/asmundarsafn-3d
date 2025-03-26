@@ -159,11 +159,11 @@ function onClick(event, camera, controls) {
     if (isZoomedIn) return;
     isZoomedIn = true;
 
-    originalCameraPosition.copy(camera.position);
-    originalTarget.copy(controls.target);
+    originalCameraPosition.copy(camera.position); // save original camera position
+    originalTarget.copy(controls.target); // save original camera target
 
     const targetPosition = new THREE.Vector3();
-    statueObj.getWorldPosition(targetPosition);
+    statueObj.getWorldPosition(targetPosition); // get position of clicked statue
     const offset = new THREE.Vector3(0, 2, 5);
     const newCamPos = targetPosition.clone().add(offset);
 
@@ -174,6 +174,11 @@ function onClick(event, camera, controls) {
       duration: 1.5,
       onUpdate: () => {
         camera.lookAt(targetPosition);
+      },
+      onComplete: () => {
+        // Update OrbitControls target to the selected statue’s position
+        controls.target.copy(targetPosition);
+        controls.update();
       },
     });
 
@@ -190,5 +195,24 @@ function onClick(event, camera, controls) {
     </div>
   `;
     infoPanelEl.style.display = 'flex'; // Use flex for layout
+
+    const backBtn = document.getElementById('back-btn');
+    backBtn?.addEventListener('click', () => {
+      gsap.to(camera.position, {
+        x: originalCameraPosition.x,
+        y: originalCameraPosition.y,
+        z: originalCameraPosition.z,
+        duration: 1.5,
+        onUpdate: () => {
+          camera.lookAt(originalTarget);
+        },
+        onComplete: () => {
+          controls.enabled = true; // Re-enable controls
+          infoPanelEl.style.display = 'none'; // Hide info panel
+          isZoomedIn = false;
+          document.body.classList.toggle('overview-mode');
+        },
+      });
+    });
   }
 }

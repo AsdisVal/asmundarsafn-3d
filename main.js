@@ -109,6 +109,15 @@ window.addEventListener('mousemove', (event) => {
   }
 });
 
+const overviewToggleButton = document.getElementById('overview-toggle-button');
+if (overviewToggleButton) {
+  overviewToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('overview-mode');
+  });
+} else {
+  console.warn('Overview toggle button not found');
+}
+
 const planeGeometry = new THREE.PlaneGeometry(200, 150);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x9acd32 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
