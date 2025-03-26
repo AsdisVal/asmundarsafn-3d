@@ -129,11 +129,11 @@ function createSummerEffect() {
     },
     */
     {
-      url: 'public/models/nature/garden_flower_-_vegetation/scene.gltf',
+      url: 'models/nature/garden_flower_-_vegetation/scene.gltf',
       scale: 0.8, // Adjust as needed
     },
     {
-      url: 'public/models/nature/flowers_lib/scene.gltf',
+      url: 'models/nature/flowers_lib/scene.gltf',
       scale: 0.4, // Adjust as needed
     },
   ];
@@ -185,7 +185,7 @@ function createAutumnEffect() {
   const leafGeom = new THREE.BoxGeometry(0.5, 0.5, 0.05);
   const textureLoader = new THREE.TextureLoader();
   textureLoader.load(
-    'public/models/nature/red_fall_leaf/textures/Material.001_baseColor.png',
+    'models/nature/red_fall_leaf/textures/Material.001_baseColor.png',
     (texture) => {
       const leafMat = new THREE.MeshLambertMaterial({
         map: texture,

@@ -155,6 +155,7 @@ function onClick(event, camera, controls) {
   if (intersects.length > 0 && infoPanelEl) {
     const statueObj = intersects[0].object;
     const info = statueObj.userData.info;
+    console.log(info);
 
     if (isZoomedIn) return;
     isZoomedIn = true;
