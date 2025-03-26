@@ -133,10 +133,14 @@ scene.add(building);
 
 const textureLoader = new THREE.TextureLoader();
 
-const frontWallTexture = textureLoader.load('data/texture/front_wall.jpg');
-const otherTexture = textureLoader.load('data/texture/asmundarsafn_white.jpg');
-const leftWallTexture = textureLoader.load('data/texture/left_side_wall.jpg');
-const rightWallTexture = textureLoader.load('data/texture/right_side_wall.jpg');
+const frontWallTexture = textureLoader.load('public/texture/front_wall.jpg');
+const otherTexture = textureLoader.load(
+  'public/texture/asmundarsafn_white.jpg'
+);
+const leftWallTexture = textureLoader.load('public/texture/left_side_wall.jpg');
+const rightWallTexture = textureLoader.load(
+  'public/texture/right_side_wall.jpg'
+);
 
 const frontMaterial = new THREE.MeshLambertMaterial({ map: frontWallTexture });
 const otherMaterial = new THREE.MeshLambertMaterial({ map: otherTexture });
@@ -193,7 +197,7 @@ const trapezoidGeometry = new THREE.ExtrudeGeometry(
 );
 
 const patternTexture = textureLoader.load(
-  'data/texture/asmundarsafn_white.jpg'
+  'public/texture/asmundarsafn_white.jpg'
 );
 patternTexture.wrapS = THREE.RepeatWrapping;
 patternTexture.wrapT = THREE.RepeatWrapping;
