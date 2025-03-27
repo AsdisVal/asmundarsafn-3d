@@ -7,11 +7,7 @@
     "model": "models/jonsmessunott_an_gras/jonsmessunott_an_gras.obj",
     "position": { "x": 60, "y": 0, "z": -30 },
     "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": 3.14,
-    "year": 1940,
-    "image": "images/statues/midsummer_night.jepg",
-    "card": "images/statue-cards/midsummer_night.jepg",
-    "description": "Midsummer night er sæt stytta."
+    "rotationY": 3.14
   },
   {
     "id": 1,
@@ -21,11 +17,7 @@
     "model": "models/klyfur_an_gras/klyfur_an_gras.obj",
     "position": { "x": 60, "y": 0, "z": 30 },
     "scale": { "x": 1, "y": 1, "z": 1 },
-    "rotationY": 3.14,
-    "year": 1930,
-    "image": "images/statues/twoHeads.jepg",
-    "card": "images/statue-cards/twoHeads.jepg",
-    "description": "Twoheads er stór stytta."
+    "rotationY": 3.14
   },
   {
     "id": 2,
@@ -35,11 +27,7 @@
     "model": "models/Helreidin_an_gras/helreidin_an_gras.obj",
     "position": { "x": -60, "y": 0, "z": 10 },
     "scale": { "x": 1.5, "y": 1.5, "z": 1.5 },
-    "rotationY": 1.57,
-    "year": 193,
-    "image": "images/statues/helreidin.jepg",
-    "card": "images/statue-cards/helreidin.jepg",
-    "description": "War and flight er fræg stytta."
+    "rotationY": 1.57
   },
   {
     "id": 3,
@@ -49,11 +37,7 @@
     "model": "models/addaun_an_gras/addaun_an_gras.obj",
     "position": { "x": -10, "y": 0, "z": 5 },
     "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": -1.57,
-    "year": 1933,
-    "image": "images/statues/worship.jepg",
-    "card": "images/statue-cards/worship.jepg",
-    "description": "worship stytta."
+    "rotationY": -1.57
   },
   {
     "id": 4,
@@ -63,11 +47,7 @@
     "model": "models/modir_jord_an_gras/modir_jord_an_gras.obj",
     "position": { "x": 35, "y": 0, "z": 0 },
     "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": -1.57,
-    "year": 1936,
-    "image": "images/statues/mother_earth.jepg",
-    "card": "images/statue-cards/mother_earth.jepg",
-    "description": "worship stytta."
+    "rotationY": -1.57
   },
   {
     "id": 5,
@@ -77,11 +57,7 @@
     "model": "models/vatnsberi_an_gras/vatnsberi_an_gras.obj",
     "position": { "x": 45, "y": 0, "z": -20 },
     "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": 0,
-    "year": 1936,
-    "image": "images/statues/woman_churning_butter.jepg",
-    "card": "images/statue-cards/woman_churning_butter.jepg",
-    "description": "woman churning butter stytta."
+    "rotationY": 0
   },
   {
     "id": 6,
@@ -91,7 +67,6 @@
     "model": "models/gardyrkjumadur_an_gras/gardyrkjumadur_an_gras.obj",
     "position": { "x": -5, "y": 0, "z": 35 },
     "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": -1.57,
-    "year": 1936
+    "rotationY": -1.57
   }
 ]

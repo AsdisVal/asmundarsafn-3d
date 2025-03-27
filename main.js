@@ -1,8 +1,8 @@
 /**
- *
  * main.js
- * Initializes the Three.js scene, renderer, and camera, sets up lighting and controls, and ties everything together. It also starts the animation loop.
- * */
+ * Initializes the Three.js scene, renderer, camera, lighting, and controls.
+ * Sets up the building, seasonal effects, and loads lightweight placeholders for statues.
+ */
 import './styles.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -32,9 +32,9 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement); // adds the <canvas> to the DOM
+document.body.appendChild(renderer.domElement);
 
-// Add lights
+// Lights
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
@@ -51,65 +51,13 @@ const lightHelper = new THREE.DirectionalLightHelper(directionalLight2);
 const gridHelper = new THREE.GridHelper(200, 70);
 scene.add(lightHelper, gridHelper);
 
+// OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
-// Raycaster and Mouse
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-let INTERSECTED = null;
-
-// Info Panel
-const infoPanel = document.createElement('div');
-infoPanel.style.position = 'absolute';
-infoPanel.style.bottom = '10px';
-infoPanel.style.left = '10px';
-infoPanel.style.backgroundColor = 'rgba(0,0,0,0.7)';
-infoPanel.style.color = 'white';
-infoPanel.style.padding = '10px';
-infoPanel.style.borderRadius = '5px';
-infoPanel.style.display = 'none';
-document.body.appendChild(infoPanel);
-
-// load statues
-//loadStatues(scene, camera, controls);
-loadPlaceholderStatues(scene, camera, controls);
-
-// Hover & Click Events
-window.addEventListener('mousemove', (event) => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(scene.children, true);
-
-  if (intersects.length > 0) {
-    if (INTERSECTED !== intersects[0].object) {
-      // Restore material of the previously intersected object if saved
-      if (INTERSECTED && INTERSECTED.userData.originalMaterial) {
-        INTERSECTED.material = INTERSECTED.userData.originalMaterial;
-      }
-      INTERSECTED = intersects[0].object;
-      if (INTERSECTED instanceof THREE.Mesh) {
-        // Save the original material if it hasn't been saved yet
-        if (!INTERSECTED.userData.originalMaterial) {
-          INTERSECTED.userData.originalMaterial = INTERSECTED.material;
-        }
-        // Apply highlight material
-        INTERSECTED.material = new THREE.MeshBasicMaterial({ color: 0xd1d1d1 });
-      }
-    }
-  } else {
-    // Restore the original material when no intersections are found
-    if (INTERSECTED && INTERSECTED.userData.originalMaterial) {
-      INTERSECTED.material = INTERSECTED.userData.originalMaterial;
-    }
-    INTERSECTED = null;
-  }
-});
-
+// Overview Toggle Button
 const overviewToggleButton = document.getElementById('overview-toggle-button');
 if (overviewToggleButton) {
   overviewToggleButton.addEventListener('click', () => {
@@ -118,6 +66,8 @@ if (overviewToggleButton) {
 } else {
   console.warn('Overview toggle button not found');
 }
+
+//Ground Plane
 
 const planeGeometry = new THREE.PlaneGeometry(200, 150);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x9acd32 }); // grass green
@@ -239,11 +189,13 @@ circleMesh.scale.set(4, 4, 4);
 circleMesh.position.set(0, 2.5, 8);
 building.add(circleMesh);
 
-// load statues and seasonal effects
-//loadStatues(scene, camera, controls); // from statues.js: add statue models and interactions
-initSeasons(scene); // from seasons.js: set up seasonal system (default season)
+// Seasonal Effects
+initSeasons(scene);
 
-// Adjust camera and renderer on window resize
+// Load Placeholder Statues (lazy-loading)
+loadPlaceholderStatues(scene, camera, controls);
+
+// Adjust on window resize
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
