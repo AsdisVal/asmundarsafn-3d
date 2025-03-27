@@ -208,6 +208,12 @@ rightSide.position.set(9.1, 0, 15.5);
 building.add(rightSide);
 
 // aftari parturinn
+const backBox = new THREE.BoxGeometry(9.4, 3, 16);
+backBox.translate(0, 1, 0); // shift so back is at z=-3, front at z=4.5
+const backBoxMesh = new THREE.Mesh(backBox, materials);
+backBoxMesh.position.y = 1; // so bottom sits at y=0
+backBoxMesh.position.z = -1;
+building.add(backBoxMesh);
 // Create a circle geometry that covers 70% of a full circle
 const radius = 5;
 const segments = 32;
