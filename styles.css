@@ -1,86 +1,43 @@
-/**
-Defines the CSS styles for the UI overlay elements like tooltips, info panels, 
-and the season menu, as well as any general page styles needed for the 3D scene.
-**/
-
-/* General page styling */
-canvas {
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-
+/* General Page Styles */
 html, body {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;            /* no scrollbars, content is 3D canvas */
-	background: #ececec;         /* light gray background (shown if canvas not full) */
-  }
-
-  /* Tooltip that appears on statue hover */
-#tooltip {
-	position: absolute;
-	display: none;               /* hidden by default, shown on hover */
-	padding: 4px 8px;
-	background: rgba(0, 0, 0, 0.7);
-	color: #fff;
-	border-radius: 3px;
-	font-size: 0.9em;
-	pointer-events: none;        /* allow mouse to interact with scene through tooltip */
-}
-
-  /* Radlagnið */
-#radlagning {
-	position: absolute;
-	display: none;               /* hidden by default, shown on hover */
-	padding: 4px 8px;
-	background: rgba(0, 0, 0, 0.7);
-	color: #fff;
-	border-radius: 3px;
-	font-size: 0.9em;
-	pointer-events: none;        /* allow mouse to interact with scene through tooltip */
-}
-
-/* Info panel for statue details (appears on click) */
-#info-panel {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	width: 250px;
-	max-height: 300px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid #999;
-	border-radius: 5px;
-	padding: 10px;
-	display: none;               /* start hidden, shown when needed */
-  }
-  #info-panel h3 {
-	margin: 0 0 5px;
-	font-size: 1.1em;
-  }
-  #info-panel img {
-	max-width: 100%;
-	display: block;
-	margin-bottom: 5px;
+	overflow: hidden;
+	background: #ececec;
   }
   
-  /* Season switch menu */
-  #season-menu {
+  canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+  }
+  
+  /* Tooltip Styling */
+  .tooltip {
 	position: absolute;
-	top: 10px;
-	left: 10px;
-	background: #fff;
-	padding: 5px;
-	border-radius: 5px;
+	display: none;
+	padding: 4px 8px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	border-radius: 3px;
+	font-size: 0.9em;
+	pointer-events: none;
   }
-  #season-menu button {
-	margin: 2px;
-	padding: 5px 10px;
-	cursor: pointer;
+  
+  /* Radlagning Tooltip (for placeholders) */
+  .radlagning {
+	position: absolute;
+	display: none;
+	padding: 4px 8px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	border-radius: 3px;
+	font-size: 0.9em;
+	pointer-events: none;
   }
-
-  #info-panel {
+  
+  /* Info Panel for Statue Details */
+  .info-panel {
 	position: fixed;
 	right: 10px;
 	top: 10px;
@@ -96,44 +53,36 @@ html, body {
 	overflow-y: auto;
   }
   
-  .info-content {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-  }
-  
-  .card-image, .model-image {
-	width: 100%;
-	height: auto;
+  /* Season Menu Styling */
+  #season-menu {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #fff;
+	padding: 5px;
 	border-radius: 5px;
   }
   
-  .description {
-	font-size: 0.9em;
-  }
-  
-  #back-btn {
-	padding: 8px;
-	background: #007bff;
-	color: white;
-	border: none;
-	border-radius: 5px;
+  #season-menu button {
+	margin: 2px;
+	padding: 5px 10px;
 	cursor: pointer;
   }
-
+  
+  /* Overview Toggle Button */
   #overview-toggle-button {
-    background-color: #4CAF50; /* Example color */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+  }
