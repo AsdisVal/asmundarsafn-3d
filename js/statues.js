@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { getStatuesData } from './data.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+const placeholderObjects = [];
 const statueObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -13,12 +14,26 @@ const mouse = new THREE.Vector2();
 const tooltipEl = document.getElementById('tooltip');
 const infoPanelEl = document.getElementById('info-panel');
 
+const radlagningEl = document.getElementById('radlagning');
+
 let isZoomedIn = false;
 let originalCameraPosition = new THREE.Vector3();
 let originalTarget = new THREE.Vector3();
 
 // References to tooltip and info panel elements from the DOM, they are hidden initially
-
+export function loadPlaceholderStatues(scene, camera, controls) {
+  const placeholderGeometry = new THREE.BoxGeometry(5, 5, 5);
+  const placeholderMaterial = new THREE.MeshBasicMaterial({ color: 0xeeeeee });
+  const placeholder = new THREE.Mesh(placeholderGeometry, placeholderMaterial);
+  placeholder.position.set(-5, 2.5, 35);
+  placeholder.name = 'placeholder'; // Identifier for raycasting
+  scene.add(placeholder);
+  placeholderObjects.push(placeholder);
+  window.addEventListener('pointermove', (event) =>
+    onPointerMove1(event, camera)
+  );
+  window.addEventListener('click', (event) => onClick(event, camera, controls));
+}
 /**
  *
  * Load all statues dynamically from the JSON file and add them to the scene.
@@ -147,8 +162,27 @@ function onPointerMove(event, camera) {
   }
 }
 
+function onPointerMove1(event, camera) {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const snerting = raycaster.intersectObjects(placeholderObjects, true);
+
+  if (snerting.length > 0 && radlagningEl) {
+    const statuePlaceholder = snerting[0].object;
+
+    // Tooltip
+    radlagningEl.style.left = `${event.pageX + 5}px`;
+    radlagningEl.style.top = `${event.pageY + 5}px`;
+    radlagningEl.textContent = statuePlaceholder.userData.name || 'Statue';
+    radlagningEl.style.display = 'block';
+  }
+}
+
 // Click handler: show info panel if a statue is clicked
 function onClick(event, camera, controls) {
+  loadStatues(event, camera, controls);
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(statueObjects, true);
 
@@ -167,6 +201,7 @@ function onClick(event, camera, controls) {
     statueObj.getWorldPosition(targetPosition); // get position of clicked statue
     const offset = new THREE.Vector3(0, 2, 5);
     const newCamPos = targetPosition.clone().add(offset);
+    camera.position.set(newCamPos.x, newCamPos.y, newCamPos.z);
 
     gsap.to(camera.position, {
       x: newCamPos.x,
@@ -182,8 +217,6 @@ function onClick(event, camera, controls) {
         controls.update();
       },
     });
-
-    controls.enabled = false; // Disable controls while zoomed in
 
     infoPanelEl.innerHTML = `
     <div class="info-content">

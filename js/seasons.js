@@ -27,8 +27,8 @@ export function initSeasons(scene) {
     summerGroup.visible =
     autumnGroup.visible =
       false;
-  summerGroup.visible = true; // default to summer
-  currentSeason = 'summer';
+  springGroup.visible = true; // default to summer
+  currentSeason = 'spring';
 
   createSeasonMenu();
 }
@@ -51,6 +51,7 @@ export function updateSeasonEffects() {
     });
   }
   if (currentSeason === 'spring') {
+    console.log('spring');
     // Make flowers bloom
   }
   if (currentSeason === 'summer') {

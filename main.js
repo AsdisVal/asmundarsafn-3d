@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
 import { initSeasons } from './js/seasons';
-import { loadStatues } from './js/statues';
+import { loadPlaceholderStatues, loadStatues } from './js/statues';
 
 const canvas = document.querySelector('#c');
 if (!canvas) {
@@ -74,7 +74,8 @@ infoPanel.style.display = 'none';
 document.body.appendChild(infoPanel);
 
 // load statues
-loadStatues(scene, camera, controls);
+//loadStatues(scene, camera, controls);
+loadPlaceholderStatues(scene, camera, controls);
 
 // Hover & Click Events
 window.addEventListener('mousemove', (event) => {
@@ -239,7 +240,7 @@ circleMesh.position.set(0, 2.5, 8);
 building.add(circleMesh);
 
 // load statues and seasonal effects
-loadStatues(scene, camera, controls); // from statues.js: add statue models and interactions
+//loadStatues(scene, camera, controls); // from statues.js: add statue models and interactions
 initSeasons(scene); // from seasons.js: set up seasonal system (default season)
 
 // Adjust camera and renderer on window resize
