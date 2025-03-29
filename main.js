@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
 import { initSeasons } from './js/seasons';
-import { loadPlaceholderStatues, loadStatues } from './js/statues';
+import { loadPlaceholderStatues } from './js/statues';
 
 const canvas = document.querySelector('#c');
 if (!canvas) {
