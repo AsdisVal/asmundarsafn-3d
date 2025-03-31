@@ -9,6 +9,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { updateSeasonEffects } from './js/seasons';
 import { initSeasons } from './js/seasons';
 import { loadPlaceholderStatues } from './js/statues';
+import { OBJLoader } from 'three/examples/jsm/Addons.js';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 
 const canvas = document.querySelector('#c');
 if (!canvas) {
@@ -188,6 +190,20 @@ circleMesh.rotateZ(Math.PI * 1.1);
 circleMesh.scale.set(4, 4, 4);
 circleMesh.position.set(0, 2.5, 8);
 building.add(circleMesh);
+
+// ad a model of the buillding instead
+// add mtl loader and also obj loader
+const mtlLoader = new MTLLoader();
+mtlLoader.load('asmundarsafn/asmundarsafni.mtl', (materials) => {
+  const objLoader = new OBJLoader();
+  objLoader.setMaterials(materials);
+  objLoader.load('asmundarsafn/asmundarsafni.obj', (object) => {
+    object.position.set(10, 10, 10);
+    object.scale.set(3, 3, 3);
+    object.rotation.set(0, 0, 0);
+    scene.add(object);
+  });
+});
 
 // Seasonal Effects
 initSeasons(scene);

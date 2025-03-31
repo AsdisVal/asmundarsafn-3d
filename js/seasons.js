@@ -198,9 +198,9 @@ function createAutumnEffect() {
       for (let i = 0; i < 50; i++) {
         const leaf = new THREE.Mesh(leafGeom, leafMat);
         leaf.position.set(
-          Math.random() * 40 - 20,
+          Math.random() * 50 - 25,
           Math.random() * 15 + 5,
-          Math.random() * 40 - 20
+          Math.random() * 50 - 25
         );
         leaf.rotation.set(
           Math.random() * Math.PI,
