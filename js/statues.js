@@ -122,9 +122,17 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
               model.rotation.y = statueData.rotationY;
             }
             scene.add(model);
-            // Mark the statue as visited and update placeholder appearance
             statueData.visited = true;
             placeholder.material.color.set(0xff0000);
+
+            // ✨ Show info tab
+            if (radlagningEl) {
+              radlagningEl.style.display = 'block';
+              radlagningEl.innerHTML = `
+                <h3>${statueData.name}</h3>
+                <p>${statueData.description || 'No description available.'}</p>
+              `;
+            }
           },
           undefined,
           (error) => console.error('Error loading GLTF model:', error)
@@ -159,6 +167,17 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
                 scene.add(object);
                 statueData.visited = true;
                 placeholder.material.color.set(0xff0000);
+
+                // ✨ Show info tab
+                if (radlagningEl) {
+                  radlagningEl.style.display = 'block';
+                  radlagningEl.innerHTML = `
+                    <h3>${statueData.name}</h3>
+                    <p>${
+                      statueData.description || 'No description available.'
+                    }</p>
+                  `;
+                }
               },
               undefined,
               (error) => console.error('Error loading OBJ model:', error)

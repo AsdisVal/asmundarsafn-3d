@@ -8,7 +8,9 @@
     "position": { "x": 60, "y": 0, "z": -30 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Midsummer_night er stórt stytta."
   },
   {
     "id": 1,
@@ -19,7 +21,9 @@
     "position": { "x": 60, "y": 0, "z": 30 },
     "scale": { "x": 1, "y": 1, "z": 1 },
     "rotationY": 3.14,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Twoheads er stórt stytta."
   },
   {
     "id": 2,
@@ -30,7 +34,9 @@
     "position": { "x": -60, "y": 0, "z": 10 },
     "scale": { "x": 1.5, "y": 1.5, "z": 1.5 },
     "rotationY": 1.57,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Helreidin er stórt stytta."
   },
   {
     "id": 3,
@@ -41,7 +47,9 @@
     "position": { "x": -10, "y": 0, "z": 5 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Worship er stórt stytta."
   },
   {
     "id": 4,
@@ -52,7 +60,9 @@
     "position": { "x": 35, "y": 0, "z": 0 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Mother earth er stórt stytta."
   },
   {
     "id": 5,
@@ -63,7 +73,9 @@
     "position": { "x": 45, "y": 0, "z": -20 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Woman churning butter er stórt stytta."
   },
   {
     "id": 6,
@@ -74,6 +86,8 @@
     "position": { "x": -5, "y": 0, "z": 35 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
-    "visited": false
+    "visited": false,
+    "year": 1930,
+    "description": "Gardyrkjumadur er stórt stytta."
   }
 ]
