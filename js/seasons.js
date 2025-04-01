@@ -36,10 +36,11 @@ export function initSeasons(scene) {
 // Frame-by-frame update for animated effects
 export function updateSeasonEffects() {
   if (currentSeason === 'winter') {
-    // Make snow particles
     winterGroup.children.forEach((p) => {
       p.position.y -= 0.1;
-      if (p.position.y < 0) p.position.y = 20; // reset snowflake to top
+      p.position.x += Math.sin(p.rotation.y) * 0.01; // drift
+      p.rotation.y += 0.01; // spin
+      if (p.position.y < 0) p.position.y = 20;
     });
   }
   if (currentSeason === 'autumn') {
@@ -51,8 +52,13 @@ export function updateSeasonEffects() {
     });
   }
   if (currentSeason === 'spring') {
-    console.log('spring');
-    // Make flowers bloom
+    springGroup.children.forEach((flower) => {
+      const s = flower.scale.x;
+      if (s < 1) {
+        const newScale = s + 0.01;
+        flower.scale.set(newScale, newScale, newScale);
+      }
+    });
   }
   if (currentSeason === 'summer') {
     // Have birds fly around
@@ -104,116 +110,69 @@ function createWinterEffect() {
 
 function createSpringEffect() {
   const group = new THREE.Group();
-  // Example: Could add animated birds here
-  //left as a placeholder for later...
+
+  const flowerGeometry = new THREE.SphereGeometry(0.2, 16, 16);
+  const flowerMaterial = new THREE.MeshStandardMaterial({ color: 0xffc0cb });
+
+  for (let i = 0; i < 30; i++) {
+    const flower = new THREE.Mesh(flowerGeometry, flowerMaterial.clone());
+    flower.position.set(Math.random() * 40 - 20, 0, Math.random() * 40 - 20);
+    flower.scale.set(0.01, 0.01, 0.01); // Start tiny for bloom effect
+    group.add(flower);
+  }
+
   return group;
 }
 
 function createSummerEffect() {
   const group = new THREE.Group();
 
-  // Define each model with both its file path and a preferred scale
-  const modelConfigs = [
-    /*
-    {
-      url: 'data/models/nature/linen_with_flowers/scene.gltf',
-      scale: 0.05, // A bit smaller
-    },
-    
-    {
-      url: 'data/models/nature/white_flower/scene.gltf',
-      scale: 0.02, // Larger still
-    },
-     {
-      url: 'data/models/nature/flower/scene.gltf',
-      scale: 0.02, // Make this model slightly bigger
-    },
-    */
-    {
-      url: 'models/nature/garden_flower_-_vegetation/scene.gltf',
-      scale: 0.8, // Adjust as needed
-    },
-    {
-      url: 'models/nature/flowers_lib/scene.gltf',
-      scale: 0.4, // Adjust as needed
-    },
-  ];
+  const birdGeometry = new THREE.BoxGeometry(0.5, 0.2, 0.2);
+  const birdMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+  const bird = new THREE.Mesh(birdGeometry, birdMaterial);
+  bird.position.set(0, 10, 0);
+  group.add(bird);
 
-  const loader = new GLTFLoader();
-
-  modelConfigs.forEach((config) => {
-    loader.load(
-      config.url,
-      (gltf) => {
-        // Create multiple instances of each model type
-        for (let i = 0; i < 20; i++) {
-          const instance = gltf.scene.clone();
-
-          // Random positioning (adjust ranges as needed for your scene)
-          instance.position.set(
-            Math.random() * 120 - 50, // X range
-            0,
-            Math.random() * 70 - 50 // Z range
-          );
-          // Apply the model-specific scale
-          instance.scale.set(config.scale, config.scale, config.scale);
-          // Optionally add a little random variation:
-          const randomFactor = 1 + (Math.random() * 0.2 - 0.1); // +/- 10%
-          instance.scale.set(
-            config.scale * randomFactor,
-            config.scale * randomFactor,
-            config.scale * randomFactor
-          );
-          // Random rotation for variety
-          instance.rotation.y = Math.random() * Math.PI * 2;
-
-          group.add(instance);
-        }
-      },
-      undefined, // onProgress callback (optional)
-      (error) => {
-        console.error(`Error loading model from ${config.url}:`, error);
-      }
+  let angle = 0;
+  const radius = 10;
+  function animateBird() {
+    angle += 0.01;
+    bird.position.set(
+      Math.cos(angle) * radius,
+      10 + Math.sin(angle * 2) * 2,
+      Math.sin(angle) * radius
     );
-  });
+    requestAnimationFrame(animateBird);
+  }
+  animateBird();
 
   return group;
 }
 
 function createAutumnEffect() {
-  const group = new THREE.Group();
-  // create flat plane leaves with brownish color
-  const leafGeom = new THREE.BoxGeometry(0.5, 0.5, 0.05);
-  const textureLoader = new THREE.TextureLoader();
-  textureLoader.load(
-    'models/nature/red_fall_leaf/textures/Material.001_baseColor.png',
-    (texture) => {
-      const leafMat = new THREE.MeshLambertMaterial({
-        map: texture,
-        transparent: true,
-        side: THREE.DoubleSide,
-        alphaTest: 0.5,
-        depthWrite: false,
-      });
-      for (let i = 0; i < 50; i++) {
-        const leaf = new THREE.Mesh(leafGeom, leafMat);
-        leaf.position.set(
-          Math.random() * 50 - 25,
-          Math.random() * 15 + 5,
-          Math.random() * 50 - 25
-        );
-        leaf.rotation.set(
-          Math.random() * Math.PI,
-          Math.random() * Math.PI,
-          Math.random() * Math.PI
-        );
-        group.add(leaf);
-      }
-    },
-    undefined,
-    (error) => {
-      console.error('Error loading leaf texture:', error);
-    }
-  );
+  const group = new THREE.Group(); // Initialize the group
+  const leafGeom = new THREE.PlaneGeometry(0.5, 0.5); // Define leaf geometry
+
+  for (let i = 0; i < 50; i++) {
+    const leafMat = new THREE.MeshBasicMaterial({
+      color: new THREE.Color().setHSL(Math.random() * 0.2 + 0.05, 1, 0.5),
+      transparent: true,
+      opacity: Math.random() * 0.5 + 0.5,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    const leaf = new THREE.Mesh(leafGeom, leafMat);
+    leaf.position.set(
+      Math.random() * 50 - 25,
+      Math.random() * 15 + 5,
+      Math.random() * 50 - 25
+    );
+    leaf.rotation.set(
+      Math.random() * Math.PI,
+      Math.random() * Math.PI,
+      Math.random() * Math.PI
+    );
+    group.add(leaf);
+  }
   return group;
 }

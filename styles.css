@@ -55,18 +55,20 @@ html, body {
   
   /* Season Menu Styling */
   #season-menu {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	background: #fff;
-	padding: 5px;
-	border-radius: 5px;
+	position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
   }
   
   #season-menu button {
-	margin: 2px;
-	padding: 5px 10px;
-	cursor: pointer;
+	margin: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
   }
   
   /* Overview Toggle Button */
