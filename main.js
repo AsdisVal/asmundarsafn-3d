@@ -81,10 +81,10 @@ scene.add(ground);
 // ad a model of the buillding instead
 // add mtl loader and also obj loader
 const mtlLoader = new MTLLoader();
-mtlLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_18.mtl', (materials) => {
+mtlLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
-  objLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_18.obj', (object) => {
+  objLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.obj', (object) => {
     object.position.set(0, 1, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
