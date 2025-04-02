@@ -72,20 +72,20 @@ if (overviewToggleButton) {
 //Ground Plane
 
 const planeGeometry = new THREE.PlaneGeometry(200, 150);
-const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x9acd32 }); // grass green
+const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x66b266 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = 0;
 scene.add(ground);
 
-// ad a model of the buillding instead
+// add a model of the building instead
 // add mtl loader and also obj loader
 const mtlLoader = new MTLLoader();
 mtlLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
   objLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.obj', (object) => {
-    object.position.set(0, 1, 10);
+    object.position.set(0, 0.2, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
     scene.add(object);

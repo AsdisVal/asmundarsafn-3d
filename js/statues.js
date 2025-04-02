@@ -104,7 +104,7 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
         loader.load(
           statueData.model,
           (gltf) => {
-            placeholder.visible = false;
+            //placeholder.visible = false;
             const model = gltf.scene;
             model.position.set(
               statueData.position.x,
@@ -121,11 +121,11 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
             if (statueData.rotationY) {
               model.rotation.y = statueData.rotationY;
             }
+
             scene.add(model);
             statueData.visited = true;
             placeholder.material.color.set(0xff0000);
 
-            // ✨ Show info tab
             if (radlagningEl) {
               radlagningEl.style.display = 'block';
               radlagningEl.innerHTML = `

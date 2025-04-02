@@ -83,11 +83,24 @@
     "format": "obj",
     "mtl": "models/gardyrkjumadur_an_gras/gardyrkjumadur_an_gras.mtl",
     "model": "models/gardyrkjumadur_an_gras/gardyrkjumadur_an_gras.obj",
-    "position": { "x": -5, "y": 0, "z": 35 },
+    "position": { "x": -7, "y": 0, "z": 20 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 0,
+    "visited": false,
+    "year": 1930,
+    "description": "Gardyrkjumadur er stórt stytta."
+  },
+  {
+    "id": 7,
+    "name": "weather_teller",
+    "format": "obj",
+    "mtl": "models/Weather teller an gras/weather_teller_an_gras_dec.mtl",
+    "model": "models/Weather teller an gras/weather_teller_an_gras_dec.obj",
+    "position": { "x": 7, "y": 0, "z": 20 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Gardyrkjumadur er stórt stytta."
+    "description": "Weather teller er stórt stytta."
   }
 ]
