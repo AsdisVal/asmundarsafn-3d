@@ -1,195 +1,138 @@
-/* ========== Reset & Base Styles ========== */
-* {
+/* ========== RESET & BASE ========== */
+:root {
+	--z-canvas: 10;
+	--z-tooltips: 100;
+	--z-panels: 1000;
+	--primary-accent: #4CAF50;
+	--surface-overlay: rgba(0, 0, 0, 0.87);
+	--transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  *,
+  *::before,
+  *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	min-width: 0; /* Prevent overflow in flex/grid */
   }
-
-  html, body {
-	width: 100%;
-	height: 100%;
+  
+  html {
+	block-size: 100%;
+	font-size: 16px; /* Explicit base size */
+  }
+  
+  body {
+	min-block-size: 100%;
 	background: #ececec;
-	overflow: hidden;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-/* ========== Canvas ========== */
-canvas#c {
-	position: fixed;
-	top: 0;
-	left: 0;
-  }
-  
-
-/* ========== Tooltip Styling ========== */
-.tooltip,
-.radlagning {
-  position: absolute;
-  display: none;
-  padding: 6px 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  border-radius: 4px;
-  font-size: 0.9em;
-  pointer-events: none;
-  z-index: 100;
-  max-width: 300px;
-  line-height: 1.4;
-}
-
-
-/* ========== Info Panel ========== */
-.info-panel {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 300px;
-  max-height: 90vh;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  border-radius: 10px;
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  overflow-y: auto;
-  z-index: 999;
-}
-
-/* ========== Season Menu ========== */
-#season-menu {
-	position: fixed;
-	top: 10px;
-	left: 10px;
-	z-index: 999;
-  }
-  
-#season-menu button {
-  margin: 4px;
-  padding: 6px 12px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  background-color: #eee;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-
-#season-menu button:hover {
-	background-color: #ddd;
-  }
-  
-/* ========== Overview Toggle Button ========== */
-#overview-toggle-button {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	padding: 10px 20px;
-	background-color: #4CAF50;
-	color: white;
-	font-size: 16px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	z-index: 1000;
-	transition: background-color 0.3s ease;
-  }
-  
-  #overview-toggle-button:hover {
-	background-color: #45a049;
-  }
-
-
-/* ========== Modal Overlay ========== */
-.modal-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	padding: 20px;
-	background: rgba(146, 180, 205, 0.47);
-	display: none;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	box-sizing: border-box;
-	z-index: 1000;
-  }
-  
-.modal-content {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	background: #fff;
-	color: #000;
-	max-width: 1000px;
-	width: 100%;
-	max-height: 85%;
-	padding: 20px;
-	border-radius: 12px;
-	overflow-y: auto;
-	box-shadow: 0 0 25px rgba(0,0,0,0.3);
-  }
-  
-  
-/* ========== Modal Content Panels ========== */
-.left-panel,
-.right-panel {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.left-panel canvas {
-  height: 300px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-
-.left-panel canvas#statue3DCanvas {
-	width: 100%;
-	height: 250px;
-	background: #f0f0f0;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	display: block;
-  }
-
-.left-panel img,
-.right-panel img {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-
-/* ========== Statue Details ========== */
-#statueDetails p {
-	margin-bottom: 10px;
-	font-size: 0.95em;
+	font-family: system-ui, 'Segoe UI', Roboto, sans-serif; /* Modern stack */
 	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
   }
   
-  /* ========== Overview Button ========== */
-  #overviewBtn {
-	margin-top: 20px;
-	padding: 12px 24px;
-	font-size: 16px;
-	font-weight: bold;
-	background-color: #4CAF50;
-	color: white;
-	border: none;
-	border-radius: 8px;
+  /* ========== CANVAS ========== */
+  canvas#c {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-canvas);
+  }
+  
+  /* ========== TOOLTIPS ========== */
+  [class*="tooltip"] {
+	position: absolute;
+	display: none;
+	padding: 0.5rem 0.75rem;
+	background: var(--surface-overlay);
+	color: #fff;
+	border-radius: 0.25rem;
+	font-size: 0.875rem;
+	pointer-events: none;
+	z-index: var(--z-tooltips);
+	max-inline-size: 20rem;
+	backdrop-filter: blur(4px);
+	transform: translateY(-0.25rem);
+	opacity: 0;
+	transition: opacity 0.2s var(--transition-ease);
+  }
+  
+  /* ========== PANELS ========== */
+  .info-panel {
+	position: fixed;
+	inset-block-start: 1rem;
+	inset-inline-end: 1rem;
+	inline-size: min(90vw, 300px);
+	padding: 1.25rem;
+	background: var(--surface-overlay);
+	border-radius: 0.75rem;
+	backdrop-filter: blur(12px);
+	box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+	z-index: var(--z-panels);
+  }
+  
+  /* ========== CONTROLS ========== */
+  .control-group {
+	position: fixed;
+	inset-block-start: 1rem;
+	inset-inline-start: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	z-index: var(--z-panels);
+  }
+  
+  button {
+	--_bg: var(--primary-accent);
+	
+	padding: 0.625rem 1.25rem;
+	border: 0;
+	border-radius: 0.5rem;
+	background: var(--_bg);
+	color: #fff;
+	font: inherit;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: 
+	  background 0.2s var(--transition-ease),
+	  transform 0.1s var(--transition-ease);
   }
   
-  #overviewBtn:hover {
-	background-color: #45a049;
+  button:where(:hover, :focus-visible) {
+	--_bg: color-mix(in srgb, var(--primary-accent) 90%, black);
+	transform: translateY(-1px);
+  }
+  
+  /* ========== MODALS ========== */
+  .modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	background: rgba(146 180 205 / 0.47);
+	backdrop-filter: blur(8px);
+	z-index: calc(var(--z-panels) + 1);
+  }
+  
+  .modal-content {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.5rem;
+	inline-size: min(100%, 62.5rem); /* 1000px */
+	max-block-size: 85vh;
+	padding: 1.5rem;
+	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+	overflow-y: auto;
+  }
+  
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+	.modal-content {
+	  grid-template-columns: 1fr;
+	}
+	
+	.info-panel {
+	  inset-inline-end: 50%;
+	  transform: translateX(50%);
+	}
   }
