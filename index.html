@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="is">
-  <head>
-    <meta charset="utf-8">
-    <title>Garður Ásmundar í þrívídd</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <canvas id="c"></canvas>
-    <!-- Tooltip and info panel overlays -->
-    <div id="tooltip" class="tooltip"></div>
-    <div id="radlagning" style="position: absolute;top: 20px;left: 20px;background: rgba(0,0,0,0.7);color: white;padding: 10px;  border-radius: 8px;  z-index: 100;  display: none;  max-width: 300px;"></div>
-    <div id="info-panel" class="info-panel"></div>
-    <!-- Modal Overlay (hidden by default) -->
-    <div id="statueModal" class="modal-overlay" style="display: none;">
-      <div class="modal-content">
-        <!-- Left panel: 3D canvas and image card -->
-        <div class="left-panel">
-          <canvas id="statue3DCanvas"></canvas>
-          <img id="imageCard" src="image-card.png" alt="Image Card" />
-        </div>
-        <!-- Right panel: Photo and description -->
-        <div class="right-panel">
-          <img id="statuePhoto" src="" alt="Statue Photo" />
-          <div id="statueDetails">
-            <p id="statueDesc"></p>
-            <p id="statueYear"></p>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garður Ásmundar í þrívídd</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="c" aria-label="3D Sculpture View"></canvas>
+
+  <!-- Tooltip Elements -->
+  <div id="tooltip" class="tooltip" role="tooltip"></div>
+  <div id="radlagning" class="radlagning" role="tooltip"></div>
+
+  <!-- Statue Info Panel -->
+  <div id="info-panel" class="info-panel" aria-live="polite"></div>
+
+  <!-- Modal Overlay -->
+  <div id="statueModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="statueDesc">
+    <div class="modal-content">
+
+      <!-- Left Panel -->
+      <div class="left-panel">
+        <canvas id="statue3DCanvas" aria-label="3D View of Statue"></canvas>
+        <img id="imageCard" src="image-card.png" alt="Rendering of the statue">
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <img id="statuePhoto" src="" alt="Photo of the statue">
+        <div id="statueDetails">
+          <p id="statueDesc"></p>
+          <p id="statueYear"></p>
         </div>
       </div>
-      <!-- Bottom-centered button -->
-      <button id="overviewBtn">Go to Overview</button>
     </div>
-    <script type="module" src="main.js"></script>
-  </body>
+
+    <!-- Overview Button -->
+    <button id="overviewBtn">Go to Overview</button>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
 </html>

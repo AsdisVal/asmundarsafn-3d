@@ -14,11 +14,10 @@
   }
   
 /* ========== Canvas ========== */
-canvas {
+canvas#c {
 	position: fixed;
 	top: 0;
 	left: 0;
-	display: block;
   }
   
 
@@ -150,6 +149,16 @@ canvas {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
+
+.left-panel canvas#statue3DCanvas {
+	width: 100%;
+	height: 250px;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	display: block;
+  }
 
 .left-panel img,
 .right-panel img {
