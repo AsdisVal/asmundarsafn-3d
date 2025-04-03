@@ -35,14 +35,13 @@ export function loadPlaceholderStatues(scene, camera, controls) {
       scene.add(placeholder);
       placeholderObjects.push(placeholder);
     });
+    window.addEventListener('pointermove', (event) =>
+      onPlaceholderPointerMove(event, camera)
+    );
+    window.addEventListener('click', (event) =>
+      onPlaceholderClick(event, camera, controls, scene)
+    );
   });
-
-  window.addEventListener('pointermove', (event) =>
-    onPlaceholderPointerMove(event, camera)
-  );
-  window.addEventListener('click', (event) =>
-    onPlaceholderClick(event, camera, controls, scene)
-  );
 }
 
 function onPlaceholderPointerMove(event, camera) {
@@ -84,7 +83,10 @@ function openStatueModal(statueData) {
   const year = document.getElementById('statueYear');
   const card = document.getElementById('imageCard');
 
-  if (!modal || !canvas) return;
+  if (!modal || !canvas) {
+    console.error('Modal elements not found!');
+    return;
+  }
 
   // Safely set properties only if the element exists
   if (photo instanceof HTMLImageElement) photo.src = statueData.image;

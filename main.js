@@ -55,7 +55,7 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
-const planeGeometry = new THREE.PlaneGeometry(140, 100);
+const planeGeometry = new THREE.PlaneGeometry(200, 200);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x66b266 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
