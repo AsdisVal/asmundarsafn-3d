@@ -40,6 +40,7 @@ canvas#c {
   
 
 /* ========== Tooltip Styling ========== */
+
 .radlagning {
   position: absolute;
   display: none;
@@ -54,25 +55,8 @@ canvas#c {
   line-height: 1.4;
 }
 
-[class*="tooltip"] {
-	position: absolute;
-	display: none;
-	padding: 0.5rem 0.75rem;
-	background: var(--surface-overlay);
-	color: #fff;
-	border-radius: 0.25rem;
-	font-size: 0.875rem;
-	pointer-events: none;
-	z-index: var(--z-tooltips);
-	max-inline-size: 20rem;
-	backdrop-filter: blur(4px);
-	transform: translateY(-0.25rem);
-	opacity: 0;
-	transition: opacity 0.2s var(--transition-ease);
-  }
 
-/* ========== PANELS ========== */
-
+/* ========== Info Panel ========== */
 .info-panel {
   position: fixed;
   top: 10px;
