@@ -49,10 +49,6 @@ directionalLight2.position.set(0, 10, 5);
 directionalLight2.target.position.set(-5, 0, 0);
 scene.add(directionalLight2);
 
-const lightHelper = new THREE.DirectionalLightHelper(directionalLight2);
-const gridHelper = new THREE.GridHelper(200, 70);
-scene.add(lightHelper, gridHelper);
-
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;

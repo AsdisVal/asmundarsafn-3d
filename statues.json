@@ -10,7 +10,9 @@
     "rotationY": 3.14,
     "visited": false,
     "year": 1930,
-    "description": "Midsummer_night er stórt stytta."
+    "description": "Midsummer_night er stórt stytta.",
+    "image": "images/statues/midsummer_night.jepg",
+    "image-card": "images/statue-cards/midsummer_night.jepg"
   },
   {
     "id": 1,
@@ -23,7 +25,9 @@
     "rotationY": 3.14,
     "visited": false,
     "year": 1930,
-    "description": "Twoheads er stórt stytta."
+    "description": "Twoheads er stórt stytta.",
+    "image": "images/statues/two_heads.jepg",
+    "image-card": "images/statue-cards/two_heads.jepg"
   },
   {
     "id": 2,
@@ -36,7 +40,9 @@
     "rotationY": 1.57,
     "visited": false,
     "year": 1930,
-    "description": "Helreidin er stórt stytta."
+    "description": "Helreidin er stórt stytta.",
+    "image": "images/statues/helreidin.jepg",
+    "image-card": "images/statue-cards/helreidin.jepg"
   },
   {
     "id": 3,
@@ -49,7 +55,9 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Worship er stórt stytta."
+    "description": "Worship er stórt stytta.",
+    "image": "images/statues/worship.jepg",
+    "image-card": "images/statue-cards/worship.jepg"
   },
   {
     "id": 4,
@@ -62,11 +70,13 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Mother earth er stórt stytta."
+    "description": "Mother earth er stórt stytta.",
+    "image": "images/statues/mother_earth.jepg",
+    "image-card": "images/statue-cards/mother_earth.jepg"
   },
   {
     "id": 5,
-    "name": "woman churning butter",
+    "name": "Vatnsberi",
     "format": "obj",
     "mtl": "models/vatnsberi_an_gras/vatnsberi_an_gras.mtl",
     "model": "models/vatnsberi_an_gras/vatnsberi_an_gras.obj",
@@ -75,7 +85,9 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Woman churning butter er stórt stytta."
+    "description": "Vatnsberi er stórt stytta.",
+    "image": "images/statues/vatnsberi.jpeg",
+    "image-card": "images/statue-cards/vatnsberi.jpeg"
   },
   {
     "id": 6,
@@ -88,7 +100,9 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Gardyrkjumadur er stórt stytta."
+    "description": "Gardyrkjumadur er stórt stytta.",
+    "image": "images/statues/gardener.jpeg",
+    "image-card": "images/statue-cards/gardener.jpeg"
   },
   {
     "id": 7,
@@ -101,6 +115,8 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Weather teller er stórt stytta."
+    "description": "Weather teller er stórt stytta.",
+    "image": "images/statues/weather_teller.jpeg",
+    "image-card": "images/statue-cards/weather_teller.jpeg"
   }
 ]
