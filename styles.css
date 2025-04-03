@@ -1,28 +1,45 @@
-/* ========== Reset & Base Styles ========== */
-* {
+/* ========== RESET & BASE ========== */
+:root {
+	--z-canvas: 10;
+	--z-tooltips: 100;
+	--z-panels: 1000;
+	--primary-accent: #4CAF50;
+	--surface-overlay: rgba(0, 0, 0, 0.87);
+	--transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  *,
+  *::before,
+  *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	min-width: 0; /* Prevent overflow in flex/grid */
   }
 
-  html, body {
-	width: 100%;
-	height: 100%;
-	background: #ececec;
-	overflow: hidden;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  html {
+	block-size: 100%;
+	font-size: 16px; /* Explicit base size */
   }
   
-/* ========== Canvas ========== */
+  body {
+	min-block-size: 100%;
+	background: #ececec;
+	font-family: system-ui, 'Segoe UI', Roboto, sans-serif; /* Modern stack */
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+  }
+  
+
+/* ========== CANVAS ========== */
 canvas#c {
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0;
+	z-index: var(--z-canvas);
   }
   
 
 /* ========== Tooltip Styling ========== */
-.tooltip,
 .radlagning {
   position: absolute;
   display: none;
@@ -37,8 +54,25 @@ canvas#c {
   line-height: 1.4;
 }
 
+[class*="tooltip"] {
+	position: absolute;
+	display: none;
+	padding: 0.5rem 0.75rem;
+	background: var(--surface-overlay);
+	color: #fff;
+	border-radius: 0.25rem;
+	font-size: 0.875rem;
+	pointer-events: none;
+	z-index: var(--z-tooltips);
+	max-inline-size: 20rem;
+	backdrop-filter: blur(4px);
+	transform: translateY(-0.25rem);
+	opacity: 0;
+	transition: opacity 0.2s var(--transition-ease);
+  }
 
-/* ========== Info Panel ========== */
+/* ========== PANELS ========== */
+
 .info-panel {
   position: fixed;
   top: 10px;
