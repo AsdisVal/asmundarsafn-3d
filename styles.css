@@ -13,10 +13,12 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  canvas {
+/* ========== Canvas ========== */
+canvas {
 	position: fixed;
 	top: 0;
 	left: 0;
+	display: block;
   }
   
   /* Tooltip Styling */
