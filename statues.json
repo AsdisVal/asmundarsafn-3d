@@ -11,8 +11,8 @@
     "visited": false,
     "year": 1930,
     "description": "Midsummer_night er stórt stytta.",
-    "image": "images/statues/midsummer_night.jepg",
-    "image-card": "images/statue-cards/midsummer_night.jepg"
+    "image": "images/statues/midsummer_night.jpeg",
+    "image-card": "images/statue-cards/midsummer_night.jpeg"
   },
   {
     "id": 1,
@@ -26,8 +26,8 @@
     "visited": false,
     "year": 1930,
     "description": "Twoheads er stórt stytta.",
-    "image": "images/statues/two_heads.jepg",
-    "image-card": "images/statue-cards/two_heads.jepg"
+    "image": "images/statues/two_heads.jpeg",
+    "image-card": "images/statue-cards/two_heads.jpeg"
   },
   {
     "id": 2,
@@ -41,8 +41,8 @@
     "visited": false,
     "year": 1930,
     "description": "Helreidin er stórt stytta.",
-    "image": "images/statues/helreidin.jepg",
-    "image-card": "images/statue-cards/helreidin.jepg"
+    "image": "images/statues/helreidin.jpeg",
+    "image-card": "images/statue-cards/helreidin.jpeg"
   },
   {
     "id": 3,
@@ -56,8 +56,8 @@
     "visited": false,
     "year": 1930,
     "description": "Worship er stórt stytta.",
-    "image": "images/statues/worship.jepg",
-    "image-card": "images/statue-cards/worship.jepg"
+    "image": "images/statues/worship.jpeg",
+    "image-card": "images/statue-cards/worship.jpeg"
   },
   {
     "id": 4,
@@ -71,8 +71,8 @@
     "visited": false,
     "year": 1930,
     "description": "Mother earth er stórt stytta.",
-    "image": "images/statues/mother_earth.jepg",
-    "image-card": "images/statue-cards/mother_earth.jepg"
+    "image": "images/statues/mother_earth.jpeg",
+    "image-card": "images/statue-cards/mother_earth.jpeg"
   },
   {
     "id": 5,

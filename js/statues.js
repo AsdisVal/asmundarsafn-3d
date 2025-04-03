@@ -21,7 +21,7 @@ let modalAnimating = false;
 export function loadPlaceholderStatues(scene, camera, controls) {
   getStatuesData().then((statues) => {
     statues.forEach((st) => {
-      const geometry = new THREE.CylinderGeometry(1, 1, 2, 32);
+      const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
       const color = st.visited ? 0xff0000 : 0xeeeeee;
       const material = new THREE.MeshBasicMaterial({
         color: color,
