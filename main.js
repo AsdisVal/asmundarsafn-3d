@@ -1,8 +1,13 @@
-/**
- * main.js
+/*****************************************************************************************
+ * Main.js
+ *
+ * @author Ásdís Valtýsdóttir
+ * @version 1.0
+ *
  * Initializes the Three.js scene, renderer, camera, lighting, and controls.
  * Sets up the building, seasonal effects, and loads lightweight placeholders for statues.
- */
+ ****************************************************************************************/
+
 import './styles.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';

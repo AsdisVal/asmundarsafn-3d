@@ -3,8 +3,9 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
-import { getStatuesData } from './data.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { getStatuesData } from './data.js';
+
 const placeholderObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -86,10 +87,10 @@ function openStatueModal(statueData) {
   if (!modal || !canvas) return;
 
   // Safely set properties only if the element exists
-  if (photo) photo.src = statueData.image;
+  if (photo instanceof HTMLImageElement) photo.src = statueData.image;
   if (desc) desc.textContent = statueData.description;
   if (year) year.textContent = `Year: ${statueData.year}`;
-  if (card) card.src = statueData['image-card'];
+  if (card instanceof HTMLImageElement) card.src = statueData['image-card'];
 
   modal.style.display = 'flex';
 
