@@ -28,15 +28,11 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 45, 45);
 camera.lookAt(0, 0, 26);
 
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-  antialias: true,
-});
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Lights
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
@@ -49,13 +45,10 @@ directionalLight2.position.set(0, 10, 5);
 directionalLight2.target.position.set(-5, 0, 0);
 scene.add(directionalLight2);
 
-// OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
-
-//Ground Plane
 
 const planeGeometry = new THREE.PlaneGeometry(140, 100);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x66b266 }); // grass green
@@ -77,13 +70,9 @@ mtlLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.mtl', (materials) => {
   });
 });
 
-// Seasonal Effects
 initSeasons(scene);
-
-// Load Placeholder Statues (lazy-loading)
 loadPlaceholderStatues(scene, camera, controls);
 
-// Adjust on window resize
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -91,11 +80,10 @@ function onWindowResize() {
 }
 window.addEventListener('resize', onWindowResize, false);
 
-// Animation loop
 function animate() {
   requestAnimationFrame(animate);
-  controls.update(); // update orbit controls (for damping)
-  updateSeasonEffects(); // update seasonal animations (falling snow/leaves)
+  controls.update();
+  updateSeasonEffects();
   renderer.render(scene, camera);
 }
 animate();

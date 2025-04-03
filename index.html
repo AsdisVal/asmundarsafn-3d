@@ -11,6 +11,26 @@
     <div id="tooltip" class="tooltip"></div>
     <div id="radlagning" style="position: absolute;top: 20px;left: 20px;background: rgba(0,0,0,0.7);color: white;padding: 10px;  border-radius: 8px;  z-index: 100;  display: none;  max-width: 300px;"></div>
     <div id="info-panel" class="info-panel"></div>
+    <!-- Modal Overlay (hidden by default) -->
+    <div id="statueModal" class="modal-overlay" style="display: none;">
+      <div class="modal-content">
+        <!-- Left panel: 3D canvas and image card -->
+        <div class="left-panel">
+          <canvas id="statue3DCanvas"></canvas>
+          <img id="imageCard" src="images/statue-cards/boy_and_girl.jpeg" alt="Image Card for boy_and_girl" />
+        </div>
+        <!-- Right panel: Photo and description -->
+        <div class="right-panel">
+          <img id="statuePhoto" src="" alt="Statue Photo" />
+          <div id="statueDetails">
+            <p id="statueDesc"></p>
+            <p id="statueYear"></p>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom-centered button -->
+      <button id="overviewBtn">Go to Overview</button>
+    </div>
     <script type="module" src="main.js"></script>
   </body>
 </html>

@@ -8,8 +8,6 @@ import { getStatuesData } from './data.js';
 const placeholderObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-
-// Tooltip element for placeholders
 const radlagningEl = document.getElementById('radlagning');
 
 /**
