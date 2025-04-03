@@ -25,7 +25,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 10, 40);
+camera.position.set(0, 45, 45);
 camera.lookAt(0, 0, 26);
 
 const renderer = new THREE.WebGLRenderer({
@@ -59,27 +59,16 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
-// Overview Toggle Button
-const overviewToggleButton = document.getElementById('overview-toggle-button');
-if (overviewToggleButton) {
-  overviewToggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('overview-mode');
-  });
-} else {
-  console.warn('Overview toggle button not found');
-}
-
 //Ground Plane
 
-const planeGeometry = new THREE.PlaneGeometry(200, 150);
+const planeGeometry = new THREE.PlaneGeometry(140, 100);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x66b266 }); // grass green
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = 0;
+ground.position.z = -22;
 scene.add(ground);
 
-// add a model of the building instead
-// add mtl loader and also obj loader
 const mtlLoader = new MTLLoader();
 mtlLoader.load('asmundarsafn/asmundarsafn_cpy_to_test_21.mtl', (materials) => {
   const objLoader = new OBJLoader();
