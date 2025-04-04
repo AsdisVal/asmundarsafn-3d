@@ -38,7 +38,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
 
 const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -49,6 +49,10 @@ const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight2.position.set(0, 10, 5);
 directionalLight2.target.position.set(-5, 0, 0);
 scene.add(directionalLight2);
+
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.8);
+fillLight.position.set(-15, 20, -15);
+scene.add(fillLight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
