@@ -79,7 +79,7 @@ mtlLoader.load('asmundarsafn/nyasta_asmundarsafnid_7.mtl', (materials) => {
   });
 });
 
-initSeasons(scene);
+initSeasons(scene, camera);
 loadPlaceholderStatues(scene, camera, controls);
 
 function onWindowResize() {
