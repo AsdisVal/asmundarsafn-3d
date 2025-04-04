@@ -23,9 +23,12 @@ export function loadPlaceholderStatues(scene, camera, controls) {
     statues.forEach((st) => {
       const geometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
       const color = st.visited ? 0xff0000 : 0xeeeeee;
-      const material = new THREE.MeshBasicMaterial({
-        color: color,
-        wireframe: true,
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xcccccc,
+        roughness: 0.7,
+        metalness: 0.1,
+        transparent: true,
+        opacity: 0.8,
       });
       const placeholder = new THREE.Mesh(geometry, material);
       placeholder.position.set(st.position.x, st.position.y, st.position.z);
