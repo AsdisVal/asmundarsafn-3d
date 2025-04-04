@@ -22,7 +22,7 @@ if (!canvas) {
   throw new Error('Canvas element not found');
 }
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xbfd1e5);
+scene.background = new THREE.Color(0xa1e3d8);
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -60,10 +60,10 @@ controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
 const planeGeometry = new THREE.PlaneGeometry(200, 200);
-const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x66b266 }); // grass green
+const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x3b5f3b });
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
-ground.position.y = 0;
+ground.position.y = -0.55;
 ground.position.z = -22;
 scene.add(ground);
 
