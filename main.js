@@ -22,7 +22,6 @@ if (!canvas) {
   throw new Error('Canvas element not found');
 }
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xa1e3d8);
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -59,19 +58,19 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.target.set(0, 1, 0);
 
-const planeGeometry = new THREE.PlaneGeometry(200, 200);
+const planeGeometry = new THREE.PlaneGeometry(250, 110);
 const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x3b5f3b });
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = -0.55;
-ground.position.z = -22;
+ground.position.z = -35;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();
-mtlLoader.load('asmundarsafn/nyasta_asmundarsafnid_7.mtl', (materials) => {
+mtlLoader.load('asmundarsafn/asmundarsafn_nyast_5.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
-  objLoader.load('asmundarsafn/nyasta_asmundarsafnid_7.obj', (object) => {
+  objLoader.load('asmundarsafn/asmundarsafn_nyast_5.obj', (object) => {
     object.position.set(0, 0.2, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
@@ -96,3 +95,5 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+export { ground, scene };

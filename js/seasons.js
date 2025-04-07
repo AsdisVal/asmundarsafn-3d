@@ -5,13 +5,14 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
+import { ground } from '../main';
 console.log('seasons.js loaded');
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
 let audioListener;
 let rainSound, birdSound;
-
+import { scene } from '../main.js'; // Import the scene from main.js
 // Initialize seasonal effects and UI
 export function initSeasons(scene, camera) {
   // Create audio listener
@@ -29,7 +30,7 @@ export function initSeasons(scene, camera) {
   });
 
   rainSound = new THREE.Audio(audioListener);
-  audioLoader.load('sound/rain.mp3', (buffer) => {
+  audioLoader.load('sound/rain.mp4', (buffer) => {
     rainSound.setBuffer(buffer);
     rainSound.setLoop(true);
     rainSound.setVolume(0.5);
@@ -64,10 +65,10 @@ export function updateSeasonEffects() {
     });
   }
   if (currentSeason === 'autumn') {
-    autumnGroup.children.forEach((leaf) => {
-      leaf.position.y -= 0.05;
-      if (leaf.position.y < 0) leaf.position.y = 15;
-      leaf.rotation.z += 0.01;
+    autumnGroup.children.forEach((rainDrop) => {
+      rainDrop.position.y -= 0.05;
+      if (rainDrop.position.y < 0) rainDrop.position.y = 15;
+      rainDrop.rotation.z += 0.01;
     });
   }
   if (currentSeason === 'spring') {
@@ -96,11 +97,52 @@ function createSeasonMenu() {
 
 function setSeason(season) {
   currentSeason = season;
+
   winterGroup.visible = season === 'winter';
   springGroup.visible = season === 'spring';
   summerGroup.visible = season === 'summer';
   autumnGroup.visible = season === 'autumn';
   playSeasonAudio(season);
+  setSeasonBackgroundEffects(season);
+  setSeasonGroundColor(season);
+}
+
+function setSeasonGroundColor(season) {
+  if (ground) {
+    switch (season) {
+      case 'winter':
+        ground.material.color.set(0xe0e0e0); // light snowy ground
+        break;
+      case 'spring':
+        ground.material.color.set(0x7fc97f); // fresh green
+        break;
+      case 'summer':
+        ground.material.color.set(0x3b5f3b); // deep green
+        break;
+      case 'autumn':
+        ground.material.color.set(0xcc9966); // dried brown
+        break;
+    }
+  }
+}
+
+function setSeasonBackgroundEffects(season) {
+  if (scene) {
+    switch (season) {
+      case 'winter':
+        scene.background = new THREE.Color(0xd0e8f2); // light icy blue
+        break;
+      case 'spring':
+        scene.background = new THREE.Color(0xb4f2b4); // soft green
+        break;
+      case 'summer':
+        scene.background = new THREE.Color(0xa1e3d8); // clear blue
+        break;
+      case 'autumn':
+        scene.background = new THREE.Color(0xf2c28e); // warm orange
+        break;
+    }
+  }
 }
 
 function playSeasonAudio(season) {
@@ -139,55 +181,66 @@ function createSpringEffect() {
   }
   return group;
 }
-
 function createSummerEffect() {
   const group = new THREE.Group();
-  const birdGeometry = new THREE.BoxGeometry(0.5, 0.2, 0.2);
-  const birdMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-  const bird = new THREE.Mesh(birdGeometry, birdMaterial);
-  bird.position.set(0, 10, 0);
-  group.add(bird);
+  const center = new THREE.Vector3(0, 0, 10); // same as museum position
+  const birds = [];
 
-  let angle = 0;
-  const radius = 10;
-  function animateBird() {
-    angle += 0.01;
-    bird.position.set(
-      Math.cos(angle) * radius,
-      10 + Math.sin(angle * 2) * 2,
-      Math.sin(angle) * radius
-    );
-    requestAnimationFrame(animateBird);
+  for (let i = 0; i < 10; i++) {
+    const geometry = new THREE.BoxGeometry(0.5, 0.2, 0.2);
+    const material = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(Math.random(), Math.random(), Math.random()),
+    });
+    const bird = new THREE.Mesh(geometry, material);
+
+    // Safely assign custom properties
+    Object.assign(bird, {
+      orbitRadius: THREE.MathUtils.randFloat(8, 18),
+      orbitSpeed:
+        THREE.MathUtils.randFloat(0.005, 0.01) * (Math.random() < 0.5 ? -1 : 1),
+      orbitAngle: Math.random() * Math.PI * 2,
+      orbitHeight: THREE.MathUtils.randFloat(8, 14),
+    });
+
+    group.add(bird);
+    birds.push(bird);
   }
-  animateBird();
 
+  function animateBirds() {
+    birds.forEach((bird) => {
+      bird.orbitAngle += bird.orbitSpeed;
+
+      bird.position.set(
+        center.x + bird.orbitRadius * Math.cos(bird.orbitAngle),
+        bird.orbitHeight + Math.sin(bird.orbitAngle * 2) * 1.5,
+        center.z + bird.orbitRadius * Math.sin(bird.orbitAngle)
+      );
+    });
+    requestAnimationFrame(animateBirds);
+  }
+
+  animateBirds();
   return group;
 }
 
 function createAutumnEffect() {
   const group = new THREE.Group();
-  const leafGeom = new THREE.PlaneGeometry(0.5, 0.5);
+  const rainGeom = new THREE.PlaneGeometry(0.1, 0.3);
 
   for (let i = 0; i < 50; i++) {
-    const leafMat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color().setHSL(Math.random() * 0.2 + 0.05, 1, 0.5),
-      transparent: true,
-      opacity: Math.random() * 0.5 + 0.5,
+    const rainMat = new THREE.MeshBasicMaterial({
+      color: 0xffa500,
       side: THREE.DoubleSide,
-      depthWrite: false,
+      transparent: true,
+      opacity: 0.8,
     });
-    const leaf = new THREE.Mesh(leafGeom, leafMat);
-    leaf.position.set(
+    const rainDrop = new THREE.Mesh(rainGeom, rainMat);
+    rainDrop.position.set(
       Math.random() * 50 - 25,
       Math.random() * 15 + 5,
       Math.random() * 50 - 25
     );
-    leaf.rotation.set(
-      Math.random() * Math.PI,
-      Math.random() * Math.PI,
-      Math.random() * Math.PI
-    );
-    group.add(leaf);
+    group.add(rainDrop);
   }
   return group;
 }
