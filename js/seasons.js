@@ -66,9 +66,12 @@ export function updateSeasonEffects() {
   }
   if (currentSeason === 'autumn') {
     autumnGroup.children.forEach((rainDrop) => {
-      rainDrop.position.y -= 0.05;
-      if (rainDrop.position.y < 0) rainDrop.position.y = 15;
-      rainDrop.rotation.z += 0.01;
+      rainDrop.position.y -= 0.4; // Faster fall
+      if (rainDrop.position.y < 0) {
+        rainDrop.position.y = Math.random() * 10 + 15;
+        rainDrop.position.x = Math.random() * 50 - 25;
+        rainDrop.position.z = Math.random() * 50 - 25;
+      }
     });
   }
   if (currentSeason === 'spring') {
@@ -139,7 +142,7 @@ function setSeasonBackgroundEffects(season) {
         scene.background = new THREE.Color(0xa1e3d8); // clear blue
         break;
       case 'autumn':
-        scene.background = new THREE.Color(0xf2c28e); // warm orange
+        scene.background = new THREE.Color(0x87cefa); // warm blue
         break;
     }
   }
@@ -181,6 +184,7 @@ function createSpringEffect() {
   }
   return group;
 }
+
 function createSummerEffect() {
   const group = new THREE.Group();
   const center = new THREE.Vector3(0, 0, 10); // same as museum position
@@ -225,22 +229,23 @@ function createSummerEffect() {
 
 function createAutumnEffect() {
   const group = new THREE.Group();
-  const rainGeom = new THREE.PlaneGeometry(0.1, 0.3);
+  const rainGeom = new THREE.PlaneGeometry(0.05, 0.4); // Thin rain drops
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 200; i++) {
     const rainMat = new THREE.MeshBasicMaterial({
-      color: 0xffa500,
+      color: 0x87cefa, // Light blue
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.6,
     });
     const rainDrop = new THREE.Mesh(rainGeom, rainMat);
     rainDrop.position.set(
       Math.random() * 50 - 25,
-      Math.random() * 15 + 5,
+      Math.random() * 20 + 10,
       Math.random() * 50 - 25
     );
     group.add(rainDrop);
   }
+
   return group;
 }
