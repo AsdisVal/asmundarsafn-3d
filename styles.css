@@ -157,12 +157,12 @@ canvas#c {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 1.5rem;
-	inline-size: min(100%, 62.5rem); /* 1000px */
-	max-block-size: 85vh;
+	inline-size: min(95vw, 1200px); /* 1000px */
+	max-block-size: 80vh;
 	padding: 1.5rem;
 	background: #fff;
 	border-radius: 1rem;
-	box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+	box-shadow: 0 12px 36px rgba(0,0,0,0.15);
 	overflow-y: auto;
   }
   
@@ -170,14 +170,16 @@ canvas#c {
 /* ========== Modal Content Panels ========== */
 .left-panel,
 .right-panel {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	max-height: 100%;
+	overflow-y: auto;
 }
 
 .left-panel canvas {
-  height: 300px;
+  height: 500px;
   background: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: var(--spacing-small);
@@ -186,7 +188,7 @@ canvas#c {
 
 .left-panel canvas#statue3DCanvas {
 	width: 100%;
-	height: 250px;
+	height: 500px;
 	background: #f0f0f0;
 	border: 1px solid #ccc;
 	border-radius: var(--spacing-small);

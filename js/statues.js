@@ -13,6 +13,7 @@ const radlagningEl = document.getElementById('radlagning');
 
 let modalScene, modalCamera, modalControls, modalModel, modalRenderer;
 let modalAnimating = false;
+let detailViewActive = false;
 
 /**
  * Loads placeholder objects based on statues.json data.
@@ -73,12 +74,15 @@ function onPlaceholderClick(event, camera, controls, scene) {
   const intersects = raycaster.intersectObjects(placeholderObjects, true);
   if (intersects.length > 0) {
     const placeholder = intersects[0].object;
-    openStatueModal(placeholder.userData);
+    detailViewActive = true;
+    controls.enabled = false;
+    if (radlagningEl) radlagningEl.style.display = 'none';
+    openStatueModal(placeholder.userData, controls);
     loadStatueModel(placeholder.userData, placeholder, camera, controls, scene);
   }
 }
 
-function openStatueModal(statueData) {
+function openStatueModal(statueData, controls) {
   const modal = document.getElementById('statueModal');
   const canvas = document.getElementById('statue3DCanvas');
   const photo = document.getElementById('statuePhoto');
@@ -106,19 +110,35 @@ function openStatueModal(statueData) {
     0.1,
     1000
   );
-  modalCamera.position.set(0, 1, 3);
+  modalCamera.position.set(0, 1, 4);
   modalRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
   modalRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
   modalControls = new OrbitControls(modalCamera, canvas);
   modalControls.enableDamping = true;
-  modalControls.target.set(0, 0.5, 0);
+  modalControls.target.set(0, 1.5, 0);
   modalControls.update();
 
   modalScene.add(new THREE.AmbientLight(0xffffff, 0.6));
   const light = new THREE.DirectionalLight(0xffffff, 0.8);
   light.position.set(5, 10, 7);
   modalScene.add(light);
+
+  const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.2);
+  directionalLight1.position.set(20, 20, 20);
+  modalScene.add(directionalLight1);
+
+  const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1.0);
+  directionalLight2.position.set(0, 10, 5);
+  directionalLight2.target.position.set(-5, 0, 0);
+  modalScene.add(directionalLight2);
+
+  const fillLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  fillLight.position.set(-15, 20, -15);
+  modalScene.add(fillLight);
+
+  const backgroundColor = new THREE.Color(0x3b5f3b);
+  modalScene.background = backgroundColor;
   if (statueData.format === 'glb') {
     const loader = new GLTFLoader();
     loader.load(statueData.model, (gltf) => {
@@ -148,6 +168,9 @@ function openStatueModal(statueData) {
       modal.style.display = 'none';
       if (modalModel) modalScene.remove(modalModel);
       modalModel = null;
+
+      detailViewActive = false;
+      controls.enabled = true;
     };
   }
 }

@@ -176,6 +176,7 @@
     "description": "woman washing stytta."
   },
   {
+
     "name": "woman churning butter",
     "format": "obj",
     "mtl": "models/vatnsberi_an_gras/vatnsberi_an_gras.mtl",
@@ -183,6 +184,7 @@
     "position": { "x": 45, "y": 0, "z": -20 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
+    
     "year": 1936,
     "image": "images/statues/woman_churning_butter.jepg",
     "card": "images/statue-cards/woman_churning_butter.jepg",

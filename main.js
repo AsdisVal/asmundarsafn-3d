@@ -42,14 +42,15 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+
 scene.add(ambientLight);
 
-const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.2);
 directionalLight1.position.set(20, 20, 20);
 scene.add(directionalLight1);
 
-const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1.0);
 directionalLight2.position.set(0, 10, 5);
 directionalLight2.target.position.set(-5, 0, 0);
 scene.add(directionalLight2);
