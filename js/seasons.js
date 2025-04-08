@@ -187,17 +187,52 @@ function createSpringEffect() {
 
 function createSummerEffect() {
   const group = new THREE.Group();
-  const center = new THREE.Vector3(0, 0, 10); // same as museum position
+  const center = new THREE.Vector3(0, 0, 10); // Museum center
   const birds = [];
 
   for (let i = 0; i < 10; i++) {
-    const geometry = new THREE.BoxGeometry(0.5, 0.2, 0.2);
-    const material = new THREE.MeshStandardMaterial({
+    const bird = new THREE.Group();
+
+    // Body (cube)
+    const bodyGeo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+    const bodyMat = new THREE.MeshStandardMaterial({
       color: new THREE.Color(Math.random(), Math.random(), Math.random()),
     });
-    const bird = new THREE.Mesh(geometry, material);
+    const body = new THREE.Mesh(bodyGeo, bodyMat);
+    bird.add(body);
 
-    // Safely assign custom properties
+    // Beak (small cone)
+    const beakGeo = new THREE.ConeGeometry(0.1, 0.2, 3);
+    const beakMat = new THREE.MeshStandardMaterial({ color: 0xffaa00 });
+    const beak = new THREE.Mesh(beakGeo, beakMat);
+    beak.rotation.x = Math.PI / 2;
+    beak.position.set(0, 0, 0.35); // Front of body
+    bird.add(beak);
+
+    // Wings (triangles)
+    const wingGeo = new THREE.BufferGeometry();
+    const wingVertices = new Float32Array([0, 0, 0, 0.4, 0.2, 0, 0.4, -0.2, 0]);
+    wingGeo.setAttribute(
+      'position',
+      new THREE.BufferAttribute(wingVertices, 3)
+    );
+    wingGeo.computeVertexNormals();
+    const wingMat = new THREE.MeshStandardMaterial({
+      color: 0x333333,
+      side: THREE.DoubleSide,
+    });
+
+    const leftWing = new THREE.Mesh(wingGeo, wingMat);
+    leftWing.position.set(-0.3, 0, 0);
+    leftWing.rotation.y = Math.PI / 2;
+    bird.add(leftWing);
+
+    const rightWing = new THREE.Mesh(wingGeo, wingMat);
+    rightWing.position.set(0.3, 0, 0);
+    rightWing.rotation.y = -Math.PI / 2;
+    bird.add(rightWing);
+
+    // Add orbit properties
     Object.assign(bird, {
       orbitRadius: THREE.MathUtils.randFloat(8, 18),
       orbitSpeed:
@@ -206,8 +241,8 @@ function createSummerEffect() {
       orbitHeight: THREE.MathUtils.randFloat(8, 14),
     });
 
-    group.add(bird);
     birds.push(bird);
+    group.add(bird);
   }
 
   function animateBirds() {
@@ -219,7 +254,11 @@ function createSummerEffect() {
         bird.orbitHeight + Math.sin(bird.orbitAngle * 2) * 1.5,
         center.z + bird.orbitRadius * Math.sin(bird.orbitAngle)
       );
+
+      // Make bird face forward in the orbit
+      bird.lookAt(center);
     });
+
     requestAnimationFrame(animateBirds);
   }
 
