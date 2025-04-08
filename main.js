@@ -74,12 +74,12 @@ scene.add(ground);
 
 const mtlLoader = new MTLLoader();
 mtlLoader.load(
-  'asmundarsafn/asmundarsafn_nyasta_utgafa_bla_1.mtl',
+  'asmundarsafn/asmundarsafn_nyasta_utgafa_17.05.mtl',
   (materials) => {
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
     objLoader.load(
-      'asmundarsafn/asmundarsafn_nyasta_utgafa_bla_1.obj',
+      'asmundarsafn/asmundarsafn_nyasta_utgafa_17.05.obj',
       (object) => {
         object.position.set(0, 0.2, 10);
         object.scale.set(1.5, 1.5, 1.5);
