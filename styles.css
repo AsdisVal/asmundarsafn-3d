@@ -41,6 +41,52 @@ canvas#c {
   }
   
 
+  /* ========== INTRO OVERLAY ========== */
+  #introOverlay {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: linear-gradient(to bottom right, #a2d0d8, #047857);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+  }
+
+  .intro-box {
+	background: white;
+	padding: 2rem;
+	border-radius: 1rem;
+	text-align: center;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	max-width: 500px;
+  }
+
+  .intro-box h1 {
+	font-size: 2rem;
+	color: #065f46;
+  }
+
+  .intro-box p {
+	margin: 1rem 0;
+	color: #374151;
+  }
+
+  .intro-box button {
+	background: #059669;
+	color: white;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+  }
+
+  .intro-box button:hover {
+	background: #047857;
+  }
+
+
 /* ========== TOOLTIPS ========== */
 
 .radlagning {

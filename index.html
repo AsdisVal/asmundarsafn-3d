@@ -7,25 +7,36 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
+
+  <div id="introOverlay">
+    <div class="intro-box">
+      <h1>Vefforritun 2 - Einstaklingsverkefni</h1>
+      <h2>Um Ásmund Sveinsson</h2>
+      <p>Ásmundur Sveinsson (20. maí 1893 – 9. desember 1982) var íslenskur myndhöggvari og meðal verka hans má nefna Sæmund á selnum við Háskóla Íslands.</p>
+        <img src="/images/asmundur_sveinsson.jpg" alt="Ásmundur Sveinsson" class="intro-image">
+      <p>Árið 1942 hóf hann byggingu kúluhússins við Sigtún og nokkru seinna bætti hann við pýramídunum tveimur. 
+        Á árunum 1954-59 reisti hann svo bogaskemmuna. Húsin hannaði hann og byggði að mestu sjálfur og voru þau hvortveggja í senn heimili hans og vinnustofa. 
+        Ásmundur ánafnaði Reykjavíkurborg listasafn sitt eftir sinn dag. Hann andaðist í Reykjavík 9. desember 1982. 
+        Árið 1983 stofnaði Reykjavíkurborg safn helgað Ásmundi Sveinssyni í húsinu. Byggt var við safnið árið 1991 og kúlan og boginn tengd saman.</p>
+      <h2>Um verkefnið mitt</h2>
+        <p>Ég bjó til þrívídda útgáfu af Ásmundarsafni þar sem hægt er að smella á stytturnar í garðinum og fræðast um þær. Auk þess bætti ég við virkni að hafa geta séð garðinn í mismunandi árstíðum.</p>
+      <button onclick="startGarden()">Yfirsýn á garðinum</button>
+    </div>
+  </div>
+
+  <!-- 3D Canvas -->
   <canvas id="c" aria-label="3D Sculpture View"></canvas>
 
-  <!-- Tooltip Elements -->
+  <!-- Tooltip -->
   <div id="radlagning" class="radlagning" role="tooltip"></div>
-
-
 
   <!-- Modal Overlay -->
   <div id="statueModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="statueDesc">
     <div class="modal-content">
-
-      <!-- Left Panel -->
       <div class="left-panel">
         <canvas id="statue3DCanvas" aria-label="3D View of Statue"></canvas>
         <img id="imageCard" src="image-card.png" alt="Rendering of the statue">
       </div>
-
-      <!-- Right Panel -->
       <div class="right-panel">
         <img id="statuePhoto" src="" alt="Photo of the statue">
         <div id="statueDetails">
@@ -34,11 +45,14 @@
         </div>
       </div>
     </div>
-
-    <!-- Overview Button -->
-    <button id="overviewBtn">Go to Overview</button>
+    <button id="overviewBtn">Til baka í garðinn</button>
   </div>
 
+  <script>
+    function startGarden() {
+      document.getElementById('introOverlay').style.display = 'none';
+    }
+  </script>
   <script type="module" src="main.js"></script>
 </body>
 </html>
