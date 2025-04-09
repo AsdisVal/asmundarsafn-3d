@@ -175,32 +175,38 @@ function createWinterEffect() {
 function createSpringEffect() {
   const group = new THREE.Group();
 
-  const petalColor = 0xff69b4; // Hot pink petals
-  const centerColor = 0xffff66; // Yellow center
+  const petalColor = 0xff69b4;
+  const centerColor = 0xffff66;
 
-  const petalGeometry = new THREE.ConeGeometry(0.15, 0.4, 8);
+  const petalGeometry = new THREE.ConeGeometry(0.15, 0.4, 12);
   const petalMaterial = new THREE.MeshStandardMaterial({ color: petalColor });
 
-  const centerGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+  const centerGeometry = new THREE.SphereGeometry(0.15, 24, 24);
   const centerMaterial = new THREE.MeshStandardMaterial({ color: centerColor });
 
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 80; i++) {
     const flower = new THREE.Group();
 
-    // Create petals in a circular pattern
     const petalCount = 6;
     for (let j = 0; j < petalCount; j++) {
       const petal = new THREE.Mesh(petalGeometry, petalMaterial.clone());
+
       const angle = (j / petalCount) * Math.PI * 2;
-      petal.position.set(Math.cos(angle) * 0.25, 0.2, Math.sin(angle) * 0.25);
-      petal.rotation.x = -Math.PI / 2;
-      petal.rotation.z = angle;
+      const radius = 0.25;
+
+      // Set position in a circle
+      petal.position.set(Math.cos(angle) * radius, 0, Math.sin(angle) * radius);
+
+      // Reset rotation and then orient outward
+      petal.rotation.set(0, 0, 0);
+      petal.rotateZ(-Math.PI); // Lay flat
+      petal.rotateY(angle); // Point outward
+
       flower.add(petal);
     }
 
-    // Add flower center
     const center = new THREE.Mesh(centerGeometry, centerMaterial.clone());
-    center.position.y = 0.25;
+    center.position.y = 0.1;
     flower.add(center);
 
     flower.position.set(
@@ -208,7 +214,7 @@ function createSpringEffect() {
       0,
       Math.random() * 110 - 55 - 29
     );
-    flower.scale.set(0.01, 0.01, 0.01); // Animate up later
+    flower.scale.set(0.01, 0.01, 0.01); // animate later
     group.add(flower);
   }
 
