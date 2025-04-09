@@ -136,7 +136,7 @@ function setSeasonBackgroundEffects(season) {
         scene.background = new THREE.Color(0xd0e8f2); // light icy blue
         break;
       case 'spring':
-        scene.background = new THREE.Color(0xb4f2b4); // soft green
+        scene.background = new THREE.Color(0xa1d3d8); // soft green
         break;
       case 'summer':
         scene.background = new THREE.Color(0xa1e3d8); // clear blue
