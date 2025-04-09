@@ -69,7 +69,7 @@ const planeMaterial = new THREE.MeshLambertMaterial({ color: 0x3b5f3b });
 const ground = new THREE.Mesh(planeGeometry, planeMaterial);
 ground.rotation.x = -Math.PI / 2; // make it horizontal
 ground.position.y = 0;
-ground.position.z = -35;
+ground.position.z = -29;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();

@@ -160,12 +160,12 @@ function createWinterEffect() {
   const group = new THREE.Group();
   const geom = new THREE.SphereGeometry(0.1);
   const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 1000; i++) {
     const snowflake = new THREE.Mesh(geom, mat);
     snowflake.position.set(
-      Math.random() * 50 - 25,
+      Math.random() * 250 - 125,
       Math.random() * 20 + 10,
-      Math.random() * 50 - 25
+      Math.random() * 110 - 55 - 29 // account for ground.position.z
     );
     group.add(snowflake);
   }
@@ -174,14 +174,44 @@ function createWinterEffect() {
 
 function createSpringEffect() {
   const group = new THREE.Group();
-  const flowerGeometry = new THREE.SphereGeometry(0.2, 16, 16);
-  const flowerMaterial = new THREE.MeshStandardMaterial({ color: 0xffc0cb });
-  for (let i = 0; i < 30; i++) {
-    const flower = new THREE.Mesh(flowerGeometry, flowerMaterial.clone());
-    flower.position.set(Math.random() * 40 - 20, 0, Math.random() * 40 - 20);
-    flower.scale.set(0.01, 0.01, 0.01);
+
+  const petalColor = 0xff69b4; // Hot pink petals
+  const centerColor = 0xffff66; // Yellow center
+
+  const petalGeometry = new THREE.ConeGeometry(0.15, 0.4, 8);
+  const petalMaterial = new THREE.MeshStandardMaterial({ color: petalColor });
+
+  const centerGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+  const centerMaterial = new THREE.MeshStandardMaterial({ color: centerColor });
+
+  for (let i = 0; i < 40; i++) {
+    const flower = new THREE.Group();
+
+    // Create petals in a circular pattern
+    const petalCount = 6;
+    for (let j = 0; j < petalCount; j++) {
+      const petal = new THREE.Mesh(petalGeometry, petalMaterial.clone());
+      const angle = (j / petalCount) * Math.PI * 2;
+      petal.position.set(Math.cos(angle) * 0.25, 0.2, Math.sin(angle) * 0.25);
+      petal.rotation.x = -Math.PI / 2;
+      petal.rotation.z = angle;
+      flower.add(petal);
+    }
+
+    // Add flower center
+    const center = new THREE.Mesh(centerGeometry, centerMaterial.clone());
+    center.position.y = 0.25;
+    flower.add(center);
+
+    flower.position.set(
+      Math.random() * 250 - 125,
+      0,
+      Math.random() * 110 - 55 - 29
+    );
+    flower.scale.set(0.01, 0.01, 0.01); // Animate up later
     group.add(flower);
   }
+
   return group;
 }
 
@@ -270,7 +300,7 @@ function createAutumnEffect() {
   const group = new THREE.Group();
   const rainGeom = new THREE.PlaneGeometry(0.05, 0.4); // Thin rain drops
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 1000; i++) {
     const rainMat = new THREE.MeshBasicMaterial({
       color: 0x87cefa, // Light blue
       side: THREE.DoubleSide,

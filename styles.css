@@ -8,6 +8,8 @@
 	--transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	--spacing-small: 8px;
 	--gap-medium: 16px;
+	--font-size: 20px;
+	--font-size-small: 14px;
   }
   
   *,
@@ -21,7 +23,7 @@
 
   html {
 	block-size: 100%;
-	font-size: var(--gap-medium); /* Explicit base size */
+	font-size: var(--font-size); /* Explicit base size */
   }
   
   body {
@@ -46,25 +48,83 @@ canvas#c {
 	position: fixed;
 	top: 0; left: 0;
 	width: 100%; height: 100%;
-	background: linear-gradient(to bottom right, #a2d0d8, #047857);
+	background: linear-gradient(to bottom right, #a2d0d8, #6bc170);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 9999;
+	padding: 1rem;
   }
 
-  .intro-box {
-	background: white;
-	padding: 2rem;
-	border-radius: 1rem;
-	text-align: center;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-	max-width: 500px;
-  }
+  .intro-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .intro-box h1 {
-	font-size: 2rem;
-	color: #065f46;
+.intro-left {
+	flex: 1;
+	min-width: 280px;
+  }
+  .intro-left button {
+	background: #97f7d8;
+	color: white;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: var(--font-size);
+	transition: transform 0.2s ease, background 0.2s ease;
+	margin-top: 1rem;
+  }
+  
+  .intro-left button:hover {
+	background: #047857;
+	transform: scale(1.05);
+  }
+  
+  .intro-right {
+	flex: 1;
+	min-width: 280px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .intro-photo img {
+	width: 100%;
+	max-width: 400px;
+	border-radius: 0.75rem;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	object-fit: cover;
+  }
+  
+  @keyframes fadeIn {
+	from { opacity: 0; transform: scale(0.98); }
+	to { opacity: 1; transform: scale(1); }
+  }
+  
+  @media (max-width: 768px) {
+	.intro-content {
+	  flex-direction: column;
+	  text-align: center;
+	}
+  
+	.intro-right {
+	  order: -1;
+	}
+  
+	.intro-photo img {
+	  max-width: 80%;
+	}
+  }
+  
+  .intro-box h1, .intro-box h2 {
+	letter-spacing: -0.5px;
+	font-weight: 600;
+	font-family: 'Segoe UI Semibold', system-ui, sans-serif;
   }
 
   .intro-box p {
@@ -80,11 +140,24 @@ canvas#c {
 	border-radius: 0.5rem;
 	cursor: pointer;
 	font-size: 1rem;
+	transition: transform 0.2s ease, background 0.2s ease;
   }
 
   .intro-box button:hover {
 	background: #047857;
+  	transform: scale(1.05);
   }
+
+  .modal-overlay.show {
+	animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+	from { opacity: 0; transform: scale(0.98); }
+	to { opacity: 1; transform: scale(1); }
+  }
+
+
 
 
 /* ========== TOOLTIPS ========== */
@@ -102,6 +175,11 @@ canvas#c {
   max-width: 300px;
   line-height: 1.4;
 }
+
+button:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.4);
+  }
 
 
 
@@ -143,12 +221,15 @@ canvas#c {
 	top: 10px;
 	left: 10px;
 	z-index: 999;
+	backdrop-filter: blur(4px);
+  	background-color: rgba(255, 255, 255, 0.6);
+  	color: #111;
   }
   
 #season-menu button {
   margin: 4px;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   border: none;
   border-radius: 5px;
   background-color: #cfcfcf;
@@ -167,8 +248,9 @@ canvas#c {
 	top: 20px;
 	left: 20px;
 	padding: 10px 20px;
-	background-color: #4CAF50;
-	color: white;
+	backdrop-filter: blur(4px);
+  	background-color: rgba(255, 255, 255, 0.6);
+  	color: #111;
 	font-size: var(--gap-medium);
 	border: none;
 	border-radius: 5px;
@@ -206,7 +288,9 @@ canvas#c {
 	inline-size: min(95vw, 1200px); /* 1000px */
 	max-block-size: 80vh;
 	padding: 1.5rem;
-	background: #fff;
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(12px);
+  	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 1rem;
 	box-shadow: 0 12px 36px rgba(0,0,0,0.15);
 	overflow-y: auto;
@@ -284,4 +368,18 @@ canvas#c {
   
   #overviewBtn:hover {
 	background-color: #45a049;
+  }
+
+  /* ========== Responsive ========== */
+
+  @media (max-width: 600px) {
+	.intro-box {
+	  padding: 1.25rem;
+	}
+  
+	
+  
+	.left-panel canvas#statue3DCanvas {
+	  height: 300px;
+	}
   }
