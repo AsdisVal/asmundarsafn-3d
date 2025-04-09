@@ -10,7 +10,7 @@
     "rotationY": 3.14,
     "visited": false,
     "year": 1930,
-    "description": "Midsummer_night er stórt stytta.",
+    "description": "Jónsmessunóttin.",
     "image": "images/statues/midsummer_night.jpeg",
     "image-card": "images/statue-cards/midsummer_night.jpeg"
   },
@@ -25,7 +25,7 @@
     "rotationY": 3.14,
     "visited": false,
     "year": 1930,
-    "description": "Twoheads er stórt stytta.",
+    "description": "Twoheads er stór stytta.",
     "image": "images/statues/two_heads.jpeg",
     "image-card": "images/statue-cards/two_heads.jpeg"
   },
@@ -40,7 +40,7 @@
     "rotationY": 1.57,
     "visited": false,
     "year": 1930,
-    "description": "Helreidin er stórt stytta.",
+    "description": "Helreidin er stór stytta.",
     "image": "images/statues/helreidin.jpeg",
     "image-card": "images/statue-cards/helreidin.jpeg"
   },
@@ -55,7 +55,7 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Worship er stórt stytta.",
+    "description": "Aðdáun er stórt stytta.",
     "image": "images/statues/worship.jpeg",
     "image-card": "images/statue-cards/worship.jpeg"
   },
@@ -70,7 +70,7 @@
     "rotationY": 1.57,
     "visited": false,
     "year": 1930,
-    "description": "Mother earth er stórt stytta.",
+    "description": "Móðir jörð er stytta.",
     "image": "images/statues/mother_earth.jpeg",
     "image-card": "images/statue-cards/mother_earth.jpeg"
   },
@@ -85,7 +85,7 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Vatnsberi er stórt stytta.",
+    "description": "Vatnsberinn er stytta að bera vatn.",
     "image": "images/statues/vatnsberi.jpeg",
     "image-card": "images/statue-cards/vatnsberi.jpeg"
   },
@@ -100,7 +100,7 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Gardyrkjumadur er stórt stytta.",
+    "description": "Garðyrkjumaðurinn elskar að grafa.",
     "image": "images/statues/gardener.jpeg",
     "image-card": "images/statue-cards/gardener.jpeg"
   },
@@ -115,7 +115,7 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1930,
-    "description": "Weather teller er stórt stytta.",
+    "description": "Hann er að skoða framtíðina.",
     "image": "images/statues/weather_teller.jpeg",
     "image-card": "images/statue-cards/weather_teller.jpeg"
   },
@@ -130,7 +130,7 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Saemundur er stórt stytta.",
+    "description": "Saemundur er stytta sem er lika við HÍ.",
     "image": "images/statues/saemundur_a_selnum.jpeg",
     "image-card": "images/statue-cards/saemundur_a_selnum.jpeg"
   },
@@ -145,7 +145,7 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "galdramadur er stórt stytta.",
+    "description": "galdramadur er stórt stytta.jdsljfdlkdjlkfjjnjdfndsjkfndjfndjkfndkjnkjbkjnklnjnkjnkj",
     "image": "images/statues/sorcerer.jpeg",
     "image-card": "images/statue-cards/sorcerer.jpeg"
   },
@@ -166,21 +166,6 @@
   },
   {
     "id": 11,
-    "name": "woman washing",
-    "format": "obj",
-    "mtl": "models/woman_washing/woman_washing.mtl",
-    "model": "models/woman_washing/woman_washing.obj",
-    "position": { "x": -45, "y": -0.2, "z": 5 },
-    "scale": { "x": 2, "y": 2, "z": 2 },
-    "rotationY": -1.57,
-    "visited": false,
-    "year": 1936,
-    "image": "images/statues/woman_washing.jepg",
-    "image-card": "images/statue-cards/woman_washingp.jepg",
-    "description": "woman washing stytta."
-  },
-  {
-    "id": 12,
     "name": "kona ad strokka",
     "format": "obj",
     "mtl": "models/Kona ad strokka/kona_ad_strokka.mtl",
@@ -192,10 +177,10 @@
     "year": 1936,
     "image": "images/statues/kona_ad_strokka.jepg",
     "image-card": "images/statue-cards/kona_ad_strokka.jepg",
-    "description": "kona ad strokka stytta."
+    "description": "Konan að strokka hér."
   },
   {
-    "id": 13,
+    "id": 12,
     "name": "lady and amor",
     "format": "obj",
     "mtl": "models/amor_an_gras/amor_an_gras.mtl",
@@ -207,21 +192,36 @@
     "year": 1936,
     "image": "images/statues/lady_and_amor.jepg",
     "image-card": "images/statue-cards/lady_and_amor.jepg",
-    "description": "Lady and amor stytta."
+    "description": "Lady and amor styttan, smá toxic en allt í góðu."
   },
   {
-    "id": 14,
+    "id": 13,
     "name": "sisters",
     "format": "obj",
     "mtl": "models/Sisters/sisters.mtl",
     "model": "models/Sisters/sisters.obj",
-    "position": { "x": -18, "y": 0, "z": 5 },
+    "position": { "x": -18, "y": -0.2, "z": 5 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "visited": false,
     "year": 1936,
     "image": "images/statues/sisters.jpeg",
     "image-card": "images/statue-cards/sisters.jpeg",
-    "description": "sisters stytta."
+    "description": "sisters styttan eru örugglega systur."
+  },
+  {
+    "id": 14,
+    "name": "piltur_og_stulka",
+    "format": "obj",
+    "mtl": "models/piltur_og_stulka_an_gras/piltur_og_stulka_an_gras.mtl",
+    "model": "models/piltur_og_stulka_an_gras/piltur_og_stulka_an_gras.obj",
+    "position": { "x": 30, "y": 2, "z": 0 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 3.14,
+    "visited": false,
+    "year": 1936,
+    "image": "images/statues/boy_and_girl.jpeg",
+    "image-card": "images/statue-cards/boy_and_girl.jpeg",
+    "description": "Piltur og stulka er sæt stytta."
   }
 ]
