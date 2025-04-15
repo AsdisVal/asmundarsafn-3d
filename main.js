@@ -16,11 +16,12 @@ import { initSeasons } from './js/seasons';
 import { loadPlaceholderStatues } from './js/statues';
 import { OBJLoader } from 'three/examples/jsm/Addons.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
 
 let firstPersonMode = false;
-let velocity = new THREE.Vector3();
-let direction = new THREE.Vector3();
+let fpControls;
 let keys = {};
+let direction = new THREE.Vector3();
 
 const canvas = document.querySelector('#c');
 if (!canvas) {
@@ -73,22 +74,16 @@ ground.position.z = -29;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();
-mtlLoader.load(
-  'asmundarsafn/asmundarsafn_nyasta_utgafa_19.14.mtl',
-  (materials) => {
-    const objLoader = new OBJLoader();
-    objLoader.setMaterials(materials);
-    objLoader.load(
-      'asmundarsafn/asmundarsafn_nyasta_utgafa_19.14.obj',
-      (object) => {
-        object.position.set(0, 0.2, 10);
-        object.scale.set(1.5, 1.5, 1.5);
-        object.rotation.y = Math.PI;
-        scene.add(object);
-      }
-    );
-  }
-);
+mtlLoader.load('asmundarsafn/asmundarsafn14_56.mtl', (materials) => {
+  const objLoader = new OBJLoader();
+  objLoader.setMaterials(materials);
+  objLoader.load('asmundarsafn/asmundarsafn14_56.obj', (object) => {
+    object.position.set(0, 0.2, 10);
+    object.scale.set(1.5, 1.5, 1.5);
+    object.rotation.y = Math.PI;
+    scene.add(object);
+  });
+});
 
 initSeasons(scene, camera);
 loadPlaceholderStatues(scene, camera, controls);
@@ -100,14 +95,38 @@ function onWindowResize() {
 }
 window.addEventListener('resize', onWindowResize, false);
 
+// Handle key events
 window.addEventListener('keydown', (e) => {
   if (e.key === '1') {
     firstPersonMode = !firstPersonMode;
-    controls.enabled = !firstPersonMode;
+
     if (firstPersonMode) {
-      camera.position.set(0, 2, 10); // starting height
+      controls.enabled = false;
+
+      if (!fpControls) {
+        fpControls = new PointerLockControls(camera, document.body);
+        scene.add(camera);
+
+        document.body.addEventListener('click', () => {
+          fpControls.lock();
+        });
+
+        const instr = document.getElementById('instructions');
+        if (instr) instr.style.display = 'none';
+
+        camera.position.set(0, 2, 10);
+      }
+    } else {
+      controls.enabled = true;
+
+      if (fpControls) {
+        scene.remove(fpControls.camera);
+        fpControls.unlock();
+        fpControls = null;
+      }
     }
   }
+
   keys[e.key.toLowerCase()] = true;
 });
 
@@ -115,10 +134,11 @@ window.addEventListener('keyup', (e) => {
   keys[e.key.toLowerCase()] = false;
 });
 
+// Animation loop
 function animate() {
   requestAnimationFrame(animate);
 
-  if (firstPersonMode) {
+  if (firstPersonMode && fpControls && fpControls.isLocked) {
     const speed = 0.2;
     direction.set(0, 0, 0);
 
@@ -127,22 +147,10 @@ function animate() {
     if (keys['a']) direction.x -= 1;
     if (keys['d']) direction.x += 1;
 
-    direction.normalize();
+    direction.normalize().multiplyScalar(speed);
 
-    const angle = camera.rotation.y;
-    const dx = direction.x * Math.cos(angle) - direction.z * Math.sin(angle);
-    const dz = direction.x * Math.sin(angle) + direction.z * Math.cos(angle);
-
-    velocity.set(dx, 0, dz).multiplyScalar(speed);
-    camera.position.add(velocity);
-
-    // Optional: Lock camera look direction if desired
-    const lookAtPoint = new THREE.Vector3(
-      camera.position.x + Math.sin(angle),
-      camera.position.y,
-      camera.position.z - Math.cos(angle)
-    );
-    camera.lookAt(lookAtPoint);
+    fpControls.moveRight(direction.x);
+    fpControls.moveForward(direction.z);
   } else {
     controls.update();
   }

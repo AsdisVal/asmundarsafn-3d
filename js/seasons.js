@@ -304,6 +304,11 @@ function createSummerEffect() {
 
 function createAutumnEffect() {
   const group = new THREE.Group();
+
+  const textureLoader = new THREE.TextureLoader();
+  const leafTexture = textureLoader.load(
+    'models/nature/red_fall_leaf/textures/Material.001_baseColor.png'
+  );
   const rainGeom = new THREE.PlaneGeometry(0.05, 0.4); // Thin rain drops
 
   for (let i = 0; i < 1000; i++) {
