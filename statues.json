@@ -16,7 +16,7 @@
   },
   {
     "id": 1,
-    "name": "twoHeads",
+    "name": "Tröllkona",
     "format": "obj",
     "mtl": "models/klyfur_an_gras/klyfur_an_gras.mtl",
     "model": "models/klyfur_an_gras/klyfur_an_gras.obj",
@@ -24,14 +24,14 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
     "visited": false,
-    "year": 1930,
-    "description": "Twoheads er stór stytta.",
+    "year": 1948,
+    "description": "Tröllkona á sér litla sem enga samsvörun í raunveruleikanum. Þetta er fremur hugsýn listamannsins með skírskotun til náttúrunnar. Tröllkonan er allt í senn fjall, klettur og hellar. En Ásmundur hafði þetta að segja um tröll og list: \"Mér líður illa ef ég sé listamenn teikna natúralistisk tröll. Tröll minna mig alltaf á fjöll. Ísland á nóg af tröllum... Natúralistisk tröll eru ekki til í mínum huga. En þetta segi ég bara við sjálfan mig. Aðrir verða sjá sínar sýnir.\"",
     "image": "images/statues/two_heads.jpeg",
     "image-card": "images/statue-cards/two_heads.jpeg"
   },
   {
     "id": 2,
-    "name": "helreidin",
+    "name": "Helreiðin",
     "format": "obj",
     "mtl": "models/Helreidin_an_gras/helreidin_an_gras.mtl",
     "model": "models/Helreidin_an_gras/helreidin_an_gras.obj",
@@ -40,13 +40,13 @@
     "rotationY": 1.57,
     "visited": false,
     "year": 1930,
-    "description": "Helreidin er stór stytta.",
+    "description": "Um Helreiðina sagði Ásmundur í samtali við Matthías Johannessen í Bókinni um Ásmund: \" Þetta er draugurinn frá Hel, stríðsguðinn. Hann er auðvitað á hesti úr Hel. Þegar ég gerði fyrstu skissurnar að Helreiðinni, hafði ég þjóðsöguna um djáknann á Myrká í huga. En svo fannst mér ég verða að sleppa konunni og þá varð úr þessu Helreiðin, sótt í Eddu: Hel á allt. Allt er vígt dauðanum, blóm, jörð, menn. Dauðinn verður að vera óhugnalegur. Við erum brennimerkt honum. Hann flæðir yfir allt, þyrmir engu. Helreiðin er gerð á stríðsárunum, þegar fólki var slátrað eins og skepnum. Þá tróðust margir undir tröllslegum hófum ófreskjunnar.\"",
     "image": "images/statues/helreidin.jpeg",
     "image-card": "images/statue-cards/helreidin.jpeg"
   },
   {
     "id": 3,
-    "name": "worship",
+    "name": "Aðdáun",
     "format": "obj",
     "mtl": "models/addaun_an_gras/addaun_an_gras.mtl",
     "model": "models/addaun_an_gras/addaun_an_gras.obj",
@@ -54,8 +54,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "visited": false,
-    "year": 1930,
-    "description": "Aðdáun er stórt stytta.",
+    "year": 1940,
+    "description": "Allnokkrar myndir Ásmundar sýna tengsl móður og barns og er hlutverk móðurinnar áberandi. Konan var Ásmundi mikill innblástur og ólíkar hliðar hennar birtast í mörgum verkum hans. Eins og í verkinu Dýrkun birtist konan iðulega í líki hinnar göfugu móður/madonnu sem umvefur barn sitt kærleika og vernd.",
     "image": "images/statues/worship.jpeg",
     "image-card": "images/statue-cards/worship.jpeg"
   },
@@ -91,7 +91,7 @@
   },
   {
     "id": 6,
-    "name": "gardyrkjumadur_an_gras",
+    "name": "Garðyrkjumaður",
     "format": "obj",
     "mtl": "models/gardyrkjumadur_an_gras/gardyrkjumadur_an_gras.mtl",
     "model": "models/gardyrkjumadur_an_gras/gardyrkjumadur_an_gras.obj",
@@ -99,14 +99,14 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
-    "year": 1930,
-    "description": "Garðyrkjumaðurinn elskar að grafa.",
+    "year": 1934,
+    "description": "Hér getur að líta verk þar sem Ásmundur fæst við hversdagslegar athafnir; maður að vinna jarðveginn. Verkið er talið í beinum tengslum við náttúruna og var Hallsteinn, bróðir Ásmundar, fyrirmynd að verkinu. Hér er hægt að líta svo á að maðurinn sé hluti af náttúrunni, smatímis því sem hann verkar hana.",
     "image": "images/statues/gardener.jpeg",
     "image-card": "images/statue-cards/gardener.jpeg"
   },
   {
     "id": 7,
-    "name": "weather_teller",
+    "name": "Veðurspámaður",
     "format": "obj",
     "mtl": "models/Weather teller an gras/weather_teller_an_gras.mtl",
     "model": "models/Weather teller an gras/weather_teller_an_gras.obj",
@@ -114,8 +114,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "visited": false,
-    "year": 1930,
-    "description": "Hann er að skoða framtíðina.",
+    "year": 1934,
+    "description": "Meginmyndefni Ásmundar á fjórða áratugnum var vinnandi fólk, eins konar óður til alþþýðu landsins. Ásmundur sagði um Veðurspámann: \"Verkið er táknrænt fyrir hinn íslenska aldanna veðurspámann til sjávar og sveita, -frumstæðan útivistarmann, fyrir tíma nútíma tækni í veðurspám.\" Ásmundur gerði tvær útfærslur af verkinu. Í fyrri útfærslunni er karlinn klæddur en nakinn í þeirri síðari.",
     "image": "images/statues/weather_teller.jpeg",
     "image-card": "images/statue-cards/weather_teller.jpeg"
   },
@@ -145,7 +145,7 @@
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "galdramadur er stórt stytta.jdsljfdlkdjlkfjjnjdfndsjkfndjfndjkfndkjnkjbkjnklnjnkjnkj",
+    "description": "Þessa mynd gerði Ásmundur fyrst í gifs en steypti síðan í brons. Í þessu verki hefur listamaðurinn horfið frá hefðbundinni náttúrulíkingu og minnir formskriftin fremur á form og fyrirbrigði úr náttúrunni – landslag sem er sorfið af veðrum og vindum. Myndefnið sækir Ásmundur, líkt og í fleiri verkum frá þessum tíma, í íslenskar þjóðsögur. Ekki er þó vitað hvort listamaðurinn hefur viljað lýsa einhverjum sérstökum galdramanni. Við verðum því að túlka hann í almennri merkingu. Um galdramenn í íslenskum þjóðsögum segir Sigurður Nordal í þriðja bindi Þjóðsagnabókarinnar: „Galdramenn urðu að nema kúnstir sínar, í Svartaskóla, af eldri galdramönnum eða bókum, eins og t.a.m. Gráskinnu eða Rauðskinnu. Þeir urðu lærðir, fróðir, vissu lengra en nef þeirra náði, kunnu meira en sitt faðirvor o.s.frv.“",
     "image": "images/statues/sorcerer.jpeg",
     "image-card": "images/statue-cards/sorcerer.jpeg"
   },
@@ -161,12 +161,12 @@
     "visited": false,
     "year": 1924,
     "description": "The kiss heitir á íslensku Kossinn.",
-    "image": "images/statues/the_kiss.jepg",
-    "image-card": "images/statue-cards/the_kiss.jepg"
+    "image": "images/statues/the_kiss.jpeg",
+    "image-card": "images/statue-cards/the_kiss.jpeg"
   },
   {
     "id": 11,
-    "name": "kona ad strokka",
+    "name": "Kona að strokka",
     "format": "obj",
     "mtl": "models/Kona ad strokka/kona_ad_strokka.mtl",
     "model": "models/Kona ad strokka/kona_ad_strokka.obj",
@@ -174,10 +174,10 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
-    "year": 1936,
-    "image": "images/statues/kona_ad_strokka.jepg",
-    "image-card": "images/statue-cards/kona_ad_strokka.jepg",
-    "description": "Konan að strokka hér."
+    "year": 1934,
+    "description": "Konan að strokka er, líkt og fleiri verk Ásmundar frá þessum árum, þykk og mikil heild sem hvergi loftar um. Allt er gert til að undirstrika þyngdina og massann. Myndin er kyrrstæð tvíhverfa í fullkomnu jafnvægi, sem byggist á lóðréttum og láréttum kröftumm, og það er aðeins staða höfuðsins sem gefur myndinni mýkt. Þrátt fyrir hina formrænu áherslu listamannsins er myndin natúralisk lýsing á smjörgerð fyrri ára, og óður til íslenskra vinnukvenna fyrr og síðar.",
+    "image": "images/statues/woman_churning_butter.jpeg",
+    "image-card": "images/statue-cards/woman_churning_butter.jpeg"
   },
   {
     "id": 12,
@@ -185,14 +185,14 @@
     "format": "obj",
     "mtl": "models/amor_an_gras/amor_an_gras.mtl",
     "model": "models/amor_an_gras/amor_an_gras.obj",
-    "position": { "x": 70, "y": -0.55, "z": -30 },
+    "position": { "x": 70, "y": -0.55, "z": -31 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
     "year": 1936,
-    "image": "images/statues/lady_and_amor.jepg",
-    "image-card": "images/statue-cards/lady_and_amor.jepg",
-    "description": "Lady and amor styttan, smá toxic en allt í góðu."
+    "description": "Lady and amor styttan, smá toxic en allt í góðu.",
+    "image": "images/statues/lady_and_amor.jpeg",
+    "image-card": "images/statue-cards/lady_and_amor.jpeg"
   },
   {
     "id": 13,
@@ -205,23 +205,53 @@
     "rotationY": -1.57,
     "visited": false,
     "year": 1936,
+    "description": "sisters styttan eru örugglega systur.",
     "image": "images/statues/sisters.jpeg",
-    "image-card": "images/statue-cards/sisters.jpeg",
-    "description": "sisters styttan eru örugglega systur."
+    "image-card": "images/statue-cards/sisters.jpeg"
   },
   {
     "id": 14,
-    "name": "piltur_og_stulka",
+    "name": "Piltur og stúlka",
     "format": "obj",
     "mtl": "models/piltur_og_stulka_an_gras/piltur_og_stulka_an_gras.mtl",
     "model": "models/piltur_og_stulka_an_gras/piltur_og_stulka_an_gras.obj",
-    "position": { "x": 30, "y": 2, "z": 0 },
+    "position": { "x": 40, "y": 2, "z": 0 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
     "visited": false,
-    "year": 1936,
+    "year": [1931, 1933],
+    "description": "Verkið *piltur og stúlka* gerði Ásmundur fyrst í París þegar hann dvaldi þar í fjóra mánuði árið 1931, en fullgerði síðan í Reykjavík sama ár. Pilturinn og stúlkan eru í venjulegum fötum auk þess sem líkamsbygging og öll hlutföll eru í fullu samræmi við hina hefðbundnu skólasýn. Þó svo að þessi mynd sé umfram allt ljóðræn stemning, verður hún að teljast ein af þeim myndum sem marka upphaf hins félagslegu rainsæis í verkum Ásmundar á fjórða áratugnum.",
     "image": "images/statues/boy_and_girl.jpeg",
-    "image-card": "images/statue-cards/boy_and_girl.jpeg",
-    "description": "Piltur og stulka er sæt stytta."
+    "image-card": "images/statue-cards/boy_and_girl.jpeg"
+  },
+  {
+    "id": 15,
+    "name": "Tónar hafsins",
+    "format": "obj",
+    "mtl": "models/tonar_hafsins_an_gras/tonar_hafsins.mtl",
+    "model": "models/tonar_hafsins_an_gras/tonar_hafsins.obj",
+    "position": { "x": -50, "y": 0, "z": -8 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 0,
+    "visited": false,
+    "year": 1950,
+    "description": "Í verkinu Tónar hafsins má greina höfuð, hendur og fætur. Líkaminn er samsettur úr mjúkum og ávölum línum. Í heild sinni er óður til hafsins þar sem strengirnir tákna lífið í undirdjúpunum, fiskinn, sem var forsenda fyrir byggð á þessu landi. Ásmundur notar sterkar myndlíkingar og vill vekja fólk til umhugsunar um brýn málefni samfélagsins.",
+    "image": "images/statues/tonar_hafsins.jpeg",
+    "image-card": "images/statue-cards/tonar_hafsins.jpeg"
+  },
+  {
+    "id": 16,
+    "name": "Stríð og flótti",
+    "format": "obj",
+    "mtl": "models/war_and_flight/war_and_flight.mtl",
+    "model": "models/war_and_flight/war_and_flight.obj",
+    "position": { "x": -5, "y": 0, "z": -40 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 0,
+    "visited": false,
+    "year": 1943,
+    "description": "Verkið er til vitnis um vissa umbreytingu inn í nýja myndveröld Ásmundar þar sem myndefnið er öllu stórbrotnara og ógnvænlegra en það sem hann hafði áður fengist við. Í stað þess að fjalla um andlega reisn íslenskrar alþýðu er hér á ferð verk sem hefur heimssögulegar tilvísanir. Í staðinn fyrir upphafningu á hinu góða í mannssálinni snéri Ásmundur sér að því að lýsa myrkari hliðum mannlífsisns; ótta, grimmd, sorg, hatri, örvæntingu, átökum og stíði. Í verkinu er hlutföllum líkamans riðlað og anliditn virðast fremur í ætt við dýr en menn.",
+    "image": "images/statues/war_and_flight.jpeg",
+    "image-card": "images/statue-cards/war_and_flight.jpeg"
   }
 ]

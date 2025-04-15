@@ -111,7 +111,7 @@ function openStatueModal(statueData, controls) {
     1000
   );
   modalCamera.position.set(0, 1, 4);
-  modalRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+  modalRenderer = new THREE.WebGLRenderer({ canvas: canvas });
   modalRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
   modalControls = new OrbitControls(modalCamera, canvas);
