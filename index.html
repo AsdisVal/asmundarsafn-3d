@@ -8,9 +8,9 @@
 </head>
 <body>
 
-  <div id="introOverlay">
+  <div id="introOverlay" role="dialog" aria-modal="true" aria-labelledby="introTitle">
     <div class="intro-box">
-      <h1>Vefforritun 2 - Einstaklingsverkefni</h1>
+      <h1 id="introTitle">Vefforritun 2 - Einstaklingsverkefni</h1>
       <h2>Um Ásmundarsafn</h2>
       <div class="intro-photo">
         <img src="/images/asmundur_sveinsson.jpg" alt="Ásmundur Sveinsson">
@@ -19,41 +19,40 @@
       <p>Listamaðurinn vann sjálfur að byggingu húsanna – gróf grunn og byggði mót, hrærði steypu og beygði steypustyrktarjárn, og steypti svo með ærinni fyrirhöfn. </p>
       <h2>Um verkefnið mitt</h2>
         <p>Ég bjó til þrívídda útgáfu af Ásmundarsafni þar sem hægt er að smella á stytturnar í garðinum og fræðast um þær. Auk þess bætti ég við virkni að hafa geta séð garðinn í mismunandi árstíðum.</p>
-      <button onclick="startGarden()">Yfirsýn á garðinum</button>
-    </div>
-  </div>
-
-  <!-- 3D Canvas -->
-  <canvas id="c" aria-label="3D Sculpture View"></canvas>
-
-  <!-- Tooltip -->
-  <div id="radlagning" class="radlagning" role="tooltip"></div>
-
-  <!-- Modal Overlay -->
-  <div id="statueModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="statueDesc">
-    <div class="modal-content">
-      <div class="left-panel">
-        <canvas id="statue3DCanvas" height="500" aria-label="3D View of Statue"></canvas>
-        <img id="imageCard" src="image-card.png" alt="Rendering of the statue">
+        <button id="startBtn" type="button" aria-label="Byrja að skoða garðinn">Yfirsýn á garðinum</button>
       </div>
-      <div class="right-panel">
-        <img id="statuePhoto" src="" alt="Photo of the statue">
-        <div id="statueDetails">
-          <p id="statueDesc"></p>
-          <p id="statueYear"></p>
+    </div>
+  
+    <main hidden>
+      <canvas id="c" aria-label="3D Sculpture View"></canvas>
+  
+      <div id="radlagning" class="radlagning" role="tooltip" aria-hidden="true"></div>
+  
+      <div id="statueModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="statueDesc">
+        <div class="modal-content">
+          <div class="left-panel">
+            <canvas id="statue3DCanvas" height="500" aria-label="3D View of Statue"></canvas>
+            <img id="imageCard" src="image-card.png" alt="Teiknuð útlit styttunnar">
+          </div>
+          <div class="right-panel">
+            <img id="statuePhoto" src="" alt="Ljósmynd af styttu">
+            <div id="statueDetails">
+              <p id="statueDesc"></p>
+              <p id="statueYear"></p>
+            </div>
+          </div>
         </div>
+        <button id="overviewBtn" type="button" aria-label="Til baka í garðinn">Til baka í garðinn</button>
       </div>
-    </div>
-    <button id="overviewBtn">Til baka í garðinn</button>
-  </div>
-
-
-
-  <script>
-    function startGarden() {
-      document.getElementById('introOverlay').style.display = 'none';
-    }
-  </script>
-  <script type="module" src="main.js"></script>
-</body>
-</html>
+    </main>
+  
+    <script type="module" src="main.js"></script>
+    <script>
+      document.getElementById('startBtn').addEventListener('click', () => {
+        document.getElementById('introOverlay').style.display = 'none';
+        document.querySelector('main').hidden = false;
+      });
+    </script>
+  
+  </body>
+  </html>

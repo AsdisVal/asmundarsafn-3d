@@ -1,16 +1,26 @@
 /* ========== RESET & BASE ========== */
 :root {
+	/* Z-Index Layers */
 	--z-canvas: 10;
 	--z-tooltips: 100;
 	--z-panels: 1000;
+
+	/* Color Variables */
 	--primary-accent: #4CAF50;
 	--surface-overlay: rgba(0, 0, 0, 0.87);
-	--transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	--spacing-small: 0.5rem;
-	--big-font: clamp(20px, 3vw, 24px);
-	--gap-medium: 1rem;
+
+	/* Typography */
 	--base-font: clamp(16px, 2vw, 20px);
-  --small-font: clamp(12px, 1.5vw, 14px);
+	--small-font: clamp(12px, 1.5vw, 14px);
+	--big-font: clamp(20px, 3vw, 24px);
+
+	/* Spacing */
+	--spacing-small: 0.5rem;
+	--gap-medium: 1rem;
+	--gap-large: 2rem;
+	
+	/* Animation */
+	--transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
   *,
@@ -53,7 +63,7 @@ canvas#c {
 	align-items: center;
 	justify-content: center;
 	z-index: 9999;
-	padding: 1rem;
+	padding: var(--gap-medium);
   }
 
   .intro-content {
@@ -62,7 +72,7 @@ canvas#c {
   gap: 2rem;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: var(--gap-medium);
 }
 
 .intro-left,
@@ -80,7 +90,7 @@ canvas#c {
 	cursor: pointer;
 	font-size: var(--base-font);
 	transition: transform 0.2s ease, background 0.2s ease;
-	margin-top: 1rem;
+	margin-top: var(--gap-medium);
   }
   
   .intro-left button:hover {
@@ -113,7 +123,7 @@ canvas#c {
 	.intro-content {
 	  flex-direction: column;
 	  text-align: center;
-	  gap: 1rem;
+	  gap: var(--gap-medium);
 	}
   
 	.intro-right {
@@ -132,7 +142,7 @@ canvas#c {
   }
 
   .intro-box p {
-	margin: 1rem 0;
+	margin: var(--gap-medium) 0;
 	color: #374151;
 	font-size: var(--big-font);
   }
@@ -144,7 +154,7 @@ canvas#c {
 	padding: 0.75rem 1.5rem;
 	border-radius: 0.5rem;
 	cursor: pointer;
-	font-size: 1rem;
+	font-size: var(--gap-medium);
 	transition: transform 0.2s ease, background 0.2s ease;
   }
 
@@ -188,8 +198,8 @@ button:focus-visible {
   /* ========== CONTROLS ========== */
   .control-group {
 	position: fixed;
-	inset-block-start: 1rem;
-	inset-inline-start: 1rem;
+	inset-block-start: var(--gap-medium);
+	inset-inline-start: var(--gap-medium);
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
@@ -231,7 +241,7 @@ button:focus-visible {
 #season-menu button {
   margin: 4px;
   padding: 6px 12px;
-  font-size: var(--font-size-small);
+  font-size: var(--base-font);
   border: none;
   border-radius: 5px;
   background-color: #cfcfcf;
@@ -286,14 +296,14 @@ button:focus-visible {
   .modal-content {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	gap: 2rem;
+	gap: var(--gap-medium);
 	inline-size: min(95vw, 1400px); /* Give more space */
 	max-block-size: 90vh;
-	padding: 1rem;
+	padding: var(--gap-medium);
 	background: rgba(255, 255, 255, 0.85);
 	backdrop-filter: blur(12px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	border-radius: 1rem;
+	border-radius: var(--gap-medium);
 	box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
 	overflow-y: auto;
   }
@@ -304,7 +314,7 @@ button:focus-visible {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
+	gap: var(--gap-medium);
 	max-height: 100%;
 	overflow-y: auto;
 }
@@ -355,7 +365,7 @@ button:focus-visible {
   
   /* ========== Overview Button ========== */
   #overviewBtn {
-	margin-top: 20px;
+	margin-top: var(--gap-large);
 	padding: 12px 24px;
 	font-size: var(--gap-medium);
 	font-weight: bold;
@@ -375,19 +385,13 @@ button:focus-visible {
 
   @media (max-width: 600px) {
 	.intro-box {
-	  padding: 1.25rem;
+		padding: var(--gap-medium);
+		font-size: 0.9rem;
 	}
   
 	
   
 	.left-panel canvas#statue3DCanvas {
 	  height: 300px;
-	}
-  }
-
-  @media (max-width: 600px) {
-	.intro-box {
-	  padding: 1rem;
-	  font-size: 0.9rem;
 	}
   }
