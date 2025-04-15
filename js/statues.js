@@ -9,7 +9,7 @@ import { getStatuesData } from './data.js';
 const placeholderObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-const radlagningEl = document.getElementById('radlagning');
+const radlagningEl = document.getElementById('tooltip');
 
 let modalScene, modalCamera, modalControls, modalModel, modalRenderer;
 let modalAnimating = false;
