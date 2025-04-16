@@ -8,10 +8,11 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 
 - **Blender-hönnun á safninu**: 20%
 - **Árstíðarvirkni**: 20%
-- **Smellt á styttu með upplýsingum**: 20%
-- **Niðurhal á styttu**: 20%
-- **CSS og útlit**: 20%
+- **Virkni sem varðar stytturnar**: 20%
+- **Gagnasöfnun um allar stytturnar**: 10%
+- **CSS og útlit**: 30%
 
+(Ef einkunnargjöfin er ekki vera viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
 ---
 
 ## Útfærsla
@@ -36,6 +37,7 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 
 - **Vika 6**: Uppsetning á umhverfi. Kassi fyrir safnið og plön fyrir garðinn.
 - **Vika 7**: Útfærsla á árstíðaskiptingu í `seasons.js` með `switch-case`.
+Hér er dæmi af útfærslunni fyrir árstíðarskiptingunni:
 
 ```js
 function setSeasonBackgroundEffects(season) {
@@ -58,7 +60,7 @@ function setSeasonBackgroundEffects(season) {
 }
 ```
 
-- **Vika 8**: Myndir teknar af styttum og nöfnum. Áframhaldandi vinna í `seasons.js`.
+- **Vika 8**: Myndir teknar af styttum og nöfnum styttanna. Áframhaldandi vinna í `seasons.js`. 
 - **Vika 9**:
   - Setti styttugögn í `JSON`-skrá.
   - Skannaði styttur með Polycam og sótti í tölvu.
@@ -85,7 +87,7 @@ function onPlaceholderClick(event, camera, controls, scene) {
 - **Vika 11**: Lazy loading útfært til að bæta hraða og upplifun.
 - **Vika 12**: Popup-gluggar fyrir styttur og CSS og hönnun á húsinu unnin áfram.
   ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
-- **Vika 13**: Lokafrágangur á virkni og útliti.
+- **Vika 13**: Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js.
 
 ---
 
