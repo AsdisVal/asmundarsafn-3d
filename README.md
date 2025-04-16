@@ -11,8 +11,7 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 - **Virkni sem varðar stytturnar**: 20%
 - **Gagnasöfnun um allar stytturnar**: 10%
 - **CSS og útlit**: 30%
-
-(Ef einkunnargjöfin er ekki vera viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
+(Ef einkunnargjöfin er ekki viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
 ---
 
 ## Útfærsla
