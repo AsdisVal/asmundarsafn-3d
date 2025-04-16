@@ -2,7 +2,7 @@
 
 ## Inngangur
 
-Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustönn. Ásmundarsafnið fannst mér bæði skemmtilegt og aðgengilegt viðfangsefni sem bauð upp á mikla möguleika til að þróa. Verkefnið er þrívíddarútgáfa af Ásmundarsafni þar sem hægt er að smella á styttur og fá upplýsingar um þær. Stytturnar eru skannaðar útgáfur af styttunum og birtast þar með í góðum gæðum.
+Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustönn. Ásmundarsafnið fannst mér bæði skemmtilegt og aðgengilegt viðfangsefni sem bauð upp á mikla möguleika til að þróa. Verkefnið er þrívíddarútgáfa af Ásmundarsafni þar sem hægt er að smella á styttur og fá upplýsingar um þær. Auk þess er hægt að sjá garðinn í árstíðunum sem notandinn getur valið. Stytturnar eru skannaðar útgáfur af styttunum og birtast þar með í góðum gæðum.
 
 ### Einkunnargjöf samkvæmt verkefnisviðmiðum:
 
