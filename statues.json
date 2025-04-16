@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "Midsummer_night",
+    "name": "Jónsmessunótt",
     "format": "obj",
     "mtl": "models/jonsmessunott_an_gras/jonsmessunott_an_gras.mtl",
     "model": "models/jonsmessunott_an_gras/jonsmessunott_an_gras.obj",
@@ -9,8 +9,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
     "visited": false,
-    "year": 1930,
-    "description": "Jónsmessunóttin.",
+    "year": 1940,
+    "description": "Verkið Jónsmessunótt ber mörg einkenni verka Ásmundar sem hann vann fyrri hluta listferils síns á fjórða áratugnum. Verkin eru efnismikil heild, hvergi loftar á milli líkamshluta. Hér fléttast líkamar karls og konu saman á munúðarlegan en samtímis kærleiksríkan hátt í órjúfanlega heild; tvö form verða að einu.",
     "image": "images/statues/midsummer_night.jpeg",
     "image-card": "images/statue-cards/midsummer_night.jpeg"
   },
@@ -35,7 +35,7 @@
     "format": "obj",
     "mtl": "models/Helreidin_an_gras/helreidin_an_gras.mtl",
     "model": "models/Helreidin_an_gras/helreidin_an_gras.obj",
-    "position": { "x": -77, "y": 0, "z": 0 },
+    "position": { "x": -77, "y": -0.55, "z": 0 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 1.57,
     "visited": false,
@@ -61,7 +61,7 @@
   },
   {
     "id": 4,
-    "name": "mother earth",
+    "name": "Móðir jörð",
     "format": "obj",
     "mtl": "models/modir_jord_an_gras/modir_jord_an_gras.mtl",
     "model": "models/modir_jord_an_gras/modir_jord_an_gras.obj",
@@ -69,8 +69,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 1.57,
     "visited": false,
-    "year": 1930,
-    "description": "Móðir jörð er stytta.",
+    "year": 1936,
+    "description": "Myndina Móðir jörð gerði Ásmundur er hann dvaldi í nokkra mánuði í Kaupmannahöfn árið 1936. Hún sýnir barn sem sýgur brjóst móður sinnar. Myndin var stækkuð og steypt í brons árið 1957. Margar skýringar koma til greina þegar rætt er um inntak verksins, bæði sálfræði- og trúarlegar. Samkvæmt Ásmundi táknar konan (móður) jörðina, og barnið mannfólkið. Hér er því um að ræða hina frjósömu og gjöfulu jörð sem elur mannkynið",
     "image": "images/statues/mother_earth.jpeg",
     "image-card": "images/statue-cards/mother_earth.jpeg"
   },
@@ -80,12 +80,12 @@
     "format": "obj",
     "mtl": "models/vatnsberi_an_gras/vatnsberi_an_gras.mtl",
     "model": "models/vatnsberi_an_gras/vatnsberi_an_gras.obj",
-    "position": { "x": -21, "y": 0.5, "z": -79 },
+    "position": { "x": -20, "y": 0.5, "z": -80 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
     "year": 1930,
-    "description": "Vatnsberinn er stytta að bera vatn.",
+    "description": "Þegar byggð tók að myndast í Reykjavík og varð að kaupstað árið 1786 voru innviðir heldur fábrotnir. Framan af þurfti sem dæmi að sækja allt ferskvatn í brunna og færa heim í hús. Það var hlutskipti vatnsberanna að vinna þá erfiðisvinnu og voru það oft á tíðum konur. Ásmundur Sveinsson vann verkið í Kaupmannahöfn veturinn 1936-37. Þá voru nokkur ár síðan síðasti vatnsberinn starfaði enda komið rennandi vatn heim að flestum húsum í Reykjavík. Verkið var hluti af nokkrum höggmyndum sem Ásmundur bjó til á fjórða áratugnum og vildi með þeim upphefja störf verkafólks.",
     "image": "images/statues/vatnsberi.jpeg",
     "image-card": "images/statue-cards/vatnsberi.jpeg"
   },
@@ -121,7 +121,7 @@
   },
   {
     "id": 8,
-    "name": "saeumundur_an_gras",
+    "name": "Sæmundur á selnum",
     "format": "obj",
     "mtl": "models/saemundur_an_gras/saemundur_an_gras.mtl",
     "model": "models/saemundur_an_gras/saemundur_an_gras.obj",
@@ -129,14 +129,14 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
-    "year": 1930,
-    "description": "Saemundur er stytta sem er lika við HÍ.",
+    "year": 1926,
+    "description": "Verkið lýsir því tilteknu andartaki í samskiptum Sæmundar og djöfsa. Allt er gert til að miðla hreyfingu og krafti augnabliksins þegar Sæmundur keyrir Saltarann í haus djöfulsins. Formrænt byggist verkið á tveimur andstæðum kröftum sem þó mynda eina samfellda heild. Annars vegar er það form selsins, aflíðandi með mjúkum línum, og hins vegar form Sæmundar, hlaðið öflugri hreyfingu og spennikrafti. Þessi andstæðu form eru tengd saman þannig að afturhreifar selsins virka líkt og framlenging á kraftlínu Sæmundar. Myndefnið sækir Ásmundur í þjóðsöguna um Sæmund fróða: „Þegar þeir Sæmundur, Kálfur og Hálfdan komu úr Svartaskóla, var Oddinn laus, og báðu þeir þá allir kónginn að veita sér hann. Kóngurinn vissi dável, við hverja hann átti, og segir, að sá þeirra skuli hafa Oddann, sem fljótastur verði að komast þangað. Fer þá Sæmundur undir eins og kallar á kölska og segir: „Syntu nú með mig til Íslands, og ef þú kemur mér þar á land án þess að væti kjóllafið mitt í sjónum, þá máttu eiga mig.“ Kölski gekk að þessu, brá sér í selslíki og fór með Sæmund á bakinu. En á leiðinni var Sæmundur alltaf að lesa í Saltaranum. Voru þeir eftir lítinn tíma komnir undir land á Íslandi. Þá slær Sæmundur Saltaranum í hausinn á selnum, svo hann sökk, en Sæmundur fór í kaf og synti til lands. Með þessu varð kölski af kaupinu, en Sæmundur fékk Oddann“ (Sigurður Nordal: Þjóðsagnabókin II).",
     "image": "images/statues/saemundur_a_selnum.jpeg",
     "image-card": "images/statue-cards/saemundur_a_selnum.jpeg"
   },
   {
     "id": 9,
-    "name": "galdramadur_an_gras",
+    "name": "Galdramaður",
     "format": "obj",
     "mtl": "models/galdramadur_an_gras/galdramadur_an_gras.mtl",
     "model": "models/galdramadur_an_gras/galdramadur_an_gras.obj",
@@ -151,7 +151,7 @@
   },
   {
     "id": 10,
-    "name": "kossinn_an_gras",
+    "name": "Kossinn",
     "format": "obj",
     "mtl": "models/kossinn_an_gras/kossinn_an_gras.mtl",
     "model": "models/kossinn_an_gras/kossinn_an_gras.obj",
@@ -160,7 +160,7 @@
     "rotationY": 3.14,
     "visited": false,
     "year": 1924,
-    "description": "The kiss heitir á íslensku Kossinn.",
+    "description": " Í þessu verki sem unnið var á námsárum Ásmundar í Svíþjóð tekur hann ákvörðun um að hverfa frá hinni hefðbundnu skólasýn á gerð höggmynda og tileinkar sér persónulegri formskrift. Hann hafnar akademískum reglum og leggur áherslu á massann og línuna og einfaldar allt skraut og smáatriði. Verkið byggist á lóðréttum og láréttum kröftum og andstæðum milli spennu og hvíldar.",
     "image": "images/statues/the_kiss.jpeg",
     "image-card": "images/statue-cards/the_kiss.jpeg"
   },
@@ -181,7 +181,7 @@
   },
   {
     "id": 12,
-    "name": "lady and amor",
+    "name": "Kona með Amor",
     "format": "obj",
     "mtl": "models/amor_an_gras/amor_an_gras.mtl",
     "model": "models/amor_an_gras/amor_an_gras.obj",
@@ -189,14 +189,14 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,
-    "year": 1936,
-    "description": "Lady and amor styttan, smá toxic en allt í góðu.",
+    "year": 1927,
+    "description": "Þetta er einföld og ljóðræn mynd og vitnar um þekkingu listamannsins á anatómíu og hefðbundnum hlutföllum sem þó eru rofin milli konunnar og barnsins. Barnið virkar of lítið í höndum hennar og gefur verkinu þannig yfirnáttúrlegt inntak. Þó að líkami konunnar sé þykkur og massífur, þá er hann einnig gæddur mjúkri hreyfingu, eins konar hornalínu sem gengur frá hægri fæti upp í gegnum líkamann allan og beinir athygli áhorfandans að barninu í höndum konunnar. Í myndinni má sjá að hár konunnar er stílfært á eindreginn hátt og gefur það verkinu forn-klassískt yfirbragð.",
     "image": "images/statues/lady_and_amor.jpeg",
     "image-card": "images/statue-cards/lady_and_amor.jpeg"
   },
   {
     "id": 13,
-    "name": "sisters",
+    "name": "Systur",
     "format": "obj",
     "mtl": "models/Sisters/sisters.mtl",
     "model": "models/Sisters/sisters.obj",
@@ -204,8 +204,8 @@
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": -1.57,
     "visited": false,
-    "year": 1936,
-    "description": "sisters styttan eru örugglega systur.",
+    "year": 1934,
+    "description": "Verkið Systur sýnir tvo kvenlíkama sem hallast örlítið aftur með hendur upp yfir höfuð. Það er unnið í náttúrulegum stíl þar sem listamaðurinn er trúr fyrirmyndinni. Hægt er að ímynda sér að konurnar standi undir ljúfri vatnsbunu sem þær halla sér undir. Þann 24. júní 1924 snéri Ásmundur frá námi í Stokkhólmi ásamt unnustu sinni Gunnfríði Jónsdóttur til að giftast henni á Íslandi. Ásmundur og kona hans ferðuðust um æskuslóðir hans og hann tók mynd af Gunnfríði og systur hennar við foss. Sú uppstilling þykir líkjast verkinu mjög",
     "image": "images/statues/sisters.jpeg",
     "image-card": "images/statue-cards/sisters.jpeg"
   },
@@ -220,7 +220,7 @@
     "rotationY": 3.14,
     "visited": false,
     "year": [1931, 1933],
-    "description": "Verkið *piltur og stúlka* gerði Ásmundur fyrst í París þegar hann dvaldi þar í fjóra mánuði árið 1931, en fullgerði síðan í Reykjavík sama ár. Pilturinn og stúlkan eru í venjulegum fötum auk þess sem líkamsbygging og öll hlutföll eru í fullu samræmi við hina hefðbundnu skólasýn. Þó svo að þessi mynd sé umfram allt ljóðræn stemning, verður hún að teljast ein af þeim myndum sem marka upphaf hins félagslegu rainsæis í verkum Ásmundar á fjórða áratugnum.",
+    "description": "Verkið gerði Ásmundur fyrst í París þegar hann dvaldi þar í fjóra mánuði árið 1931, en fullgerði síðan í Reykjavík sama ár. Pilturinn og stúlkan eru í venjulegum fötum auk þess sem líkamsbygging og öll hlutföll eru í fullu samræmi við hina hefðbundnu skólasýn. Þó svo að þessi mynd sé umfram allt ljóðræn stemning, verður hún að teljast ein af þeim myndum sem marka upphaf hins félagslegu rainsæis í verkum Ásmundar á fjórða áratugnum.",
     "image": "images/statues/boy_and_girl.jpeg",
     "image-card": "images/statue-cards/boy_and_girl.jpeg"
   },
@@ -253,5 +253,20 @@
     "description": "Verkið er til vitnis um vissa umbreytingu inn í nýja myndveröld Ásmundar þar sem myndefnið er öllu stórbrotnara og ógnvænlegra en það sem hann hafði áður fengist við. Í stað þess að fjalla um andlega reisn íslenskrar alþýðu er hér á ferð verk sem hefur heimssögulegar tilvísanir. Í staðinn fyrir upphafningu á hinu góða í mannssálinni snéri Ásmundur sér að því að lýsa myrkari hliðum mannlífsisns; ótta, grimmd, sorg, hatri, örvæntingu, átökum og stíði. Í verkinu er hlutföllum líkamans riðlað og anliditn virðast fremur í ætt við dýr en menn.",
     "image": "images/statues/war_and_flight.jpeg",
     "image-card": "images/statue-cards/war_and_flight.jpeg"
+  },
+  {
+    "id": 17,
+    "name": "Sonatorrek",
+    "format": "obj",
+    "mtl": "models/sonatorrek/sonatorrek.mtl",
+    "model": "models/sonatorrek/sonatorrek.obj",
+    "position": { "x": 45, "y": -0.75, "z": -60 },
+    "scale": { "x": 2, "y": 2, "z": 2 },
+    "rotationY": 0,
+    "visited": false,
+    "year": 1948,
+    "description": "Sonatorrek er ljóð eftir Egil Skallagrímsson og þykir eitt merkasta ljóð víkingaaldar. Ljóðið er 25 erindi og lýsir þar Egill mikilli sorg sinni yfir að hafa misst tvo syni. Sonatorrek mætti túlka á nútíma íslensku sem sonamissir.Ásmundur valdi sér kvæði Egils að viðfangsefni árið 1948, ári eftir að dóttir hands fórst í bílslysi. Verk Ásmundar sýnir þá stund þegar Þorgerður dóttir Egils réttir honum ljóðahörpuna og hvetur hann til að yrkja sig frá sorginni. Á sama hátt má leiða að því líkur að yngri dóttir Ásmundar og listsköpun hans hafi verið honum sú huggun sem gerði honum kleift að sigrast á sorginni.",
+    "image": "images/statues/sonatorrek.jpg",
+    "image-card": "images/statue-cards/rowing.jpeg"
   }
 ]
