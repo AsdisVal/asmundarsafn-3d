@@ -1,4 +1,4 @@
-# Ásmundarsafnið í 3D – Einstaklingsverkefni í Vefforritun 2
+# Garður Ásmundar í 3D – Einstaklingsverkefni í Vefforritun 2
 
 ## Inngangur
 
@@ -11,7 +11,9 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 - **Virkni sem varðar stytturnar**: 20%
 - **Gagnasöfnun um allar stytturnar**: 10%
 - **CSS og útlit**: 30%
+
 (Ef einkunnargjöfin er ekki viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
+
 ---
 
 ## Útfærsla
@@ -81,12 +83,14 @@ function onPlaceholderClick(event, camera, controls, scene) {
 }
 ```
 
-- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun.
+- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun. Byrjaði að vinna í húsinu í Blender.
 - **Vika 11**: Popup-gluggar fyrir styttur og CSS. Hönnun á húsinu unnin í Blender.
-- **Vika 12**:  Hönnun á húsinu unnin í Blender áfram. Göngustétt og tré bætt við.
-  ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
-- **Vika 13**: Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js.
+![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
+- **Vika 12**:  Hönnun á húsinu unnin í Blender lokið.  Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js. Bætti við forsíðu um Ásmund.
+![Forsíða um Ásmund](images/comparison/intro.jpg)
 
+- **Vika 13**: Göngustétt og tré bætt við.
+![Yfirlit af garðinum](images/comparison/trees.jpg)
 ---
 
 ## Tækni
@@ -125,14 +129,12 @@ Verkefnið notar:
 ---
 
 ## Samanburður á raunverulegu safni og 3D-módeli
-
-Eins og sést er safnið afar fallegt og hefur nokkuð augljós form í sér.
-**Raunverulegt safn:**  
+**Mynd af safninu:**  
 ![Raunverulegt Ásmundarsafn](images/comparison/real.jpg)
 
-Það gekk vel að gera framhliðina af safninu nokkuð líka en var mér smá erfiði að hanna lögunina á sýningarsalnum.
 **3D útgáfan í Blender:**  
 ![3D módel í Blender](images/comparison/mine.jpg)
+Það gekk nokkuð vel að hanna framhliðina en bakhliðin var erfiðari en ég bjóst við.
 
 ---
 
