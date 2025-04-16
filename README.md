@@ -37,7 +37,6 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 
 - **Vika 6**: Uppsetning á umhverfi. Kassi fyrir safnið og plön fyrir garðinn.
 - **Vika 7**: Útfærsla á árstíðaskiptingu í `seasons.js` með `switch-case`.
-Hér er dæmi af útfærslunni fyrir árstíðarskiptingunni:
 
 ```js
 function setSeasonBackgroundEffects(season) {
@@ -60,7 +59,7 @@ function setSeasonBackgroundEffects(season) {
 }
 ```
 
-- **Vika 8**: Myndir teknar af styttum og nöfnum styttanna. Áframhaldandi vinna í `seasons.js`. 
+- **Vika 8**: Myndir teknar af styttum og af nöfnum styttanna. Auk þess var áframhaldandi vinna í `seasons.js`. 
 - **Vika 9**:
   - Setti styttugögn í `JSON`-skrá.
   - Skannaði styttur með Polycam og sótti í tölvu.
@@ -83,9 +82,9 @@ function onPlaceholderClick(event, camera, controls, scene) {
 }
 ```
 
-- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra.
-- **Vika 11**: Lazy loading útfært til að bæta hraða og upplifun.
-- **Vika 12**: Popup-gluggar fyrir styttur og CSS og hönnun á húsinu unnin áfram.
+- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun.
+- **Vika 11**: Popup-gluggar fyrir styttur og CSS. Hönnun á húsinu unnin í Blender.
+- **Vika 12**:  Hönnun á húsinu unnin í Blender áfram. Göngustétt og tré bætt við.
   ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
 - **Vika 13**: Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js.
 
