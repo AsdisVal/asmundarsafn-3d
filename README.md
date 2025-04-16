@@ -83,7 +83,8 @@ function onPlaceholderClick(event, camera, controls, scene) {
 
 - **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra.
 - **Vika 11**: Lazy loading útfært til að bæta hraða og upplifun.
-- **Vika 12**: Popup-gluggar fyrir styttur. CSS og hönnun unnin áfram.
+- **Vika 12**: Popup-gluggar fyrir styttur og CSS og hönnun á húsinu unnin áfram.
+  ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
 - **Vika 13**: Lokafrágangur á virkni og útliti.
 
 ---
@@ -125,12 +126,11 @@ Verkefnið notar:
 ## Samanburður á raunverulegu safni og 3D-módeli
 
 **Raunverulegt safn:**  
-![Raunverulegt Ásmundarsafn](images/comparison/mine.jpg)
-
-**3D útgáfan í Blender:**  
 ![3D módel í Blender](images/comparison/real.jpg)
 
-**Popup gluggi fyrir styttu:**  
-![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
+**3D útgáfan í Blender:**  
+![Raunverulegt Ásmundarsafn](images/comparison/mine.jpg)
+
+**Popup gluggi fyrir styttu:**
 
 ---
