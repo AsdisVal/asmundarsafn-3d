@@ -170,7 +170,7 @@
     "format": "obj",
     "mtl": "models/Kona ad strokka/kona_ad_strokka.mtl",
     "model": "models/Kona ad strokka/kona_ad_strokka.obj",
-    "position": { "x": 55, "y": -0.55, "z": -35 },
+    "position": { "x": 47, "y": -0.55, "z": -47 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 0,
     "visited": false,

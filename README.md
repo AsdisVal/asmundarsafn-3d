@@ -12,7 +12,7 @@ Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustö
 - **Gagnasöfnun um allar stytturnar**: 10%
 - **CSS og útlit**: 30%
 
-(Ef einkunnargjöfin er ekki viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
+(Ef einkunnargjöfin er ekki viðeigandi að þínu mati treysti ég þinni einkunnargjöf )
 
 ---
 
@@ -60,7 +60,7 @@ function setSeasonBackgroundEffects(season) {
 }
 ```
 
-- **Vika 8**: Myndir teknar af styttum og af nöfnum styttanna. Auk þess var áframhaldandi vinna í `seasons.js`. 
+- **Vika 8**: Myndir teknar af styttum og af nöfnum styttanna. Auk þess var áframhaldandi vinna í `seasons.js`.
 - **Vika 9**:
   - Setti styttugögn í `JSON`-skrá.
   - Skannaði styttur með Polycam og sótti í tölvu.
@@ -85,12 +85,13 @@ function onPlaceholderClick(event, camera, controls, scene) {
 
 - **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun. Byrjaði að vinna í húsinu í Blender.
 - **Vika 11**: Popup-gluggar fyrir styttur og CSS. Hönnun á húsinu unnin í Blender.
-![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
-- **Vika 12**:  Hönnun á húsinu unnin í Blender lokið.  Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js. Bætti við forsíðu um Ásmund.
-![Forsíða um Ásmund](images/comparison/intro.jpg)
+  ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
+- **Vika 12**: Hönnun á húsinu unnin í Blender lokið. Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js. Bætti við forsíðu um Ásmund.
+  ![Forsíða um Ásmund](images/comparison/intro.jpg)
 
 - **Vika 13**: Göngustétt og tré bætt við.
-![Yfirlit af garðinum](images/comparison/trees.jpg)
+  ![Yfirlit af garðinum](images/comparison/trees.jpg)
+
 ---
 
 ## Tækni
@@ -117,6 +118,7 @@ Verkefnið notar:
 
 - Gögnin frá Polycam voru of stór í góðum gæðum – erfitt að minnka án gæðataps. Ef ég minnkaði hnútafjöldann gat ég ekki notað útlitið á efninu(e.texture).
 - Hýsing var áskorun – Render gat ekki tekið við öllum gögnum vegna stærðar á styttunum.
+- Ég reyndi að búa til virkni sem myndi væri að þegar maður ýtir á hnapp "1" á lyklaborðinu myndi maður sjá safnið útfrá sjónarhrni af manneskju en það er á góðri leið að nást.
 
 ---
 
@@ -129,6 +131,7 @@ Verkefnið notar:
 ---
 
 ## Samanburður á raunverulegu safni og 3D-módeli
+
 **Mynd af safninu:**  
 ![Raunverulegt Ásmundarsafn](images/comparison/real.jpg)
 
@@ -143,12 +146,12 @@ Verkefnið notar:
 - Ég ætla að athuga hvort hægt sé að sækja um einhverja styrki til að halda áfram með verkefnið.
 - Ég mun bæta við animation virkni í Blender sem verður spennandi að læra
 - Ég ætla að læra hvernig ég get unnið og lagfært stytturnar sem ég hef skannað þannig að ég vil rannsaka það aðeins betur.
-- Ég vil búa til gagnagrunn sem heldur utan um allar stytturnar -það mun vera verkefni sem hefur sprottið uppúr þessu einstaklingsverkefni. 
+- Ég vil búa til gagnagrunn sem heldur utan um allar stytturnar -það mun vera verkefni sem hefur sprottið uppúr þessu einstaklingsverkefni.
 
 ---
 
 ## Lokaorð
 
-Ég hef lært að tvinna betur listina við tækni og er búin að læra afar mikið útfrá þessu verkefni. Ég hef lært að búa til módellíkön með skönnunaraðferð. Ég hef lært enn meir á CSS virkni og hvernig á að gera vef responsive. Ég hef unnið með Blender og hannað safn frá grunni. 
+Ég hef lært að tvinna betur listina við tækni og er búin að læra afar mikið útfrá þessu verkefni. Ég hef lært að búa til módellíkön með skönnunaraðferð. Ég hef lært enn meir á CSS virkni og hvernig á að gera vef responsive. Ég hef unnið með Blender og hannað safn frá grunni.
 
 ---
