@@ -120,16 +120,33 @@ Verkefnið notar:
 
 - Lazy loading gerði gæfumuninn – hægt að hafa mikið magn gagna án þess að hægja á vefnum.
 - Lærdómur á notkun hljóðs og `Three.js raycaster` var sérstaklega skemmtilegur og gagnlegur.
-- Verkefnið breyttist mjög mikið og ég lærði að það er sniðugt að gefa sér tíma fyrir að finna góða hugmynd að verkefni
+- Verkefnið breyttist mjög mikið og ég lærði að það er sniðugt að gefa sér nokkrar vikur að finna hugmynd að verkefni. Til dæmis var fyrsta útgáfan af verkefninu að hægt er að smella á staðsetta hnappa í garðinum og þá birtist mynd af styttunni. Þegar sú hugmynd er borin saman við nýjustu útgáfuna af verkefninu er að mínu mati meira varið í nýjustu útgáfuna.
 
 ---
 
 ## Samanburður á raunverulegu safni og 3D-módeli
 
+Eins og sést er safnið afar fallegt og hefur nokkuð augljós form í sér.
 **Raunverulegt safn:**  
-![3D módel í Blender](images/comparison/real.jpg)
+![Raunverulegt Ásmundarsafn](images/comparison/real.jpg)
 
+Það gekk vel að gera framhliðina af safninu nokkuð líka en var mér smá erfiði að hanna lögunina á sýningarsalnum.
 **3D útgáfan í Blender:**  
-![Raunverulegt Ásmundarsafn](images/comparison/mine.jpg)
+![3D módel í Blender](images/comparison/mine.jpg)
+
+---
+
+## Áframhald á verkefni
+
+- Ég ætla að athuga hvort hægt sé að sækja um einhverja styrki til að halda áfram með verkefnið.
+- Ég mun bæta við animation virkni í Blender sem verður spennandi að læra
+- Ég ætla að læra hvernig ég get unnið og lagfært stytturnar sem ég hef skannað þannig að ég vil rannsaka það aðeins betur.
+- Ég vil búa til gagnagrunn sem heldur utan um allar stytturnar -það mun vera verkefni sem hefur sprottið uppúr þessu einstaklingsverkefni. 
+
+---
+
+## Lokaorð
+
+Ég hef lært að tvinna betur listina við tækni og er búin að læra afar mikið útfrá þessu verkefni. Ég hef lært að búa til módellíkön með skönnunaraðferð. Ég hef lært enn meir á CSS virkni og hvernig á að gera vef responsive. Ég hef unnið með Blender og hannað safn frá grunni. 
 
 ---
