@@ -81,12 +81,14 @@ function onPlaceholderClick(event, camera, controls, scene) {
 }
 ```
 
-- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun.
+- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun. Byrjaði að vinna í húsinu í Blender.
 - **Vika 11**: Popup-gluggar fyrir styttur og CSS. Hönnun á húsinu unnin í Blender.
-- **Vika 12**:  Hönnun á húsinu unnin í Blender áfram. Göngustétt og tré bætt við.
-  ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
-- **Vika 13**: Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js.
+-   ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
+- **Vika 12**:  Hönnun á húsinu unnin í Blender lokið.  Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js. Bætti við forsíðu um Ásmund.
+- ![Forsíða um Ásmund](images/comparison/intro.jpg)
 
+- **Vika 13**: Göngustétt og tré bætt við.
+- ![Yfirlit af garðinum](images/comparison/trees.jpg)
 ---
 
 ## Tækni
