@@ -4,7 +4,6 @@
  */
 
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { ground } from '../main';
 console.log('seasons.js loaded');
 let winterGroup, springGroup, summerGroup, autumnGroup;
