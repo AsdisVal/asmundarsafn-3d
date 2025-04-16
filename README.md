@@ -127,14 +127,12 @@ Verkefnið notar:
 ---
 
 ## Samanburður á raunverulegu safni og 3D-módeli
-
-Eins og sést er safnið afar fallegt og hefur nokkuð augljós form í sér.
-**Raunverulegt safn:**  
+**Mynd af safninu:**  
 ![Raunverulegt Ásmundarsafn](images/comparison/real.jpg)
 
-Það gekk vel að gera framhliðina af safninu nokkuð líka en var mér smá erfiði að hanna lögunina á sýningarsalnum.
 **3D útgáfan í Blender:**  
 ![3D módel í Blender](images/comparison/mine.jpg)
+Það gekk nokkuð vel að hanna framhliðina en bakhliðin var erfiðari en ég bjóst við.
 
 ---
 
