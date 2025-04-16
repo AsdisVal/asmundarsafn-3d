@@ -74,10 +74,10 @@ ground.position.z = -29;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();
-mtlLoader.load('asmundarsafn/asmundarsafn14_56.mtl', (materials) => {
+mtlLoader.load('asmundarsafn/asmundarsafn_03_46.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
-  objLoader.load('asmundarsafn/asmundarsafn14_56.obj', (object) => {
+  objLoader.load('asmundarsafn/asmundarsafn_03_46.obj', (object) => {
     object.position.set(0, 0.2, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
@@ -106,16 +106,22 @@ window.addEventListener('keydown', (e) => {
       if (!fpControls) {
         fpControls = new PointerLockControls(camera, document.body);
         scene.add(camera);
-
-        document.body.addEventListener('click', () => {
-          fpControls.lock();
-        });
-
-        const instr = document.getElementById('instructions');
-        if (instr) instr.style.display = 'none';
-
         camera.position.set(0, 2, 10);
+
+        // Only attach the click event once
+        document.body.addEventListener(
+          'click',
+          () => {
+            if (fpControls) {
+              fpControls.lock();
+            }
+          },
+          { once: true }
+        ); // Only once, so we don’t stack up multiple listeners
       }
+
+      const instr = document.getElementById('instructions');
+      if (instr) instr.style.display = 'none';
     } else {
       controls.enabled = true;
 
