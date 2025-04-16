@@ -120,6 +120,7 @@ Verkefnið notar:
 
 - Lazy loading gerði gæfumuninn – hægt að hafa mikið magn gagna án þess að hægja á vefnum.
 - Lærdómur á notkun hljóðs og `Three.js raycaster` var sérstaklega skemmtilegur og gagnlegur.
+- Verkefnið breyttist mjög mikið og ég lærði að það er sniðugt að gefa sér tíma fyrir að finna góða hugmynd að verkefni
 
 ---
 
@@ -130,7 +131,5 @@ Verkefnið notar:
 
 **3D útgáfan í Blender:**  
 ![Raunverulegt Ásmundarsafn](images/comparison/mine.jpg)
-
-**Popup gluggi fyrir styttu:**
 
 ---
