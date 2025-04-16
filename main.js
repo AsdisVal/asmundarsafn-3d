@@ -74,10 +74,10 @@ ground.position.z = -29;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();
-mtlLoader.load('asmundarsafn/asmundarsafn_03_46.mtl', (materials) => {
+mtlLoader.load('asmundarsafn/asmundarsafn_04_03.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
-  objLoader.load('asmundarsafn/asmundarsafn_03_46.obj', (object) => {
+  objLoader.load('asmundarsafn/asmundarsafn_04_03.obj', (object) => {
     object.position.set(0, 0.2, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
