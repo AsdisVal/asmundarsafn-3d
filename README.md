@@ -1,4 +1,4 @@
-# Ásmundarsafnið í 3D – Einstaklingsverkefni í Vefforritun 2
+# Garður Ásmundar í 3D – Einstaklingsverkefni í Vefforritun 2
 
 ## Inngangur
 
