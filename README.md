@@ -2,16 +2,16 @@
 
 ## Inngangur
 
-Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustönn. Ásmundarsafnið fannst mér bæði skemmtilegt og aðgengilegt viðfangsefni sem bauð upp á mikla möguleika til að þróa. Verkefnið er þrívíddarútgáfa af Ásmundarsafni þar sem hægt er að smella á styttur og fá upplýsingar um þær. Stytturnar eru #D skannaðar útgáfur af styttunum og birtast þar með í góðum gæðum.
+Hugmyndin að verkefninu kom þegar ég var í Tölvugrafík á seinustu haustönn. Ásmundarsafnið fannst mér bæði skemmtilegt og aðgengilegt viðfangsefni sem bauð upp á mikla möguleika til að þróa. Verkefnið er þrívíddarútgáfa af Ásmundarsafni þar sem hægt er að smella á styttur og fá upplýsingar um þær. Auk þess er hægt að sjá garðinn í árstíðunum sem notandinn getur valið. Stytturnar eru skannaðar útgáfur af styttunum og birtast þar með í góðum gæðum.
 
 ### Einkunnargjöf samkvæmt verkefnisviðmiðum:
 
 - **Blender-hönnun á safninu**: 20%
 - **Árstíðarvirkni**: 20%
-- **Smellt á styttu með upplýsingum**: 20%
-- **Niðurhal á styttu**: 20%
-- **CSS og útlit**: 20%
-
+- **Virkni sem varðar stytturnar**: 20%
+- **Gagnasöfnun um allar stytturnar**: 10%
+- **CSS og útlit**: 30%
+(Ef einkunnargjöfin er ekki viðeigandi að þínu mati treysti ég þinni einkunnargjöf ) 
 ---
 
 ## Útfærsla
@@ -58,7 +58,7 @@ function setSeasonBackgroundEffects(season) {
 }
 ```
 
-- **Vika 8**: Myndir teknar af styttum og nöfnum. Áframhaldandi vinna í `seasons.js`.
+- **Vika 8**: Myndir teknar af styttum og af nöfnum styttanna. Auk þess var áframhaldandi vinna í `seasons.js`. 
 - **Vika 9**:
   - Setti styttugögn í `JSON`-skrá.
   - Skannaði styttur með Polycam og sótti í tölvu.
@@ -81,11 +81,11 @@ function onPlaceholderClick(event, camera, controls, scene) {
 }
 ```
 
-- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra.
-- **Vika 11**: Lazy loading útfært til að bæta hraða og upplifun.
-- **Vika 12**: Popup-gluggar fyrir styttur og CSS og hönnun á húsinu unnin áfram.
+- **Vika 10**: Reyndi að hýsa á Render – of stór gögn. Bætti við placeholder-styttum í stað skannaðra sem raycaster gat fundið. Bætti við tooltip. Þannig gat ég útfært lazy loading. Það bætti hraða og upplifun.
+- **Vika 11**: Popup-gluggar fyrir styttur og CSS. Hönnun á húsinu unnin í Blender.
+- **Vika 12**:  Hönnun á húsinu unnin í Blender áfram. Göngustétt og tré bætt við.
   ![Popup gluggi fyrir styttu](images/comparison/pop.jpg)
-- **Vika 13**: Lokafrágangur á virkni og útliti.
+- **Vika 13**: Lokafrágangur á virkni og útliti, og bætti við hljóði og fuglum fyrir seasons.js.
 
 ---
 
@@ -120,17 +120,33 @@ Verkefnið notar:
 
 - Lazy loading gerði gæfumuninn – hægt að hafa mikið magn gagna án þess að hægja á vefnum.
 - Lærdómur á notkun hljóðs og `Three.js raycaster` var sérstaklega skemmtilegur og gagnlegur.
+- Verkefnið breyttist mjög mikið og ég lærði að það er sniðugt að gefa sér nokkrar vikur að finna hugmynd að verkefni. Til dæmis var fyrsta útgáfan af verkefninu að hægt er að smella á staðsetta hnappa í garðinum og þá birtist mynd af styttunni. Þegar sú hugmynd er borin saman við nýjustu útgáfuna af verkefninu er að mínu mati meira varið í nýjustu útgáfuna.
 
 ---
 
 ## Samanburður á raunverulegu safni og 3D-módeli
 
+Eins og sést er safnið afar fallegt og hefur nokkuð augljós form í sér.
 **Raunverulegt safn:**  
-![3D módel í Blender](images/comparison/real.jpg)
+![Raunverulegt Ásmundarsafn](images/comparison/real.jpg)
 
+Það gekk vel að gera framhliðina af safninu nokkuð líka en var mér smá erfiði að hanna lögunina á sýningarsalnum.
 **3D útgáfan í Blender:**  
-![Raunverulegt Ásmundarsafn](images/comparison/mine.jpg)
+![3D módel í Blender](images/comparison/mine.jpg)
 
-**Popup gluggi fyrir styttu:**
+---
+
+## Áframhald á verkefni
+
+- Ég ætla að athuga hvort hægt sé að sækja um einhverja styrki til að halda áfram með verkefnið.
+- Ég mun bæta við animation virkni í Blender sem verður spennandi að læra
+- Ég ætla að læra hvernig ég get unnið og lagfært stytturnar sem ég hef skannað þannig að ég vil rannsaka það aðeins betur.
+- Ég vil búa til gagnagrunn sem heldur utan um allar stytturnar -það mun vera verkefni sem hefur sprottið uppúr þessu einstaklingsverkefni. 
+
+---
+
+## Lokaorð
+
+Ég hef lært að tvinna betur listina við tækni og er búin að læra afar mikið útfrá þessu verkefni. Ég hef lært að búa til módellíkön með skönnunaraðferð. Ég hef lært enn meir á CSS virkni og hvernig á að gera vef responsive. Ég hef unnið með Blender og hannað safn frá grunni. 
 
 ---
