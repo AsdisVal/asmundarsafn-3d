@@ -11,8 +11,7 @@
 import './styles.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { updateSeasonEffects } from './js/seasons';
-import { initSeasons } from './js/seasons';
+import { updateSeasonEffects, initSeasons } from './js/seasons';
 import { loadPlaceholderStatues } from './js/statues';
 import { OBJLoader } from 'three/examples/jsm/Addons.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
@@ -41,7 +40,6 @@ camera.lookAt(0, 0, 26);
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 
@@ -105,7 +103,7 @@ window.addEventListener('keydown', (e) => {
 
       if (!fpControls) {
         fpControls = new PointerLockControls(camera, document.body);
-        scene.add(camera);
+
         camera.position.set(0, 2, 10);
 
         // Only attach the click event once
@@ -126,7 +124,6 @@ window.addEventListener('keydown', (e) => {
       controls.enabled = true;
 
       if (fpControls) {
-        scene.remove(fpControls.camera);
         fpControls.unlock();
         fpControls = null;
       }

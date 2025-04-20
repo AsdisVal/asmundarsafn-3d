@@ -9,7 +9,7 @@ import { getStatuesData } from './data.js';
 const placeholderObjects = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-const radlagningEl = document.getElementById('tooltip');
+const tooltipEl = document.getElementById('tooltip');
 
 let modalScene, modalCamera, modalControls, modalModel, modalRenderer;
 let modalAnimating = false;
@@ -53,14 +53,14 @@ function onPlaceholderPointerMove(event, camera) {
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(placeholderObjects, true);
-  if (intersects.length > 0 && radlagningEl) {
+  if (intersects.length > 0 && tooltipEl) {
     const placeholder = intersects[0].object;
-    radlagningEl.style.left = `${event.pageX + 5}px`;
-    radlagningEl.style.top = `${event.pageY + 5}px`;
-    radlagningEl.textContent = placeholder.userData.name || 'Statue';
-    radlagningEl.style.display = 'block';
-  } else if (radlagningEl) {
-    radlagningEl.style.display = 'none';
+    tooltipEl.style.left = `${event.pageX + 5}px`;
+    tooltipEl.style.top = `${event.pageY + 5}px`;
+    tooltipEl.textContent = placeholder.userData.name || 'Statue';
+    tooltipEl.style.display = 'block';
+  } else if (tooltipEl) {
+    tooltipEl.style.display = 'none';
   }
 }
 
@@ -76,7 +76,7 @@ function onPlaceholderClick(event, camera, controls, scene) {
     const placeholder = intersects[0].object;
     detailViewActive = true;
     controls.enabled = false;
-    if (radlagningEl) radlagningEl.style.display = 'none';
+    if (tooltipEl) tooltipEl.style.display = 'none';
     openStatueModal(placeholder.userData, controls);
     loadStatueModel(placeholder.userData, placeholder, camera, controls, scene);
   }
@@ -232,9 +232,9 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
             statueData.visited = true;
             placeholder.material.color.set(0xff0000);
 
-            if (radlagningEl) {
-              radlagningEl.style.display = 'block';
-              radlagningEl.innerHTML = `
+            if (tooltipEl) {
+              tooltipEl.style.display = 'block';
+              tooltipEl.innerHTML = `
                 <h3>${statueData.name}</h3>
                 <p>${statueData.description || 'No description available.'}</p>
               `;
@@ -274,10 +274,10 @@ function loadStatueModel(statueData, placeholder, camera, controls, scene) {
                 statueData.visited = true;
                 placeholder.material.color.set(0xff0000);
 
-                // ✨ Show info tab
-                if (radlagningEl) {
-                  radlagningEl.style.display = 'block';
-                  radlagningEl.innerHTML = `
+                // Show info tab
+                if (tooltipEl) {
+                  tooltipEl.style.display = 'block';
+                  tooltipEl.innerHTML = `
                     <h3>${statueData.name}</h3>
                     <p>${
                       statueData.description || 'No description available.'
