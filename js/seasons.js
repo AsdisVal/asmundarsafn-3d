@@ -119,6 +119,14 @@ function setSeason(season) {
   playSeasonAudio(season);
   setSeasonBackgroundEffects(season);
   setSeasonGroundColor(season);
+
+  // Add this code to update active button state
+  document.querySelectorAll('#season-menu button').forEach((btn) => {
+    btn.classList.remove('active');
+    if (btn.textContent && btn.textContent.toLowerCase() === season) {
+      btn.classList.add('active');
+    }
+  });
 }
 
 function setSeasonGroundColor(season) {

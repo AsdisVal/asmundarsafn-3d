@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="is">
+<html lang="is" xml:lang="is">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
     </div>
   
     <main hidden>
-      <canvas id="c" aria-label="3D Sculpture View"></canvas>
+      <canvas id="mainCanvas" aria-label="3D Sculpture View"></canvas>
   
       <div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
   
@@ -32,10 +32,10 @@
         <div class="modal-content">
           <div class="left-panel">
             <canvas id="statue3DCanvas" height="500" aria-label="3D View of Statue"></canvas>
-            <img id="imageCard" src="image-card.png" alt="Teiknuð útlit styttunnar">
+            <img id="imageCard" alt="cardname of the statue" class="image-card">
           </div>
           <div class="right-panel">
-            <img id="statuePhoto" src="" alt="Ljósmynd af styttu">
+            <img id="statuePhoto" alt="Ljósmynd af styttu">
             <div id="statueDetails">
               <p id="statueDesc"></p>
               <p id="statueYear"></p>
@@ -46,13 +46,6 @@
       </div>
     </main>
   
-    <script type="module" src="main.js"></script>
-    <script>
-      document.getElementById('startBtn').addEventListener('click', () => {
-        document.getElementById('introOverlay').style.display = 'none';
-        document.querySelector('main').hidden = false;
-      });
-    </script>
-  
+    <script type="module" src="main.js"></script>  
   </body>
   </html>

@@ -23,7 +23,7 @@ let fpControls;
 let keys = {};
 let direction = new THREE.Vector3();
 
-const canvas = document.querySelector('#c');
+const canvas = document.querySelector('#mainCanvas');
 if (!canvas) {
   throw new Error('Canvas element not found');
 }
@@ -74,10 +74,10 @@ ground.position.z = -29;
 scene.add(ground);
 
 const mtlLoader = new MTLLoader();
-mtlLoader.load('asmundarsafn/asmundarsafn_04_03.mtl', (materials) => {
+mtlLoader.load('asmundarsafn/update_museum_1.mtl', (materials) => {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
-  objLoader.load('asmundarsafn/asmundarsafn_04_03.obj', (object) => {
+  objLoader.load('asmundarsafn/update_museum_1.obj', (object) => {
     object.position.set(0, 0.2, 10);
     object.scale.set(1.5, 1.5, 1.5);
     object.rotation.y = Math.PI;
@@ -138,6 +138,22 @@ window.addEventListener('keydown', (e) => {
 
 window.addEventListener('keyup', (e) => {
   keys[e.key.toLowerCase()] = false;
+});
+
+// Handle intro start button
+document.addEventListener('DOMContentLoaded', () => {
+  const startBtn = document.getElementById('startBtn');
+  const introOverlay = document.getElementById('introOverlay');
+  const mainElement = document.querySelector('main');
+
+  if (startBtn && introOverlay && mainElement) {
+    startBtn.addEventListener('click', () => {
+      introOverlay.style.display = 'none';
+      mainElement.hidden = false;
+    });
+  } else {
+    console.warn('Intro elements not found in DOM.');
+  }
 });
 
 // Animation loop
