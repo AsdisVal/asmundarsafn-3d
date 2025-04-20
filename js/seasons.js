@@ -4,14 +4,13 @@
  */
 
 import * as THREE from 'three';
-import { ground } from '../main';
+import { ground, scene } from '../main';
 console.log('seasons.js loaded');
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
 let audioListener;
 let rainSound, birdSound;
-import { scene } from '../main.js'; // Import the scene from main.js
 // Initialize seasonal effects and UI
 export function initSeasons(scene, camera) {
   // Create audio listener
@@ -29,7 +28,7 @@ export function initSeasons(scene, camera) {
   });
 
   rainSound = new THREE.Audio(audioListener);
-  audioLoader.load('sound/rain.mp4', (buffer) => {
+  audioLoader.load('sound/rain.mp3', (buffer) => {
     rainSound.setBuffer(buffer);
     rainSound.setLoop(true);
     rainSound.setVolume(0.5);
@@ -64,12 +63,25 @@ export function updateSeasonEffects() {
     });
   }
   if (currentSeason === 'autumn') {
-    autumnGroup.children.forEach((rainDrop) => {
-      rainDrop.position.y -= 0.4; // Faster fall
-      if (rainDrop.position.y < 0) {
-        rainDrop.position.y = Math.random() * 10 + 15;
-        rainDrop.position.x = Math.random() * 50 - 25;
-        rainDrop.position.z = Math.random() * 50 - 25;
+    autumnGroup.children.forEach((obj) => {
+      if (obj.geometry.type === 'PlaneGeometry' && obj.material.map) {
+        // it's a leaf
+        obj.position.y -= obj.userData.fallSpeed || 0.02;
+        obj.rotation.z += obj.userData.rotationSpeed || 0.005;
+
+        if (obj.position.y < 0) {
+          obj.position.y = Math.random() * 20 + 10;
+          obj.position.x = Math.random() * 250 - 125;
+          obj.position.z = Math.random() * 110 - 55 - 29;
+        }
+      } else {
+        // it's a rain drop
+        obj.position.y -= 0.4;
+        if (obj.position.y < 0) {
+          obj.position.y = Math.random() * 10 + 15;
+          obj.position.x = Math.random() * 250 - 125;
+          obj.position.z = Math.random() * 110 - 55 - 29;
+        }
       }
     });
   }
@@ -122,7 +134,7 @@ function setSeasonGroundColor(season) {
         ground.material.color.set(0x3b5f3b); // deep green
         break;
       case 'autumn':
-        ground.material.color.set(0xcc9966); // dried brown
+        ground.material.color.set(0xd9a86a); // autumn ground
         break;
     }
   }
@@ -304,26 +316,59 @@ function createSummerEffect() {
 function createAutumnEffect() {
   const group = new THREE.Group();
 
-  const textureLoader = new THREE.TextureLoader();
-  const leafTexture = textureLoader.load(
-    'models/nature/red_fall_leaf/textures/Material.001_baseColor.png'
-  );
-  const rainGeom = new THREE.PlaneGeometry(0.05, 0.4); // Thin rain drops
-
+  // --- RAIN ---
+  const rainGeom = new THREE.PlaneGeometry(0.05, 0.4);
   for (let i = 0; i < 1000; i++) {
     const rainMat = new THREE.MeshBasicMaterial({
-      color: 0x87cefa, // Light blue
+      color: 0x87cefa,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.6,
     });
     const rainDrop = new THREE.Mesh(rainGeom, rainMat);
     rainDrop.position.set(
-      Math.random() * 50 - 25,
+      Math.random() * 250 - 125,
       Math.random() * 20 + 10,
-      Math.random() * 50 - 25
+      Math.random() * 110 - 55 - 29
     );
     group.add(rainDrop);
+  }
+
+  // --- LEAVES ---
+  const textureLoader = new THREE.TextureLoader();
+  const leafTexture = textureLoader.load(
+    'models/nature/red_fall_leaf/textures/Material.001_baseColor.png'
+  );
+
+  const leafMat = new THREE.MeshBasicMaterial({
+    map: leafTexture,
+    side: THREE.DoubleSide,
+    transparent: true,
+    alphaTest: 0.1, // discard transparent pixels
+  });
+
+  const leafGeom = new THREE.PlaneGeometry(0.5, 0.5);
+
+  for (let i = 0; i < 100; i++) {
+    const leaf = new THREE.Mesh(leafGeom, leafMat);
+
+    leaf.position.set(
+      Math.random() * 250 - 125,
+      Math.random() * 20 + 10,
+      Math.random() * 110 - 55 - 29
+    );
+
+    // Face camera roughly
+    leaf.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+    leaf.scale.setScalar(Math.random() * 0.5 + 0.3); // Varied size
+
+    // Add custom fall speed and rotation
+    leaf.userData = {
+      fallSpeed: THREE.MathUtils.randFloat(0.02, 0.05),
+      rotationSpeed: THREE.MathUtils.randFloat(0.005, 0.01),
+    };
+
+    group.add(leaf);
   }
 
   return group;
