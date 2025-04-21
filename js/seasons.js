@@ -177,50 +177,33 @@ function createWinterEffect() {
 
 function createSpringEffect() {
   const group = new THREE.Group();
-
-  const petalColor = 0xff69b4;
-  const centerColor = 0xffff66;
-
   const petalGeometry = new THREE.ConeGeometry(0.15, 0.4, 12);
-  const petalMaterial = new THREE.MeshStandardMaterial({ color: petalColor });
-
+  const petalMaterial = new THREE.MeshStandardMaterial({ color: 0xff69b4 });
   const centerGeometry = new THREE.SphereGeometry(0.15, 24, 24);
-  const centerMaterial = new THREE.MeshStandardMaterial({ color: centerColor });
+  const centerMaterial = new THREE.MeshStandardMaterial({ color: 0xffff66 });
 
   for (let i = 0; i < 80; i++) {
     const flower = new THREE.Group();
-
-    const petalCount = 6;
-    for (let j = 0; j < petalCount; j++) {
+    for (let j = 0; j < 6; j++) {
+      const angle = (j / 6) * Math.PI * 2;
       const petal = new THREE.Mesh(petalGeometry, petalMaterial.clone());
-
-      const angle = (j / petalCount) * Math.PI * 2;
-      const radius = 0.25;
-
-      // Set position in a circle
-      petal.position.set(Math.cos(angle) * radius, 0, Math.sin(angle) * radius);
-
-      // Reset rotation and then orient outward
+      petal.position.set(Math.cos(angle) * 0.25, 0, Math.sin(angle) * 0.25);
       petal.rotation.set(0, 0, 0);
-      petal.rotateZ(-Math.PI); // Lay flat
-      petal.rotateY(angle); // Point outward
-
+      petal.rotateZ(-Math.PI);
+      petal.rotateY(angle);
       flower.add(petal);
     }
-
     const center = new THREE.Mesh(centerGeometry, centerMaterial.clone());
     center.position.y = 0.1;
     flower.add(center);
-
     flower.position.set(
       Math.random() * 250 - 125,
       0,
       Math.random() * 110 - 55 - 29
     );
-    flower.scale.set(0.01, 0.01, 0.01); // animate later
+    flower.scale.set(0.01, 0.01, 0.01);
     group.add(flower);
   }
-
   return group;
 }
 
@@ -232,7 +215,6 @@ function createSummerEffect() {
   for (let i = 0; i < 10; i++) {
     const bird = new THREE.Group();
 
-    // Body (cube)
     const bodyGeo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
     const bodyMat = new THREE.MeshStandardMaterial({
       color: new THREE.Color(Math.random(), Math.random(), Math.random()),
@@ -240,7 +222,6 @@ function createSummerEffect() {
     const body = new THREE.Mesh(bodyGeo, bodyMat);
     bird.add(body);
 
-    // Beak (small cone)
     const beakGeo = new THREE.ConeGeometry(0.1, 0.2, 3);
     const beakMat = new THREE.MeshStandardMaterial({ color: 0xffaa00 });
     const beak = new THREE.Mesh(beakGeo, beakMat);
@@ -248,7 +229,6 @@ function createSummerEffect() {
     beak.position.set(0, 0, 0.35); // Front of body
     bird.add(beak);
 
-    // Wings (triangles)
     const wingGeo = new THREE.BufferGeometry();
     const wingVertices = new Float32Array([0, 0, 0, 0.4, 0.2, 0, 0.4, -0.2, 0]);
     wingGeo.setAttribute(
@@ -271,7 +251,6 @@ function createSummerEffect() {
     rightWing.rotation.y = -Math.PI / 2;
     bird.add(rightWing);
 
-    // Add orbit properties
     Object.assign(bird, {
       orbitRadius: THREE.MathUtils.randFloat(8, 18),
       orbitSpeed:
@@ -279,7 +258,6 @@ function createSummerEffect() {
       orbitAngle: Math.random() * Math.PI * 2,
       orbitHeight: THREE.MathUtils.randFloat(8, 14),
     });
-
     birds.push(bird);
     group.add(bird);
   }
@@ -287,20 +265,15 @@ function createSummerEffect() {
   function animateBirds() {
     birds.forEach((bird) => {
       bird.orbitAngle += bird.orbitSpeed;
-
       bird.position.set(
         center.x + bird.orbitRadius * Math.cos(bird.orbitAngle),
         bird.orbitHeight + Math.sin(bird.orbitAngle * 2) * 1.5,
         center.z + bird.orbitRadius * Math.sin(bird.orbitAngle)
       );
-
-      // Make bird face forward in the orbit
       bird.lookAt(center);
     });
-
     requestAnimationFrame(animateBirds);
   }
-
   animateBirds();
   return group;
 }
@@ -308,7 +281,6 @@ function createSummerEffect() {
 function createAutumnEffect() {
   const group = new THREE.Group();
 
-  // --- RAIN ---
   const rainGeom = new THREE.PlaneGeometry(0.05, 0.4);
   for (let i = 0; i < 1000; i++) {
     const rainMat = new THREE.MeshBasicMaterial({
@@ -326,7 +298,6 @@ function createAutumnEffect() {
     group.add(rainDrop);
   }
 
-  // --- LEAVES ---
   const textureLoader = new THREE.TextureLoader();
   const leafTexture = textureLoader.load(
     'models/nature/red_fall_leaf/textures/Material.001_baseColor.png'
@@ -338,23 +309,17 @@ function createAutumnEffect() {
     transparent: true,
     alphaTest: 0.1, // discard transparent pixels
   });
-
   const leafGeom = new THREE.PlaneGeometry(0.5, 0.5);
 
   for (let i = 0; i < 100; i++) {
     const leaf = new THREE.Mesh(leafGeom, leafMat);
-
     leaf.position.set(
       Math.random() * 250 - 125,
       Math.random() * 20 + 10,
       Math.random() * 110 - 55 - 29
     );
-
-    // Face camera roughly
     leaf.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
     leaf.scale.setScalar(Math.random() * 0.5 + 0.3); // Varied size
-
-    // Add custom fall speed and rotation
     leaf.userData = {
       fallSpeed: THREE.MathUtils.randFloat(0.02, 0.05),
       rotationSpeed: THREE.MathUtils.randFloat(0.005, 0.01),
@@ -362,6 +327,5 @@ function createAutumnEffect() {
 
     group.add(leaf);
   }
-
   return group;
 }
