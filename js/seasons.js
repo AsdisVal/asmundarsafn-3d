@@ -5,19 +5,43 @@
 
 import * as THREE from 'three';
 import { ground, scene } from '../main';
-console.log('seasons.js loaded');
+
 let winterGroup, springGroup, summerGroup, autumnGroup;
 let currentSeason = null;
 
 let audioListener;
 let rainSound, birdSound;
-// Initialize seasonal effects and UI
+
+const SEASON_CONFIG = {
+  winter: {
+    groundColor: 0xe0e0e0,
+    background: 0xd0e8f2,
+    group: () => winterGroup,
+    audio: null,
+  },
+  spring: {
+    groundColor: 0x7fc97f,
+    background: 0xa1d3d8,
+    group: () => springGroup,
+    audio: null,
+  },
+  summer: {
+    groundColor: 0x3b5f3b,
+    background: 0xa1e3d8,
+    group: () => summerGroup,
+    audio: () => birdSound,
+  },
+  autumn: {
+    groundColor: 0xd9a86a,
+    background: 0x87cefa,
+    group: () => autumnGroup,
+    audio: () => rainSound,
+  },
+};
 export function initSeasons(scene, camera) {
-  // Create audio listener
   audioListener = new THREE.AudioListener();
   camera.add(audioListener);
 
-  // Load sounds
   const audioLoader = new THREE.AudioLoader();
 
   birdSound = new THREE.Audio(audioListener);
@@ -34,18 +58,16 @@ export function initSeasons(scene, camera) {
     rainSound.setVolume(0.5);
   });
 
-  // Create effect objects for each season
   winterGroup = createWinterEffect();
   springGroup = createSpringEffect();
   summerGroup = createSummerEffect();
   autumnGroup = createAutumnEffect();
 
-  scene.add(winterGroup, springGroup, summerGroup, autumnGroup);
-  winterGroup.visible =
-    springGroup.visible =
-    summerGroup.visible =
-    autumnGroup.visible =
-      false;
+  [winterGroup, springGroup, summerGroup, autumnGroup].forEach((g) => {
+    scene.add(g);
+    g.visible = false;
+  });
+
   springGroup.visible = true;
   currentSeason = 'spring';
 
@@ -65,17 +87,14 @@ export function updateSeasonEffects() {
   if (currentSeason === 'autumn') {
     autumnGroup.children.forEach((obj) => {
       if (obj.geometry.type === 'PlaneGeometry' && obj.material.map) {
-        // it's a leaf
         obj.position.y -= obj.userData.fallSpeed || 0.02;
         obj.rotation.z += obj.userData.rotationSpeed || 0.005;
-
         if (obj.position.y < 0) {
           obj.position.y = Math.random() * 20 + 10;
           obj.position.x = Math.random() * 250 - 125;
           obj.position.z = Math.random() * 110 - 55 - 29;
         }
       } else {
-        // it's a rain drop
         obj.position.y -= 0.4;
         if (obj.position.y < 0) {
           obj.position.y = Math.random() * 10 + 15;
@@ -94,14 +113,13 @@ export function updateSeasonEffects() {
       }
     });
   }
-  // Summer bird animation handled internally
 }
 
 function createSeasonMenu() {
   const menu = document.createElement('div');
   menu.id = 'season-menu';
   document.body.appendChild(menu);
-  ['winter', 'spring', 'summer', 'autumn'].forEach((seasonName) => {
+  Object.keys(SEASON_CONFIG).forEach((seasonName) => {
     const btn = document.createElement('button');
     btn.textContent = seasonName;
     btn.onclick = () => setSeason(seasonName.toLowerCase());
@@ -112,59 +130,25 @@ function createSeasonMenu() {
 function setSeason(season) {
   currentSeason = season;
 
-  winterGroup.visible = season === 'winter';
-  springGroup.visible = season === 'spring';
-  summerGroup.visible = season === 'summer';
-  autumnGroup.visible = season === 'autumn';
-  playSeasonAudio(season);
-  setSeasonBackgroundEffects(season);
-  setSeasonGroundColor(season);
-
-  // Add this code to update active button state
-  document.querySelectorAll('#season-menu button').forEach((btn) => {
-    btn.classList.remove('active');
-    if (btn.textContent && btn.textContent.toLowerCase() === season) {
-      btn.classList.add('active');
-    }
+  Object.entries(SEASON_CONFIG).forEach(([key, cfg]) => {
+    cfg.group().visible = key === season;
   });
-}
 
-function setSeasonGroundColor(season) {
-  if (ground) {
-    switch (season) {
-      case 'winter':
-        ground.material.color.set(0xe0e0e0); // light snowy ground
-        break;
-      case 'spring':
-        ground.material.color.set(0x7fc97f); // fresh green
-        break;
-      case 'summer':
-        ground.material.color.set(0x3b5f3b); // deep green
-        break;
-      case 'autumn':
-        ground.material.color.set(0xd9a86a); // autumn ground
-        break;
-    }
-  }
-}
+  scene.background = new THREE.Color(SEASON_CONFIG[season].background);
+  ground.material.color.set(SEASON_CONFIG[season].groundColor);
 
-function setSeasonBackgroundEffects(season) {
-  if (scene) {
-    switch (season) {
-      case 'winter':
-        scene.background = new THREE.Color(0xd0e8f2); // light icy blue
-        break;
-      case 'spring':
-        scene.background = new THREE.Color(0xa1d3d8); // soft green
-        break;
-      case 'summer':
-        scene.background = new THREE.Color(0xa1e3d8); // clear blue
-        break;
-      case 'autumn':
-        scene.background = new THREE.Color(0x87cefa); // warm blue
-        break;
-    }
-  }
+  if (birdSound?.isPlaying) birdSound.stop();
+  if (rainSound?.isPlaying) rainSound.stop();
+
+  const audio = SEASON_CONFIG[season].audio;
+  if (audio) audio().play();
+
+  document.querySelectorAll('#season-menu button').forEach((btn) => {
+    btn.classList.toggle(
+      'active',
+      btn.textContent !== null && btn.textContent.toLowerCase() === season
+    );
+  });
 }
 
 function playSeasonAudio(season) {
