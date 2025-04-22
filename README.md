@@ -143,6 +143,7 @@ Verkefnið notar:
 
 ## Áframhald á verkefni
 
+- Ég er búin að kaupa mér lénið styttur.is
 - Ég ætla að athuga hvort hægt sé að sækja um einhverja styrki til að halda áfram með verkefnið.
 - Ég mun bæta við animation virkni í Blender sem verður spennandi að læra
 - Ég ætla að læra hvernig ég get unnið og lagfært stytturnar sem ég hef skannað þannig að ég vil rannsaka það aðeins betur.
