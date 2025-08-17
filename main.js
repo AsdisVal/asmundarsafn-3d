@@ -35,7 +35,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.set(0, 45, 45);
-camera.lookAt(0, 0, 26);
+camera.lookAt(0, 0, -26);
 
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -161,8 +161,8 @@ function animate() {
     const speed = 0.2;
     direction.set(0, 0, 0);
 
-    if (keys['w']) direction.z -= 1;
-    if (keys['s']) direction.z += 1;
+    if (keys['w']) direction.z += 1;
+    if (keys['s']) direction.z -= 1;
     if (keys['a']) direction.x -= 1;
     if (keys['d']) direction.x += 1;
 

@@ -72,7 +72,6 @@ export function initSeasons(scene, camera) {
   currentSeason = 'spring';
 
   createSeasonMenu();
-  playSeasonAudio('spring');
 }
 
 export function updateSeasonEffects() {
