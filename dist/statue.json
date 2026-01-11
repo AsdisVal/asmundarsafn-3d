@@ -3,15 +3,15 @@
     "id": 0,
     "name": "Jónsmessunótt",
     "format": "obj",
-    "mtl": "models/jonsmessunott_an_gras/jonsmessunott_an_gras.mtl",
-    "model": "models/jonsmessunott_an_gras/jonsmessunott_an_gras.obj",
+    "mtl": "/jonsmessunott_an_gras/jonsmessunott_an_gras.mtl",
+    "model": "/jonsmessunott_an_gras/jonsmessunott_an_gras.obj",
     "position": { "x": 98, "y": 0, "z": -52 },
     "scale": { "x": 2, "y": 2, "z": 2 },
     "rotationY": 3.14,
     "visited": false,
     "year": 1940,
     "description": "Verkið Jónsmessunótt ber mörg einkenni verka Ásmundar sem hann vann fyrri hluta listferils síns á fjórða áratugnum. Verkin eru efnismikil heild, hvergi loftar á milli líkamshluta. Hér fléttast líkamar karls og konu saman á munúðarlegan en samtímis kærleiksríkan hátt í órjúfanlega heild; tvö form verða að einu.",
-    "image": "images/statues/midsummer_night.jpeg",
-    "image-card": "images/statue-cards/midsummer_night.jpeg"
+    "image": "/imgs/statues/midsummer_night.jpeg",
+    "image-card": "/imgs/statue_cards/midsummer_night.jpeg"
   }
 ]
