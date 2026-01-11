@@ -12,7 +12,7 @@ export async function getStatuesData() {
   if (cachedStatues) return cachedStatues;
 
   try {
-    const response = await fetch('statues.json');
+    const response = await fetch('statue.json');
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
